@@ -12,3 +12,6 @@
 hs_err_pid*
 /bin/
 /src-gen/
+/RequirementsEditor.edit/
+/RequirementsEditor.editor/
+/RequirementsEditor.tests/
