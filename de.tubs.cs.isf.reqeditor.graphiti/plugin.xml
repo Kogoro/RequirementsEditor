@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            id="de.tubs.cs.isf.reqeditor.graphiti.diagramType"
+            name="de.tubs.cs.isf.reqeditor.graphiti.diagramType"
+            type="de.tubs.cs.isf.reqeditor.graphiti.diagramType">
+      </diagramType>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            class="de.tubs.cs.isf.reqeditor.graphiti.DiagramTypeProvider"
+            context="org.eclipse.graphiti.ui.diagramEditor"
+            id="de.tubs.cs.isf.reqeditor.graphiti.diagramTypeProvider"
+            name="de.tubs.cs.isf.reqeditor.graphiti.diagramTypeProvider">
+         <diagramType
+               id="de.tubs.cs.isf.reqeditor.graphiti.diagramType">
+         </diagramType>
+      </diagramTypeProvider>
+   </extension>
+
+</plugin>

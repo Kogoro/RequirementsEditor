@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated requirementsEditor -->
       <package
-            uri="http://www.isf.cs.tu-bs.de/requirementsEditor"
-            class="de.tubs.cs.isf.requirementseditor.requirementsEditor.RequirementsEditorPackage"
+            uri="http://www.isf.cs.tu-bs.de/reqeditor"
+            class="de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage"
             genModel="model/requirementsEditor.genmodel"/>
    </extension>
 

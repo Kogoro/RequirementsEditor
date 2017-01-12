@@ -1,4 +1,4 @@
-package de.tubs.cs.isf.requirementseditor.graphiti;
+package de.tubs.cs.isf.reqeditor.graphiti;
 
 import org.eclipse.graphiti.dt.IDiagramTypeProvider;
 import org.eclipse.graphiti.ui.features.DefaultFeatureProvider;
