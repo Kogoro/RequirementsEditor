@@ -1,0 +1,4 @@
+[%
+	var t=TemplateFactory.load("RM2CSV.egl");
+	t.generate("try.csv");
+%]
