@@ -1,0 +1,9 @@
+[%//Output is CSV:%]
+[%//Formate: id, name, description, priority, type, attribute%]
+id,name,description,priority,type,attribute
+[% var reqs  = Requirement.allInstances(); %]
+[% for (req in reqs) {%]
+[%=req.Id%],[%=req.name%],"[%=req.description%]",[%=req.priority%],[%=req->type%],"[%=null%]"
+[%}%]
+[%// %]
+[%//need to output, might need a stream or extern function%]
