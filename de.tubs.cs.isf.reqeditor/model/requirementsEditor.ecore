@@ -19,7 +19,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RequirementType"
         defaultValueLiteral="NONE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="#//RequirementPriority"
-        defaultValueLiteral="NORMAL"/>
+        defaultValueLiteral="ESSENTIAL"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//AttributeValue" containment="true"/>
   </eClassifiers>
