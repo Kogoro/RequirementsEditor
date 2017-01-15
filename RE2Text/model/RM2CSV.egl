@@ -1,9 +1,18 @@
 [%//Output is CSV:%]
 [%//Formate: id, name, description, priority, type, attribute%]
+[%//TODO: Discuss if " is necessary for description and attribute%]
 id,name,description,priority,type,attribute
 [% var reqs  = Requirement.allInstances(); %]
 [% for (req in reqs) {%]
-[%=req.Id%],[%=req.name%],"[%=req.description%]",[%=req.priority%],[%=req->type%],"[%=null%]"
+[%=req.Id%],[%=req.name%],"[%=req.description%]",[%=req.priority%],[%=req->type%],"[%=req.getAttributeInfo()%]"
 [%}%]
-[%// %]
-[%//need to output, might need a stream or extern function%]
+[%//See Output2Files.egl for final output%]
+[% operation Requirement getAttributeInfo(): String{
+	var attributeValues = self.getAttributes();
+	var attributeInfo = "";
+	for (attributeValue in attributeValues){
+		attributeInfo += attributeValue.getValueOf().Id + ":" + attributeValue.value+";";
+		}
+	if (attributeInfo == ""){attributeInfo = "None";}//Need or not?
+	return attributeInfo;}		
+%]
