@@ -1,3 +1,28 @@
 [%//Output is in latex format and will be a list%]
-[%//Need to confirm the latex structure first%]
-This is latex!
+[%//Special characters should be converted, not finished%]
+[%//TODO: Check if Enum can be used here, or some package%]
+\documentclass[12pt]{article}
+\begin{document}
+\begin{itemize}
+[% var reqs  = Requirement.allInstances(); %]
+[% for (req in reqs) {%]
+\item Id:[%=req.Id.adaptLatex()%]\newline Name: [%=req.name.adaptLatex()%]\newline Description: [%=req.description.adaptLatex()%]\newline Priority: [%=req->priority%]\newline Type: [%=req->type.toString().adaptLatex()%]\newline Attribute: [%=req.getAttributeInfo().adaptLatex()%]
+[%}%]
+[%//See Output2Files.egl for final output%]
+\end{itemize}
+\end{document}
+[% operation Requirement getAttributeInfo(): String{
+	var attributeValues = self.getAttributes();
+	var attributeInfo = "";
+	var i = 0;
+	for (attributeValue in attributeValues){
+		attributeInfo += attributeValue.getValueOf().Id + ":" + attributeValue.value+";";
+		if(i<attributeValues.size()-1){attributeInfo += "\\newline\\-\\hspace{1.86cm} ";}//Take care of the font size!!!
+		i++;
+		}
+	return attributeInfo;}		
+%]
+[% operation String adaptLatex():String{
+	var text = self.replace("_","\\\\_");//work but not properly
+	return text;
+}%]
