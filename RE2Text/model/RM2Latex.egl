@@ -13,7 +13,7 @@
 \end{document}
 [% operation Requirement getAttributeInfo(): String{
 	var attributeValues = self.getAttributes();
-	var attributeInfo = "";
+	var attributeInfo : String;
 	var i = 0;
 	for (attributeValue in attributeValues){
 		attributeInfo += attributeValue.getValueOf().Id + ":" + attributeValue.value+";";
@@ -22,7 +22,11 @@
 		}
 	return attributeInfo;}		
 %]
-[% operation String adaptLatex():String{
-	var text = self.replace("_","\\\\_");//work but not properly
+[% operation String adaptLatex() : String{
+	var schars :Sequence = Sequence{'_','#','%'}; //Not finished
+	var text = self;
+	for (s in schars){
+		text = text.replace(s, '\\\\' + s);
+	}
 	return text;
 }%]

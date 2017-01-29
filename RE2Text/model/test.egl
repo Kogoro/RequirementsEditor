@@ -1,0 +1,33 @@
+[%//Test Latex special characters in Output%]
+[%//Not finished since some chars like '{','}' do not work%]
+[% var sString = "this_is%a&{test}";%]
+[%=sString.adaptLatex()%]
+[% operation String adaptLatex():void{ //Test version, should 
+	var schars :Sequence = Sequence{'_','#','%', '&', '^', '{'};
+	schars.print();
+	for (s in schars){
+	var text = self;
+	"\n".print();
+	text.print();
+	//s.print();//Output: substring in the correct order, pass
+	//s.type().print();//Output: String, pass
+	text = text.replace(s, '\\\\' +s);
+	"\n".print();
+	text.print();
+	text.type().print();
+	}
+}%]
+
+
+[% var test : Sequence; var test2 = Sequence{'_','{','}','$','&','#','%'};// Problem!!!
+test.add("_");
+test.add('abc');%]
+test = [%=test.at(1)%]
+type2 = [%=test2.size()%]
+before = [%=sString%]
+[%var achar = test2.last();%]
+last = [%=test2.last()%]
+achar = [%=achar%]
+after = [%=sString.replace(test2.at(0),test2.last())%]
+[%="abc ".adaptLatex()%]
+
