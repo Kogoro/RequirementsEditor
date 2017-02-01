@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \begin{document}
 \begin{itemize}
-\item Id:R\_1\newline Name: Re\_1\newline Description: First requirement in Reg 1\_1.\newline Priority: CONDITIONAL\newline Type: FUNCTIONAL\newline Attribute: ATTR\_1:11111111;\newline\-\hspace{1.86cm} ATTR\_2:22222222;
+\item Id:R\_1\newline Name: Re\_1\newline Description: First requirement in Reg 1\_1.\newline Priority: CONDITIONAL\newline Type: FUNCTIONAL\newline Attribute: ATTR\_1:11111111;\newline\-\hspace\{1.86cm\} ATTR\_2:22222222;
 \item Id:R\_2\newline Name: Re\_2\newline Description: Requirement in Reg\_1, not in subgroup.\newline Priority: ESSENTIAL\newline Type: NONE\newline Attribute: 
 \item Id:R\_3\newline Name: Re\_3\newline Description: \newline Priority: OPTIONAL\newline Type: NON\_FUNCTIONAL\newline Attribute: 
 \end{itemize}
