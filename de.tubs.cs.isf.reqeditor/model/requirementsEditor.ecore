@@ -2,6 +2,11 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="requirementseditor" nsURI="http://www.isf.cs.tu-bs.de/reqeditor"
     nsPrefix="RequirementsEditor">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementsModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
@@ -12,10 +17,22 @@
         eType="#//Attribute" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementsGroup" eSuperTypes="#//RequirementModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueGId"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueGId" value="RequirementsGroup.allInstances() -> forAll(b1,b2 | b1 &lt;> b2 implies b1.id &lt;> b2.id)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//RequirementModelElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//RequirementModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueId"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="uniqueId" value="Requirement.allInstances() -> exists(b1,b2 | b1 &lt;> b2 and b1.id = b2.id)=false"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RequirementType"
         defaultValueLiteral="NONE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="#//RequirementPriority"
@@ -39,15 +56,15 @@
         eType="#//Constraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RequirementType">
-    <eLiterals name="FUNCTIONAL" literal="FUNCTIONAL"/>
+    <eLiterals name="FUNCTIONAL"/>
     <eLiterals name="NON_FUNCTIONAL" value="1"/>
-    <eLiterals name="NONE" value="2" literal="NONE"/>
+    <eLiterals name="NONE" value="2"/>
     <eLiterals name="OTHER" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RequirementPriority">
-    <eLiterals name="ESSENTIAL" value="2" literal="ESSENTIAL"/>
-    <eLiterals name="CONDITIONAL" value="1" literal="CONDITIONAL"/>
-    <eLiterals name="OPTIONAL" literal="OPTIONAL"/>
+    <eLiterals name="ESSENTIAL" value="2"/>
+    <eLiterals name="CONDITIONAL" value="1"/>
+    <eLiterals name="OPTIONAL"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueOf" eType="#//Attribute"/>
