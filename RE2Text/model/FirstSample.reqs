@@ -10,8 +10,8 @@
     </elements>
     <elements xsi:type="RequirementsEditor:Requirement" name="Re_2" id="R_2" description="Requirement in Reg_1, not in subgroup."/>
   </elements>
-  <elements xsi:type="RequirementsEditor:RequirementsGroup" name="Reg_1" id="RG_1" description="This is the first test. (test if unic)"/>
-  <elements xsi:type="RequirementsEditor:Requirement" name="Re_3" id="R_3" description="Test\and&lt;see~what happens." type="NON_FUNCTIONAL" priority="OPTIONAL"/>
+  <elements xsi:type="RequirementsEditor:RequirementsGroup" name="Reg_1" id="R_1" description="This is the first test. (test if unic)"/>
+  <elements xsi:type="RequirementsEditor:Requirement" name="Re_3" id="R_1" description="Test\and&lt;see~what happens." type="NON_FUNCTIONAL" priority="OPTIONAL"/>
   <attributes id="ATTR_1"/>
   <attributes id="ATTR_2"/>
 </RequirementsEditor:RequirementsModel>

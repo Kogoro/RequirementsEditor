@@ -1,5 +1,4 @@
 [%//Test Latex special characters in Output%]
-[%//Not finished since some chars like '{','}' do not work%]
 [% var sString = "this_is%a&{te^st\\~";%]
 [%//=sString.replace('_',"\\\\^")%]
 [%=sString.adaptLatex1()%]

@@ -1,5 +1,5 @@
 [%//Output is in latex format and will be a list%]
-[%//Special characters should be converted%]
+[%//Special characters should be adapted to latex format%]
 [%//There're 2 kinds of special characters in LaTex, simply add "\" in the front or convert into special text%]
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
