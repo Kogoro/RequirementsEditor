@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 4 resources" deleteContents="true" description="Delete 4 resources" element1="/org.eclipse.xtext.example.homeautomation" element2="/org.eclipse.xtext.example.homeautomation.ide" element3="/org.eclipse.xtext.example.homeautomation.tests" element4="/org.eclipse.xtext.example.homeautomation.ui" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="4" stamp="1486553895759"/>
+</session>
