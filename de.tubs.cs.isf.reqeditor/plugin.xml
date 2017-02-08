@@ -13,5 +13,49 @@
             class="de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage"
             genModel="model/requirementsEditor.genmodel"/>
    </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.tubs.cs.isf.reqeditor.perspective.PerspectiveFactory"
+            icon="icons/repo_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.perspective"
+            name="Requirement Edior">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="de.tubs.cs.isf.reqeditor.category"
+            class="de.tubs.cs.isf.reqeditor.wizard.NewModelWizard"
+            hasPages="true"
+            icon="icons/repository_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.wizard.model"
+            name="New Model">
+      </wizard>
+      <category
+            id="de.tubs.cs.isf.reqeditor.category"
+            name="Requirement Editor">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="de.tubs.cs.isf.reqeditor.RequirementsExplorerContent"
+            icon="icons/repo_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.navigatorContent"
+            labelProvider="de.tubs.cs.isf.reqeditor.RequirementsExplorerLabel"
+            name="Requirements Project Explorer"
+            priority="high">
+         <enablement></enablement>
+         <commonWizard
+               menuGroupId="de.tubs.cs.isf.reqeditor.category"
+               type="new"
+               wizardId="de.tubs.cs.isf.reqeditor.wizard.model">
+            <enablement></enablement>
+         </commonWizard>
+         <initialActivation></initialActivation>
+      </navigatorContent>
+   </extension>
 
 </plugin>
