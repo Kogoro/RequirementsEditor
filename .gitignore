@@ -12,6 +12,8 @@
 hs_err_pid*
 /bin/
 /src-gen/
-/RequirementsEditor.edit/
-/RequirementsEditor.editor/
-/RequirementsEditor.tests/
+/de.tubs.cs.isf.reqeditor.edit/
+/de.tubs.cs.isf.reqeditor.editor/
+/de.tubs.cs.isf.reqeditor.tests/
+/de.tubs.cs.isf.reqeditor.administration.*/
+/.metadata/
