@@ -18,6 +18,8 @@ import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
+import de.tubs.cs.isf.reqeditor.ReqEditorPlugin;
+
 /**
  * Abstract base implementation of the standard workbench wizards that create
  * new resources in the workspace.
@@ -86,8 +88,8 @@ public abstract class BasicNewResourceWizard extends Wizard implements
 	 * </p>
 	 */
 	protected void initializeDefaultPageImageDescriptor() {
-		//ImageDescriptor desc = IDEWorkbenchPlugin
-		//		.getIDEImageDescriptor("wizban/new_wiz.png");//$NON-NLS-1$
+		//ImageDescriptor desc = new ReqEditorPlugin()
+		//		.getImageDescriptor("repository_rep.gif");
 		//setDefaultPageImageDescriptor(desc);
 	}
 

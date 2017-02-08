@@ -38,8 +38,7 @@ public class RequirementsExplorerLabel implements ILabelProvider {
 
 	@Override
 	public String getText(Object element) {
-		// TODO Auto-generated method stub
-		return null;
+		return "Test";
 	}
 
 }

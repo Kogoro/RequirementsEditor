@@ -6,14 +6,12 @@ public class RequirementsExplorerContent implements ITreeContentProvider {
 
 	@Override
 	public Object[] getElements(Object inputElement) {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {"Test", "Test 2"};
 	}
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {"Test", "Test 2"};
 	}
 
 	@Override

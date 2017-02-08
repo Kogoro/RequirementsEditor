@@ -19,6 +19,7 @@ public class PerspectiveFactory implements IPerspectiveFactory {
 		IFolderLayout right = layout.createFolder("RIGHT", IPageLayout.RIGHT, (float) 0.75, editorArea);
 		
 		left.addView(IPageLayout.ID_PROJECT_EXPLORER);
+		left.addView("de.tubs.cs.isf.reqeditor.projectexplorer");
 		
 		down.addView(IPageLayout.ID_PROP_SHEET);
 		down.addView(IPageLayout.ID_PROBLEM_VIEW);

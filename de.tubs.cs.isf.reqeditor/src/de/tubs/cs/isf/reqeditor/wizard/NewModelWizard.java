@@ -1,15 +1,11 @@
 package de.tubs.cs.isf.reqeditor.wizard;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.internal.dialogs.DialogUtil;
 
-import de.tubs.cs.isf.reqeditor.ReqEditorPlugin;
-
 import org.eclipse.ui.ide.IDE;
-import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -60,15 +56,6 @@ public class NewModelWizard extends BasicNewResourceWizard {
 		super.init(workbench, currentSelection);
 		setWindowTitle("Create new Requirement Model");
 		setNeedsProgressMonitor(true);
-	}
-
-	/*
-	 * (non-Javadoc) Method declared on BasicNewResourceWizard.
-	 */
-	protected void initializeDefaultPageImageDescriptor() {
-		ImageDescriptor desc = new ReqEditorPlugin()
-				.getImageDescriptor("icons/repository_rep.gif");
-		setDefaultPageImageDescriptor(desc);
 	}
 
 	/*

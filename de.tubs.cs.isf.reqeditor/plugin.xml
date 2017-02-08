@@ -24,20 +24,28 @@
    </extension>
    <extension
          point="org.eclipse.ui.newWizards">
-      <wizard
-            category="de.tubs.cs.isf.reqeditor.category"
-            class="de.tubs.cs.isf.reqeditor.wizard.NewModelWizard"
-            hasPages="true"
-            icon="icons/repository_rep.gif"
-            id="de.tubs.cs.isf.reqeditor.wizard.model"
-            name="New Model">
-      </wizard>
       <category
             id="de.tubs.cs.isf.reqeditor.category"
             name="Requirement Editor">
       </category>
+      <wizard
+            category="de.tubs.cs.isf.reqeditor.category"
+            class="de.tubs.cs.isf.reqeditor.wizard.NewProjectWizard"
+            icon="icons/repo_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.wizard.project"
+            name="New Requirement Project">
+      </wizard>
+      <wizard
+            category="de.tubs.cs.isf.reqeditor.category"
+            class="de.tubs.cs.isf.reqeditor.wizard.NewModelWizard"
+            hasPages="false"
+            icon="icons/repository_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.wizard.model"
+            name="New Model">
+      </wizard>
    </extension>
    <extension
+         id="de.tubs.cs.isf.reqeditor.projectexplorer.content"
          point="org.eclipse.ui.navigator.navigatorContent">
       <navigatorContent
             activeByDefault="true"
@@ -48,14 +56,68 @@
             name="Requirements Project Explorer"
             priority="high">
          <enablement></enablement>
-         <commonWizard
-               menuGroupId="de.tubs.cs.isf.reqeditor.category"
-               type="new"
-               wizardId="de.tubs.cs.isf.reqeditor.wizard.model">
-            <enablement></enablement>
-         </commonWizard>
          <initialActivation></initialActivation>
       </navigatorContent>
+      <commonWizard
+            menuGroupId="de.tubs.cs.isf.reqeditor.category"
+            type="new"
+            wizardId="de.tubs.cs.isf.reqeditor.wizard.project">
+         <enablement></enablement>
+      </commonWizard>
+      <commonWizard
+            menuGroupId="de.tubs.cs.isf.reqeditor.category"
+            type="new"
+            wizardId="de.tubs.cs.isf.reqeditor.wizard.model">
+         <enablement></enablement>
+      </commonWizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/repo_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.image"
+            natureId="de.tubs.cs.isf.reqeditor.image">
+      </image>
+   </extension>
+   <extension
+         id="id1"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="de.tubs.cs.isf.reqeditor.ProjectNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="de.tubs.cs.isf.reqeditor.category"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="icons/repository_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.projectexplorer"
+            name="Project Explorer"
+            restorable="true">
+      </view>
+      <category
+            id="de.tubs.cs.isf.reqeditor.category"
+            name="Requirement Editor">
+      </category>
+   </extension>
+   <extension
+         id="de.tubs.cs.isf.reqeditor.projectexplorer.viewer"
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer
+            viewerId="de.tubs.cs.isf.reqeditor.projectexplorer">
+      </viewer>
+      <viewerContentBinding
+            viewerId="de.tubs.cs.isf.reqeditor.projectexplorer">
+         <includes>
+            <contentExtension
+                  pattern="de.tubs.cs.isf.reqeditor.projectexplorer.content">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
    </extension>
 
 </plugin>
