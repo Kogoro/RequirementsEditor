@@ -119,5 +119,12 @@
          </includes>
       </viewerContentBinding>
    </extension>
+   <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <editingDomain
+            factory="de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory"
+            id="de.tubs.cs.isf.reqeditor.editingDomain">
+      </editingDomain>
+   </extension>
 
 </plugin>
