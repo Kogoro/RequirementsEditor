@@ -2193,3 +2193,865 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 !MESSAGE org.eclipse.jgit.util.FS  - xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 
 
+
+!ENTRY org.eclipse.core.resources 2 2 2017-02-08 12:43:16.870
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.870
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.administration.feature' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.870
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.administration.ide' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.870
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.administration.tests' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.870
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.administration.ui' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.870
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.administration.ui.tests' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.870
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.dsl' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.871
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.edit' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.871
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.editor' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-02-08 12:43:16.871
+!MESSAGE The project description file (.project) for 'de.tubs.cs.isf.reqeditor.tests' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.resources 4 4 2017-02-08 12:43:17.107
+!MESSAGE Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.tests/.settings/org.eclipse.core.resources.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.tests/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.CharsetManager.getPreferences(CharsetManager.java:316)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.processEntryChanges(CharsetManager.java:160)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.resourceChanged(CharsetManager.java:236)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:17.114
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.tests/.settings/org.eclipse.core.resources.prefs.
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2017-02-08 12:43:17.121
+!MESSAGE Exception loading preferences from: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.tests/.settings/org.eclipse.core.resources.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.tests/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:515)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.CharsetManager.getPreferences(CharsetManager.java:316)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.processEntryChanges(CharsetManager.java:160)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.resourceChanged(CharsetManager.java:236)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 4 2017-02-08 12:43:17.123
+!MESSAGE Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.core.resources.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.CharsetManager.getPreferences(CharsetManager.java:316)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.processEntryChanges(CharsetManager.java:160)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.resourceChanged(CharsetManager.java:236)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:17.124
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.core.resources.prefs.
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2017-02-08 12:43:17.126
+!MESSAGE Exception loading preferences from: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.core.resources.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:515)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.CharsetManager.getPreferences(CharsetManager.java:316)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.processEntryChanges(CharsetManager.java:160)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.resourceChanged(CharsetManager.java:236)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 4 2017-02-08 12:43:17.128
+!MESSAGE Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.core.resources.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.CharsetManager.getPreferences(CharsetManager.java:316)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.processEntryChanges(CharsetManager.java:160)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.resourceChanged(CharsetManager.java:236)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:17.128
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.core.resources.prefs.
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2017-02-08 12:43:17.129
+!MESSAGE Exception loading preferences from: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.core.resources.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:515)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.CharsetManager.getPreferences(CharsetManager.java:316)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.processEntryChanges(CharsetManager.java:160)
+	at org.eclipse.core.internal.resources.CharsetManager$ResourceChangeListener.resourceChanged(CharsetManager.java:236)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 4 2017-02-08 12:43:18.121
+!MESSAGE Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.jdt.core.prefs.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:68)
+	at org.eclipse.jdt.internal.core.JavaProject.getEclipsePreferences(JavaProject.java:1490)
+	at org.eclipse.jdt.internal.core.JavaProject.getOption(JavaProject.java:1657)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.elementType(DeltaProcessor.java:1363)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.traverseDelta(DeltaProcessor.java:2273)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.processResourceDelta(DeltaProcessor.java:1886)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.resourceChanged(DeltaProcessor.java:2059)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:477)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:18.122
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.jdt.core.prefs.
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2017-02-08 12:43:18.124
+!MESSAGE Exception loading preferences from: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.jdt.core.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.ui/.settings/org.eclipse.jdt.core.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:515)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:68)
+	at org.eclipse.jdt.internal.core.JavaProject.getEclipsePreferences(JavaProject.java:1490)
+	at org.eclipse.jdt.internal.core.JavaProject.getOption(JavaProject.java:1657)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.elementType(DeltaProcessor.java:1363)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.traverseDelta(DeltaProcessor.java:2273)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.processResourceDelta(DeltaProcessor.java:1886)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.resourceChanged(DeltaProcessor.java:2059)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:477)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 4 2017-02-08 12:43:18.126
+!MESSAGE Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.jdt.core.prefs.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:68)
+	at org.eclipse.jdt.internal.core.JavaProject.getEclipsePreferences(JavaProject.java:1490)
+	at org.eclipse.jdt.internal.core.JavaProject.getOption(JavaProject.java:1657)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.elementType(DeltaProcessor.java:1363)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.traverseDelta(DeltaProcessor.java:2273)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.processResourceDelta(DeltaProcessor.java:1886)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.resourceChanged(DeltaProcessor.java:2059)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:477)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:18.127
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.jdt.core.prefs.
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2017-02-08 12:43:18.128
+!MESSAGE Exception loading preferences from: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.jdt.core.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /de.tubs.cs.isf.reqeditor.administration.ui.tests/.settings/org.eclipse.jdt.core.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:515)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:68)
+	at org.eclipse.jdt.internal.core.JavaProject.getEclipsePreferences(JavaProject.java:1490)
+	at org.eclipse.jdt.internal.core.JavaProject.getOption(JavaProject.java:1657)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.elementType(DeltaProcessor.java:1363)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.traverseDelta(DeltaProcessor.java:2273)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.processResourceDelta(DeltaProcessor.java:1886)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.resourceChanged(DeltaProcessor.java:2059)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:477)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-08 12:43:19.792
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ide/META-INF/MANIFEST.MF.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ide/META-INF/MANIFEST.MF.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformPluginToPlatformResourceMap(EcorePlugin.java:420)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformURIMap(EcorePlugin.java:571)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.computePlatformURIMap(JavaProjectResourceSetInitializer.java:60)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.initialize(JavaProjectResourceSetInitializer.java:50)
+	at org.eclipse.xtext.ui.resource.XtextResourceSetProvider.get(XtextResourceSetProvider.java:51)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:284)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.fullBuild(XtextBuilder.java:319)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:155)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.793
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ide/META-INF/MANIFEST.MF.
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-08 12:43:19.795
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.tests/META-INF/MANIFEST.MF.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.tests/META-INF/MANIFEST.MF.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformPluginToPlatformResourceMap(EcorePlugin.java:420)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformURIMap(EcorePlugin.java:571)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.computePlatformURIMap(JavaProjectResourceSetInitializer.java:60)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.initialize(JavaProjectResourceSetInitializer.java:50)
+	at org.eclipse.xtext.ui.resource.XtextResourceSetProvider.get(XtextResourceSetProvider.java:51)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:284)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.fullBuild(XtextBuilder.java:319)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:155)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.795
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.tests/META-INF/MANIFEST.MF.
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-08 12:43:19.796
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/META-INF/MANIFEST.MF.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/META-INF/MANIFEST.MF.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformPluginToPlatformResourceMap(EcorePlugin.java:420)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformURIMap(EcorePlugin.java:571)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.computePlatformURIMap(JavaProjectResourceSetInitializer.java:60)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.initialize(JavaProjectResourceSetInitializer.java:50)
+	at org.eclipse.xtext.ui.resource.XtextResourceSetProvider.get(XtextResourceSetProvider.java:51)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:284)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.fullBuild(XtextBuilder.java:319)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:155)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.797
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/META-INF/MANIFEST.MF.
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-08 12:43:19.800
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/META-INF/MANIFEST.MF.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/META-INF/MANIFEST.MF.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformPluginToPlatformResourceMap(EcorePlugin.java:420)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformURIMap(EcorePlugin.java:571)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.computePlatformURIMap(JavaProjectResourceSetInitializer.java:60)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.initialize(JavaProjectResourceSetInitializer.java:50)
+	at org.eclipse.xtext.ui.resource.XtextResourceSetProvider.get(XtextResourceSetProvider.java:51)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:284)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.fullBuild(XtextBuilder.java:319)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:155)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.801
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui.tests/META-INF/MANIFEST.MF.
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-08 12:43:19.802
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/META-INF/MANIFEST.MF.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/META-INF/MANIFEST.MF.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformPluginToPlatformResourceMap(EcorePlugin.java:420)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformURIMap(EcorePlugin.java:571)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.computePlatformURIMap(JavaProjectResourceSetInitializer.java:60)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.initialize(JavaProjectResourceSetInitializer.java:50)
+	at org.eclipse.xtext.ui.resource.XtextResourceSetProvider.get(XtextResourceSetProvider.java:51)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:284)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.fullBuild(XtextBuilder.java:319)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:155)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.802
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/META-INF/MANIFEST.MF.
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-08 12:43:19.803
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/META-INF/MANIFEST.MF.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/META-INF/MANIFEST.MF.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformPluginToPlatformResourceMap(EcorePlugin.java:420)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformURIMap(EcorePlugin.java:571)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.computePlatformURIMap(JavaProjectResourceSetInitializer.java:60)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.initialize(JavaProjectResourceSetInitializer.java:50)
+	at org.eclipse.xtext.ui.resource.XtextResourceSetProvider.get(XtextResourceSetProvider.java:51)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:284)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.fullBuild(XtextBuilder.java:319)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:155)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.804
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/META-INF/MANIFEST.MF.
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-08 12:43:19.806
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.tests/META-INF/MANIFEST.MF.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.tests/META-INF/MANIFEST.MF.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformPluginToPlatformResourceMap(EcorePlugin.java:420)
+	at org.eclipse.emf.ecore.plugin.EcorePlugin.computePlatformURIMap(EcorePlugin.java:571)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.computePlatformURIMap(JavaProjectResourceSetInitializer.java:60)
+	at org.eclipse.xtext.ui.resource.JavaProjectResourceSetInitializer.initialize(JavaProjectResourceSetInitializer.java:50)
+	at org.eclipse.xtext.ui.resource.XtextResourceSetProvider.get(XtextResourceSetProvider.java:51)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:284)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.fullBuild(XtextBuilder.java:319)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:155)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.807
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.tests/META-INF/MANIFEST.MF.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:19.955
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/plugin.xml.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.loadModel(WorkspaceModelManager.java:239)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createModel(WorkspacePluginModelManager.java:88)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.handleBundleManifestDelta(WorkspacePluginModelManager.java:287)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.handleFileDelta(WorkspacePluginModelManager.java:136)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.visit(WorkspaceModelManager.java:156)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.handleResourceDelta(WorkspaceModelManager.java:124)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:112)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.955
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/plugin.xml.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:19.957
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/plugin.xml.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.loadModel(WorkspaceModelManager.java:239)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createModel(WorkspacePluginModelManager.java:88)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.handleBundleManifestDelta(WorkspacePluginModelManager.java:287)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.handleFileDelta(WorkspacePluginModelManager.java:136)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.visit(WorkspaceModelManager.java:156)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.handleResourceDelta(WorkspaceModelManager.java:124)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:112)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.958
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/plugin.xml.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:19.960
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/plugin.xml.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.loadModel(WorkspaceModelManager.java:239)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createModel(WorkspacePluginModelManager.java:88)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.handleBundleManifestDelta(WorkspacePluginModelManager.java:287)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.handleFileDelta(WorkspacePluginModelManager.java:136)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.visit(WorkspaceModelManager.java:156)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.handleResourceDelta(WorkspaceModelManager.java:124)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:112)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:19.961
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/plugin.xml.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:20.005
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/build.properties.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.build.WorkspaceBuildModel.load(WorkspaceBuildModel.java:72)
+	at org.eclipse.pde.core.plugin.PluginRegistry.createBuildModel(PluginRegistry.java:414)
+	at org.eclipse.pde.internal.core.ClasspathUtilCore.getBuild(ClasspathUtilCore.java:194)
+	at org.eclipse.pde.internal.core.PluginModelManager.updateAffectedEntries(PluginModelManager.java:313)
+	at org.eclipse.pde.internal.core.PluginModelManager.modelsChanged(PluginModelManager.java:251)
+	at org.eclipse.pde.internal.core.AbstractModelManager.fireModelProviderEvent(AbstractModelManager.java:34)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.createAndFireEvent(WorkspaceModelManager.java:259)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createAndFireEvent(WorkspacePluginModelManager.java:481)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:231)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:193)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.processModelChanges(WorkspacePluginModelManager.java:470)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:113)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:20.006
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/build.properties.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:20.007
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/build.properties.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.build.WorkspaceBuildModel.load(WorkspaceBuildModel.java:72)
+	at org.eclipse.pde.internal.core.build.BuildModel.getBuild(BuildModel.java:37)
+	at org.eclipse.pde.internal.core.ClasspathUtilCore.getBuild(ClasspathUtilCore.java:195)
+	at org.eclipse.pde.internal.core.PluginModelManager.updateAffectedEntries(PluginModelManager.java:313)
+	at org.eclipse.pde.internal.core.PluginModelManager.modelsChanged(PluginModelManager.java:251)
+	at org.eclipse.pde.internal.core.AbstractModelManager.fireModelProviderEvent(AbstractModelManager.java:34)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.createAndFireEvent(WorkspaceModelManager.java:259)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createAndFireEvent(WorkspacePluginModelManager.java:481)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:231)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:193)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.processModelChanges(WorkspacePluginModelManager.java:470)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:113)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:20.008
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.editor/build.properties.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:20.010
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/build.properties.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.build.WorkspaceBuildModel.load(WorkspaceBuildModel.java:72)
+	at org.eclipse.pde.core.plugin.PluginRegistry.createBuildModel(PluginRegistry.java:414)
+	at org.eclipse.pde.internal.core.ClasspathUtilCore.getBuild(ClasspathUtilCore.java:194)
+	at org.eclipse.pde.internal.core.PluginModelManager.updateAffectedEntries(PluginModelManager.java:313)
+	at org.eclipse.pde.internal.core.PluginModelManager.modelsChanged(PluginModelManager.java:251)
+	at org.eclipse.pde.internal.core.AbstractModelManager.fireModelProviderEvent(AbstractModelManager.java:34)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.createAndFireEvent(WorkspaceModelManager.java:259)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createAndFireEvent(WorkspacePluginModelManager.java:481)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:231)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:193)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.processModelChanges(WorkspacePluginModelManager.java:470)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:113)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:20.011
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/build.properties.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:20.012
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/build.properties.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.build.WorkspaceBuildModel.load(WorkspaceBuildModel.java:72)
+	at org.eclipse.pde.internal.core.build.BuildModel.getBuild(BuildModel.java:37)
+	at org.eclipse.pde.internal.core.ClasspathUtilCore.getBuild(ClasspathUtilCore.java:195)
+	at org.eclipse.pde.internal.core.PluginModelManager.updateAffectedEntries(PluginModelManager.java:313)
+	at org.eclipse.pde.internal.core.PluginModelManager.modelsChanged(PluginModelManager.java:251)
+	at org.eclipse.pde.internal.core.AbstractModelManager.fireModelProviderEvent(AbstractModelManager.java:34)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.createAndFireEvent(WorkspaceModelManager.java:259)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createAndFireEvent(WorkspacePluginModelManager.java:481)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:231)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:193)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.processModelChanges(WorkspacePluginModelManager.java:470)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:113)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:20.013
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ui/build.properties.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:20.014
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/build.properties.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.build.WorkspaceBuildModel.load(WorkspaceBuildModel.java:72)
+	at org.eclipse.pde.core.plugin.PluginRegistry.createBuildModel(PluginRegistry.java:414)
+	at org.eclipse.pde.internal.core.ClasspathUtilCore.getBuild(ClasspathUtilCore.java:194)
+	at org.eclipse.pde.internal.core.PluginModelManager.updateAffectedEntries(PluginModelManager.java:313)
+	at org.eclipse.pde.internal.core.PluginModelManager.modelsChanged(PluginModelManager.java:251)
+	at org.eclipse.pde.internal.core.AbstractModelManager.fireModelProviderEvent(AbstractModelManager.java:34)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.createAndFireEvent(WorkspaceModelManager.java:259)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createAndFireEvent(WorkspacePluginModelManager.java:481)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:231)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:193)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.processModelChanges(WorkspacePluginModelManager.java:470)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:113)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:20.016
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/build.properties.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:20.017
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/build.properties.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.build.WorkspaceBuildModel.load(WorkspaceBuildModel.java:72)
+	at org.eclipse.pde.internal.core.build.BuildModel.getBuild(BuildModel.java:37)
+	at org.eclipse.pde.internal.core.ClasspathUtilCore.getBuild(ClasspathUtilCore.java:195)
+	at org.eclipse.pde.internal.core.PluginModelManager.updateAffectedEntries(PluginModelManager.java:313)
+	at org.eclipse.pde.internal.core.PluginModelManager.modelsChanged(PluginModelManager.java:251)
+	at org.eclipse.pde.internal.core.AbstractModelManager.fireModelProviderEvent(AbstractModelManager.java:34)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.createAndFireEvent(WorkspaceModelManager.java:259)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.createAndFireEvent(WorkspacePluginModelManager.java:481)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:231)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.processModelChanges(WorkspaceModelManager.java:193)
+	at org.eclipse.pde.internal.core.WorkspacePluginModelManager.processModelChanges(WorkspacePluginModelManager.java:470)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:113)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState$1.run(DeltaProcessingState.java:472)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:467)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:20.017
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.edit/build.properties.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:20.426
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.feature/feature.xml.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.loadModel(WorkspaceModelManager.java:239)
+	at org.eclipse.pde.internal.core.WorkspaceFeatureModelManager.handleFileDelta(WorkspaceFeatureModelManager.java:55)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.visit(WorkspaceModelManager.java:156)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.handleResourceDelta(WorkspaceModelManager.java:124)
+	at org.eclipse.pde.internal.core.WorkspaceModelManager.resourceChanged(WorkspaceModelManager.java:112)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:46)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:20.427
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.feature/feature.xml.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:22.208
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ide/build.properties.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.build.WorkspaceBuildModel.load(WorkspaceBuildModel.java:72)
+	at org.eclipse.pde.internal.core.builders.BuildErrorReporter.validate(BuildErrorReporter.java:163)
+	at org.eclipse.pde.internal.core.builders.ErrorReporter.validateContent(ErrorReporter.java:131)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.validateBuildProperties(ManifestConsistencyChecker.java:314)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.validateProject(ManifestConsistencyChecker.java:231)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.build(ManifestConsistencyChecker.java:156)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:22.208
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.administration.ide/build.properties.
+
+!ENTRY org.eclipse.pde.core 4 0 2017-02-08 12:43:23.655
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.tests/build.properties.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.pde.internal.core.build.WorkspaceBuildModel.load(WorkspaceBuildModel.java:72)
+	at org.eclipse.pde.internal.core.builders.BuildErrorReporter.validate(BuildErrorReporter.java:163)
+	at org.eclipse.pde.internal.core.builders.ErrorReporter.validateContent(ErrorReporter.java:131)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.validateBuildProperties(ManifestConsistencyChecker.java:314)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.validateProject(ManifestConsistencyChecker.java:231)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.build(ManifestConsistencyChecker.java:156)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-02-08 12:43:23.656
+!MESSAGE File not found: /Users/Ducki/Desktop/MBSE_RequirementsEditor/RequirementsEditor/de.tubs.cs.isf.reqeditor.tests/build.properties.
+!SESSION 2017-02-18 14:01:05.206 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_73
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.modeling.product -keyring /Users/Ducki/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.modeling.product -keyring /Users/Ducki/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-02-18 14:03:31.235
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

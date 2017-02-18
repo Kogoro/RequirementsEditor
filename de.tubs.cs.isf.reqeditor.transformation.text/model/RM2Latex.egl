@@ -1,0 +1,46 @@
+[%//Output is in latex format and will be a list%]
+[%//Special characters should be adapted to latex format%]
+[%//There're 2 kinds of special characters in LaTex, simply add "\" in the front or convert into special text%]
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+[%//\usepackage{german} take care!!! German package will disable some characters and need more "Sonderzeichen"%]
+\begin{document}
+\begin{itemize}
+[% var reqs  = Requirement.allInstances(); %]
+[% for (req in reqs) {%]
+\item Id:[%=req.Id.adaptLatex()%]\newline Name: [%=req.name.adaptLatex()%]\newline Description: [%=req.description.adaptLatex()%]\newline Priority: [%=req->priority%]\newline Type: [%=req->type.toString().adaptLatex()%]\newline Attribute: [%=req.getAttributeInfo().adaptLatex()%]
+[%}%]
+[%//See Output2Files.egl for final output%]
+\end{itemize}
+\end{document}
+[% operation Requirement getAttributeInfo(): String{
+	var attributeValues = self.getAttributes();
+	var attributeInfo : String;
+	for (attributeValue in attributeValues){
+		attributeInfo += attributeValue.getValueOf().Id + ":" + attributeValue.value+";";
+		}
+	return attributeInfo;}		
+%]
+[% operation String adaptLatex() : String{
+	var schars :Sequence = Sequence{'_','{','}','$','&','#','%'};//These chars only need extra \ in the front
+	var mchars :Map;
+	for (s in schars){
+		mchars.put(s, '\\' +s);
+	}
+	//The following chars need text explaination in LaTex
+	//remember to add a white space at the end value
+	mchars.put('\\','\\textbackslash ');
+	mchars.put('~','\\textasciitilde ');
+	mchars.put('^','\\textasciicircum ');
+	mchars.put('<','\\textless ');
+	mchars.put('>','\\textgreater ');
+	mchars.put('¶','\\P ');
+	mchars.put('|','\\textbar ');
+	mchars.put('§','\\S ');
+	mchars.put('£','\\pounds ');
+	var text = self;
+	for (char in mchars.keySet()){
+		text = text.replace('\\'+char, '\\'+mchars.get(char));
+	}
+	return text;
+}%]
