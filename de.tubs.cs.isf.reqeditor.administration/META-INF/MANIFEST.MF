@@ -12,7 +12,9 @@ Require-Bundle: de.tubs.cs.isf.reqeditor,
  org.eclipse.xtext.xbase.lib,
  org.antlr.runtime,
  org.eclipse.xtext.util,
- org.eclipse.xtend.lib
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtend.lib.macro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: de.tubs.cs.isf.reqeditor.administration.generator,
  de.tubs.cs.isf.reqeditor.administration.scoping,
