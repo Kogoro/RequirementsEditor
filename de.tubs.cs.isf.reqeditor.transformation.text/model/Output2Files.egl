@@ -1,6 +1,6 @@
 [%
 	var t=TemplateFactory.load("RM2CSV.egl");
-	t.generate("../generated/output.csv");
-	var t=TemplateFactory.load("RM2Latex.egl");
-	t.generate("../generated/output.latex");
+	t.generate("../gen/output.csv");
+	var t=TemplateFactory.load("RM2Tex.egl");
+	t.generate("../gen/output.tex");
 %]
