@@ -1,6 +1,5 @@
 package de.tubs.cs.isf.reqeditor.administration
 
-import org.eclipse.xtext.xtext.generator.XtextGenerator
 import de.tubs.cs.isf.requirementseditor.Expression
 import de.tubs.cs.isf.requirementseditor.Literal
 import de.tubs.cs.isf.requirementseditor.NOT
@@ -12,11 +11,11 @@ import java.util.List
 import de.tubs.cs.isf.requirementseditor.RequirementsModel
 import java.util.HashMap
 
-class Requirement2CNF extends XtextGenerator {
+class Requirement2CNF {
 	
 	val static reFactory = RequirementsEditorFactory.eINSTANCE
 	
-	def convertToCNF(RequirementsModel model) {
+	def static convertToCNF(RequirementsModel model) {
 		var Expression cnf = model.elements.map[constraints].flatten.map[expression].flatten.reduce[l,r| (reFactory.createAND =>
 			[
 				operand1 = l
@@ -48,7 +47,7 @@ class Requirement2CNF extends XtextGenerator {
 		'''		
 	}
 	
-	def private String print(Expression expression, HashMap<Expression, Integer> ids) {
+	def static private String print(Expression expression, HashMap<Expression, Integer> ids) {
 		if (expression instanceof NOT) {
 			ids.putIfAbsent(expression, ids.size +1)
 			return '''-«ids.get(expression)» '''
@@ -63,7 +62,7 @@ class Requirement2CNF extends XtextGenerator {
 		}
 	}
 	
-	def private Expression toCNF(Expression expression) {
+	def static private Expression toCNF(Expression expression) {
 		// recursively creates a CNF for the given Expression
 		if (expression instanceof Literal) {
 			return expression
@@ -104,7 +103,7 @@ class Requirement2CNF extends XtextGenerator {
 		}
 	}
 	
-	def private Expression toNNF(Expression expression) {
+	def static private Expression toNNF(Expression expression) {
 		// recursively creates a NNF for the given Expression
 		if (expression instanceof Literal) {
 			return expression
@@ -151,7 +150,7 @@ class Requirement2CNF extends XtextGenerator {
 		throw new IllegalArgumentException
 	}
 	
-	def private List<Expression> conjunctionTermList(AND and) {
+	def static private List<Expression> conjunctionTermList(AND and) {
 		var list = new ArrayList<Expression>
 		if (and.operand1 instanceof AND) {
 			list.addAll(conjunctionTermList(and.operand1 as AND))
