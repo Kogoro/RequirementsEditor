@@ -10,6 +10,7 @@ import java.util.ArrayList
 import java.util.List
 import de.tubs.cs.isf.requirementseditor.RequirementsModel
 import java.util.HashMap
+import de.tubs.cs.isf.requirementseditor.RequirementModelElement
 
 class Requirement2CNF {
 	
@@ -29,7 +30,7 @@ class Requirement2CNF {
 			clauses = conjunctionTermList(cnf as AND)
 		}
 		
-		val HashMap<Expression, Integer> idMapping = newHashMap()
+		val HashMap<RequirementModelElement, Integer> idMapping = newHashMap()
 		
 		val date = java.text.DateFormat.dateTimeInstance.format(new java.util.Date)
 		
@@ -47,12 +48,14 @@ class Requirement2CNF {
 		'''		
 	}
 	
-	def static private String print(Expression expression, HashMap<Expression, Integer> ids) {
+	def static private String print(Expression expression, HashMap<RequirementModelElement, Integer> ids) {
 		if (expression instanceof NOT) {
-			ids.putIfAbsent(expression, ids.size +1)
+			val modelElement = ((expression as NOT).operand1 as Literal).element
+			ids.putIfAbsent(modelElement, ids.size +1)
 			return '''-«ids.get(expression)» '''
 		} else if (expression instanceof Literal) {
-			ids.putIfAbsent(expression, ids.size +1)
+			val modelElement = (expression as Literal).element
+			ids.putIfAbsent(modelElement, ids.size +1)
 			return '''«ids.get(expression)» '''
 		} else if (expression instanceof OR) {
 			val or = expression as OR
