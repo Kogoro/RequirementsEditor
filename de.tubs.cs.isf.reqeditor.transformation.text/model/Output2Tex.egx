@@ -1,0 +1,5 @@
+rule RM2CSV
+	transform RM: RequirementsModel{
+	template :"RM2Tex.egl"
+	target: "../gen/" + RM.name + ".tex"
+	}
