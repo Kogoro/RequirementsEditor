@@ -8,6 +8,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 
 /**
+ * Handler for M2Tex, will call CreateTex.java.
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
  */
@@ -19,6 +20,7 @@ public class ToTex extends AbstractHandler {
 		MessageDialog.openInformation(
 				window.getShell(),
 				"ToTex",
+				"Running ToTex.java, will call CreateTex.java.");
 		return null;
 	}
 }
