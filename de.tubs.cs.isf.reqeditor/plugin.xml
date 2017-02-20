@@ -126,5 +126,28 @@
             id="de.tubs.cs.isf.reqeditor.editingDomain">
       </editingDomain>
    </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            file-extensions=".reqs"
+            id="de.tubs.cs.isf.reqeditor.content-types.model"
+            name="Requirements Model"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="de.tubs.cs.isf.reqeditor.editors.RequirementsTableEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            extensions="reqs"
+            icon="icons/repository_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.editors.RequirementsTableEditor"
+            name="Requirements Editor">
+         <contentTypeBinding
+               contentTypeId="de.tubs.cs.isf.reqeditor.content-types.model">
+         </contentTypeBinding>
+      </editor>
+   </extension>
 
 </plugin>

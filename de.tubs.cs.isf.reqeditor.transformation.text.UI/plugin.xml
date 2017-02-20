@@ -34,20 +34,41 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <menu
                label="Transformation"
                mnemonic="M"
                id="de.tubs.cs.isf.reqeditor.transformation.text.UI.menus.transformation">
             <command
                   commandId="de.tubs.cs.isf.reqeditor.transformation.text.UI.commands.toCSV"
-                  id="de.tubs.cs.isf.reqeditor.transformation.text.UI.menus.transformation.toCSV">
+                  id="de.tubs.cs.isf.reqeditor.transformation.text.UI.menus.transformation.toCSV"
+                  label="To CSV">
             </command>
             <command
                   commandId="de.tubs.cs.isf.reqeditor.transformation.text.UI.commands.toTex"
                   id="de.tubs.cs.isf.reqeditor.transformation.text.UI.menus.transformation.toTex"
+                  label="To LaTeX"
                   style="push">
             </command>
+            <visibleWhen>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                     <adapt
+                           type="org.eclipse.core.resources.IResource">
+                        <or>
+                           <test
+                                 property="org.eclipse.core.resources.contentTypeId"
+                                 value="de.tubs.cs.isf.reqeditor.content-types.model">
+                           </test>
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.reqs">
+                           </test>
+                        </or>
+                     </adapt>
+               </iterate>
+            </visibleWhen>
          </menu>
       </menuContribution>
    </extension>
