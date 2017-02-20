@@ -6,6 +6,7 @@ import org.eclipse.core.runtime.CoreException;
 
 public class ProjectNature implements IProjectNature {
 
+	public static final String NATURE_ID = "de.tubs.cs.isf.reqeditor.ProjectNature";
 	protected IProject project;
 	
 	@Override

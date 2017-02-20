@@ -1,6 +1,8 @@
 package de.tubs.cs.isf.reqeditor;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.command.BasicCommandStack;
@@ -21,7 +23,6 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
 import de.tubs.cs.isf.requirementseditor.RequirementsModel;
-import de.tubs.cs.isf.requirementseditor.impl.RequirementsModelImpl;
 
 public class RequirementsEditingDomainFactory implements TransactionalEditingDomain {
 
@@ -42,7 +43,21 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	@Override
 	public Resource createResource(String fileNameURI) {
 		if (resourceSet != null) {
-			return resourceSet.createResource(URI.createFileURI(fileNameURI));
+			
+			RequirementsEditorPackage.eINSTANCE.eClass();
+			RequirementsEditorFactory factory = RequirementsEditorFactory.eINSTANCE;
+			
+			RequirementsModel model = factory.createRequirementsModel();
+			
+			Resource resource = resourceSet.createResource(URI.createFileURI(fileNameURI));
+			resource.getContents().add(model);
+			try {
+				resource.save(Collections.EMPTY_MAP);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return resource;
 		}
 		return null;
 	}

@@ -74,13 +74,14 @@
    <extension
          point="org.eclipse.ui.ide.projectNatureImages">
       <image
-            icon="icons/repo_rep.gif"
+            icon="icons/repo_favicon.gif"
             id="de.tubs.cs.isf.reqeditor.image"
-            natureId="de.tubs.cs.isf.reqeditor.image">
+            natureId="de.tubs.cs.isf.reqeditor.ProjectNature">
       </image>
    </extension>
    <extension
-         id="id1"
+         id="ProjectNature"
+         name="Requirement Nature"
          point="org.eclipse.core.resources.natures">
       <runtime>
          <run
