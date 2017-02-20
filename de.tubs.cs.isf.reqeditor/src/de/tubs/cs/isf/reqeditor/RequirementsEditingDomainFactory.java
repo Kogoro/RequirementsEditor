@@ -3,35 +3,64 @@ package de.tubs.cs.isf.reqeditor;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.OverrideableCommand;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
-public class RequirementsEditingDomainFactory implements TransactionalEditingDomain{
+import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
+import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
+import de.tubs.cs.isf.requirementseditor.RequirementsModel;
+import de.tubs.cs.isf.requirementseditor.impl.RequirementsModelImpl;
+
+public class RequirementsEditingDomainFactory implements TransactionalEditingDomain {
+
+	static ResourceSet resourceSet;
+	static CommandStack commandStack;
+	
+	public RequirementsEditingDomainFactory() {
+		super();
+		resourceSet = getResourceSet();
+		commandStack = new BasicCommandStack();
+	}
+	
+	public RequirementsEditingDomainFactory(ResourceSet resourceSet) {
+		super();
+		this.resourceSet = resourceSet;
+	}
 
 	@Override
 	public Resource createResource(String fileNameURI) {
-		// TODO Auto-generated method stub
+		if (resourceSet != null) {
+			return resourceSet.createResource(URI.createFileURI(fileNameURI));
+		}
 		return null;
 	}
 
 	@Override
 	public Resource loadResource(String fileNameURI) {
-		// TODO Auto-generated method stub
+		if (resourceSet != null) {
+			return resourceSet.getResource(URI.createFileURI(fileNameURI), true);
+		}
 		return null;
 	}
 
 	@Override
 	public ResourceSet getResourceSet() {
-		// TODO Auto-generated method stub
-		return null;
+		ResourceSet rs = new ResourceSetImpl();
+		rs.getPackageRegistry().put(RequirementsEditorPackage.eNS_URI, RequirementsEditorPackage.eINSTANCE);
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqs", new XMIResourceFactoryImpl());
+		return rs;
 	}
 
 	@Override
