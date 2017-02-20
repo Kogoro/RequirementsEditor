@@ -12,6 +12,7 @@ public class CreateTex {
 		// TODO Auto-generated method stub
 		EgxModule module = new EgxModule(new EglFileGeneratingTemplateFactory());
 		module.parse(new File("model/Output2Tex.egx").getAbsoluteFile());
+		System.out.println(module.getChildren());//pass
 		if (!module.getParseProblems().isEmpty()) {
 			System.out.println("Syntax errors found. Exiting.");
 			return;

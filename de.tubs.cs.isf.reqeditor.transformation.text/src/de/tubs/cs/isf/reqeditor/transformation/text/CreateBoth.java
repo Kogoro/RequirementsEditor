@@ -11,7 +11,8 @@ public class CreateBoth {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		EglTemplateFactoryModuleAdapter module = new EglTemplateFactoryModuleAdapter(new EglFileGeneratingTemplateFactory()); 
-		module.parse(new File("model/RM2CSV.egl"));
+		module.parse(new File("model/RM2CSV.egl").getAbsoluteFile());
+		System.out.println(module.getChildren());
 		PlainXmlModel model = new PlainXmlModel();
 		model.setFile(new File("model/FirstSample.reqs"));
 		model.setName("RM");

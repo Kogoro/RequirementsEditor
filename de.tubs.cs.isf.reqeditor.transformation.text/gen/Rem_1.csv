@@ -1,4 +1,0 @@
-id,name,description,priority,type,attribute
-R_1,Re_1,"First requirement in Reg 1_1.",CONDITIONAL,FUNCTIONAL,"ATTR_1:11111111;ATTR_2:22222222;"
-R_2,Re_2,"Requirement in Reg_1, not in subgroup.",ESSENTIAL,NONE,"None"
-R_1,Re_3,"Test\and<see~what happens.",OPTIONAL,NON_FUNCTIONAL,"None"
