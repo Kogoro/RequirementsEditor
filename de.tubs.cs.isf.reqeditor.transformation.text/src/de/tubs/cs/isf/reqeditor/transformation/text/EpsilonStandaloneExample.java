@@ -26,27 +26,29 @@ import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.models.IRelativePathResolver;
 
 public abstract class EpsilonStandaloneExample {
-	
+
 	protected IEolModule module;
 	protected List<Variable> parameters = new ArrayList<Variable>();
-	
+
 	protected Object result;
-	
+
 	public abstract IEolModule createModule();
-	
+
 	public abstract String getSource() throws Exception;
-	
+
 	public abstract List<IModel> getModels() throws Exception;
-	
-	public void postProcess() {};
-	
-	public void preProcess() {};
-	
+
+	public void postProcess() {
+	};
+
+	public void preProcess() {
+	};
+
 	public void execute() throws Exception {
-		
+
 		module = createModule();
 		module.parse(getFileURI(getSource()));
-		
+
 		if (module.getParseProblems().size() > 0) {
 			System.err.println("Parse errors occured...");
 			for (ParseProblem problem : module.getParseProblems()) {
@@ -54,77 +56,67 @@ public abstract class EpsilonStandaloneExample {
 			}
 			return;
 		}
-		
+
 		for (IModel model : getModels()) {
 			module.getContext().getModelRepository().addModel(model);
 		}
-		
+
 		for (Variable parameter : parameters) {
 			module.getContext().getFrameStack().put(parameter);
 		}
-		
+
 		preProcess();
 		result = execute(module);
 		postProcess();
-		
+
 		module.getContext().getModelRepository().dispose();
 	}
-	
+
 	public List<Variable> getParameters() {
 		return parameters;
 	}
-	
-	protected Object execute(IEolModule module) 
-			throws EolRuntimeException {
+
+	protected Object execute(IEolModule module) throws EolRuntimeException {
 		return module.execute();
 	}
-	
-	protected EmfModel createEmfModel(String name, String model, 
-			String metamodel, boolean readOnLoad, boolean storeOnDisposal) 
-					throws EolModelLoadingException, URISyntaxException {
+
+	protected EmfModel createEmfModel(String name, String model, String metamodel, boolean readOnLoad,
+			boolean storeOnDisposal) throws EolModelLoadingException, URISyntaxException {
 		EmfModel emfModel = new EmfModel();
 		StringProperties properties = new StringProperties();
 		properties.put(EmfModel.PROPERTY_NAME, name);
-		properties.put(EmfModel.PROPERTY_FILE_BASED_METAMODEL_URI,
-				getFileURI(metamodel).toString());
-		properties.put(EmfModel.PROPERTY_MODEL_URI, 
-				getFileURI(model).toString());
+		properties.put(EmfModel.PROPERTY_FILE_BASED_METAMODEL_URI, getFileURI(metamodel).toString());
+		properties.put(EmfModel.PROPERTY_MODEL_URI, getFileURI(model).toString());
 		properties.put(EmfModel.PROPERTY_READONLOAD, readOnLoad + "");
-		properties.put(EmfModel.PROPERTY_STOREONDISPOSAL, 
-				storeOnDisposal + "");
+		properties.put(EmfModel.PROPERTY_STOREONDISPOSAL, storeOnDisposal + "");
 		emfModel.load(properties, (IRelativePathResolver) null);
 		return emfModel;
 	}
 
-	protected EmfModel createEmfModelByURI(String name, String model, 
-			String metamodel, boolean readOnLoad, boolean storeOnDisposal) 
-					throws EolModelLoadingException, URISyntaxException {
+	protected EmfModel createEmfModelByURI(String name, String model, String metamodel, boolean readOnLoad,
+			boolean storeOnDisposal) throws EolModelLoadingException, URISyntaxException {
 		EmfModel emfModel = new EmfModel();
 		StringProperties properties = new StringProperties();
 		properties.put(EmfModel.PROPERTY_NAME, name);
 		properties.put(EmfModel.PROPERTY_METAMODEL_URI, metamodel);
-		properties.put(EmfModel.PROPERTY_MODEL_URI, 
-				getFileURI(model).toString());
+		properties.put(EmfModel.PROPERTY_MODEL_URI, getFileURI(model).toString());
 		properties.put(EmfModel.PROPERTY_READONLOAD, readOnLoad + "");
-		properties.put(EmfModel.PROPERTY_STOREONDISPOSAL, 
-				storeOnDisposal + "");
+		properties.put(EmfModel.PROPERTY_STOREONDISPOSAL, storeOnDisposal + "");
 		emfModel.load(properties, (IRelativePathResolver) null);
 		return emfModel;
 	}
 
 	protected URI getFileURI(String fileName) throws URISyntaxException {
-		
-		URI binUri = EpsilonStandaloneExample.class.
-				getResource(fileName).toURI();
+
+		URI binUri = EpsilonStandaloneExample.class.getResource(fileName).toURI();
 		URI uri = null;
-		
+
 		if (binUri.toString().indexOf("bin") > -1) {
 			uri = new URI(binUri.toString().replaceAll("bin", "src"));
-		}
-		else {
+		} else {
 			uri = binUri;
 		}
-		
+
 		return uri;
 	}
 }
