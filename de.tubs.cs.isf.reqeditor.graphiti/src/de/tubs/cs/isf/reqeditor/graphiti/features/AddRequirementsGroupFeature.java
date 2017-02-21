@@ -66,7 +66,7 @@ public class AddRequirementsGroupFeature extends AbstractAddFeature {
 		link(shape_name, requirementsGroup);
 		
 		if (requirementsGroup.eResource() == null) {
-			//TODO: Add to model
+			getDiagram().eResource().getContents().add(requirementsGroup);
 		}
 		
 		peCreateService.createChopboxAnchor(containerShape);
