@@ -83,7 +83,7 @@ public class AddRequirementsModelFeature extends AbstractAddFeature {
 		link(shape_version, requirementsModel);
 		
 		if (requirementsModel.eResource() == null) {
-			//TODO: Add to model
+			getDiagram().eResource().getContents().add(requirementsModel);
 		}
 		
 		peCreateService.createChopboxAnchor(containerShape);

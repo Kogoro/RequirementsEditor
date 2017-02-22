@@ -3,7 +3,13 @@ package de.tubs.cs.isf.reqeditor.wizard;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
 import de.tubs.cs.isf.reqeditor.ReqEditorPlugin;
+import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
+import de.tubs.cs.isf.reqeditor.RequirementsProjectSupport;
 
+import java.net.URI;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
 public class NewProjectWizard extends BasicNewProjectResourceWizard {
@@ -34,9 +40,15 @@ public class NewProjectWizard extends BasicNewProjectResourceWizard {
 		if (!page.isPageComplete()) {
 			return false;
 		}
-
-		// TODO: Create Project folders and files here
-
+		String name = page.getProjectName();
+		URI location = null;
+		if (!page.useDefaults())
+			location = page.getLocationURI();
+		
+		IProject project = RequirementsProjectSupport.createProject(name, location);
+		RequirementsEditingDomainFactory factory = new RequirementsEditingDomainFactory();
+		factory.createResource("model.reqs");
+		
 		return true;
 	}
 }

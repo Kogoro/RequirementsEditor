@@ -32,8 +32,8 @@ public class EglStandaloneExample extends EpsilonStandaloneExample {
 	}
 	
 	@Override
-	public EglTemplateFactoryModuleAdapter createModule() {
-		return new EglTemplateFactoryModuleAdapter(new EglTemplateFactory());
+	public IEolModule createModule() {
+		return (IEolModule) new EglTemplateFactoryModuleAdapter(new EglTemplateFactory());
 	}
 
 	@Override

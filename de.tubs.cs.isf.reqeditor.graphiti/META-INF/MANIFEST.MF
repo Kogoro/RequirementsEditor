@@ -9,4 +9,12 @@ Require-Bundle: org.eclipse.graphiti;bundle-version="0.13.2",
  org.eclipse.ui;bundle-version="3.108.0",
  org.eclipse.core.runtime;bundle-version="3.12.0",
  org.eclipse.core.resources;bundle-version="3.11.0",
- de.tubs.cs.isf.reqeditor;bundle-version="1.0.0"
+ de.tubs.cs.isf.reqeditor;bundle-version="1.0.0",
+ org.eclipse.ui.workbench,
+ org.eclipse.ui.views.properties.tabbed;bundle-version="3.7.0",
+ org.eclipse.emf.edit;bundle-version="2.12.0",
+ org.eclipse.gef;bundle-version="3.11.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.swt
+Import-Package: org.eclipse.emf.transaction

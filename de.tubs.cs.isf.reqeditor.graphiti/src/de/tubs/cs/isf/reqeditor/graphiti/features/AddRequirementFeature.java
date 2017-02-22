@@ -89,6 +89,10 @@ public class AddRequirementFeature extends AbstractAddFeature {
 		
 		layoutPictogramElement(containerShape);
 		
+		if (requirement.eResource() == null) {
+			getDiagram().eResource().getContents().add(requirement);
+		}
+		
 		return containerShape;
 	}
 

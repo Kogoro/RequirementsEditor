@@ -1,37 +1,108 @@
 package de.tubs.cs.isf.reqeditor;
 
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
+import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.OverrideableCommand;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
 
-public class RequirementsEditingDomainFactory implements TransactionalEditingDomain{
+import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
+import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
+import de.tubs.cs.isf.requirementseditor.RequirementsModel;
+
+public class RequirementsEditingDomainFactory implements TransactionalEditingDomain {
+
+	static ResourceSet resourceSet;
+	static CommandStack commandStack;
+	static RequirementsModel model;
+
+	public RequirementsEditingDomainFactory() {
+		super();
+		resourceSet = getResourceSet();
+		commandStack = new BasicCommandStack();
+	}
+
+	public RequirementsModel getModel() {
+		if (model == null)
+			model = (RequirementsModel) loadResource("model.reqs").getContents().get(0);
+		return model;
+	}
+
+	public void saveModel() {
+		Resource res = loadResource("model.reqs");
+		try {
+			res.save(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public Resource createResource(String fileNameURI) {
-		// TODO Auto-generated method stub
-		return null;
+		if (resourceSet == null)
+			resourceSet = getResourceSet();
+		
+		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+        Map<String, Object> m = reg.getExtensionToFactoryMap();
+        m.put("reqs", new XMIResourceFactoryImpl());
+
+		RequirementsEditorPackage.eINSTANCE.eClass();
+		RequirementsEditorFactory factory = RequirementsEditorFactory.eINSTANCE;
+
+		RequirementsModel model = factory.createRequirementsModel();
+		model.setName("Default");
+		
+		Resource resource = resourceSet.createResource(URI.createURI(fileNameURI));
+		if (resource != null) {
+			resource.getContents().add(model);
+			try {
+				resource.save(Collections.EMPTY_MAP);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return resource;
 	}
 
 	@Override
 	public Resource loadResource(String fileNameURI) {
-		// TODO Auto-generated method stub
+		if (resourceSet != null) {
+			return resourceSet.getResource(URI.createFileURI(fileNameURI), true);
+		}
 		return null;
 	}
 
 	@Override
 	public ResourceSet getResourceSet() {
-		// TODO Auto-generated method stub
-		return null;
+		ResourceSet rs = new ResourceSetImpl();
+		rs.getPackageRegistry().put(RequirementsEditorPackage.eNS_URI, RequirementsEditorPackage.eINSTANCE);
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqs", new XMIResourceFactoryImpl());
+		return rs;
 	}
 
 	@Override
@@ -97,7 +168,7 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	@Override
 	public void setClipboard(Collection<Object> clipboard) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -127,19 +198,19 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	@Override
 	public void setID(String id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void addResourceSetListener(ResourceSetListener l) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void removeResourceSetListener(ResourceSetListener l) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -151,7 +222,7 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	@Override
 	public void yield() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -163,8 +234,7 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 }
