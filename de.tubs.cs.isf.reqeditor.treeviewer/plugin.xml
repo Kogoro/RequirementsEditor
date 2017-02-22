@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="de.tubs.cs.isf.reqeditor.treeviewer" name="treeViewer" schema="schema/de.tubs.cs.isf.reqeditor.treeviewer.exsd"/>
+   <extension
+         point="org.eclipse.ui.views">
+   </extension>
+   <extension
+         id="de.tubs.cs.isf.reqeditor.treeviewer"
+         name="treeViewer"
+         point="org.eclipse.ui.menus">
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+   </extension>
+
+</plugin>
