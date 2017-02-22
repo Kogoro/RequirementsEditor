@@ -28,14 +28,13 @@ public class ToCSV extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		ISelectionService service = window.getSelectionService();
-		IStructuredSelection structured = (IStructuredSelection) service
-				.getSelection("org.eclipse.jdt.ui.ProjectsView");
+		IStructuredSelection structured = (IStructuredSelection) service.getSelection();
 		IResource res = extractSelection(structured);
 		
 		RequirementsEditingDomainFactory domain = new RequirementsEditingDomainFactory();
 		
 		try {
-			CSVTransformer.generate();
+			CSVTransformer.generate(res.getLocation());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

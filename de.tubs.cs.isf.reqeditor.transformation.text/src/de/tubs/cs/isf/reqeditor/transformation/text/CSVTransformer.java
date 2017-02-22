@@ -2,6 +2,7 @@ package de.tubs.cs.isf.reqeditor.transformation.text;
 
 import java.io.File;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory;
@@ -15,10 +16,12 @@ import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
 
 public class CSVTransformer {
 
-	public static void generate() throws Exception {
+	public static void generate(IPath path) throws Exception {
 		
-		// Parse main.egx
-	    EgxModule module = new EgxModule(new EglFileGeneratingTemplateFactory());
+		// Parse 
+		EglFileGeneratingTemplateFactory factory = new EglFileGeneratingTemplateFactory();
+		factory.setOutputRoot(path.toOSString());
+		EgxModule module = new EgxModule(factory);
 	    module.parse(new File("../workspace/RequirementsEditor/de.tubs.cs.isf.reqeditor.transformation.text/model/Output2CSV.egx").getAbsoluteFile());
 
 	    if (!module.getParseProblems().isEmpty()) {
