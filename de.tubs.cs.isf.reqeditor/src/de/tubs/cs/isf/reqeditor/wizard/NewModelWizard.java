@@ -60,7 +60,7 @@ public class NewModelWizard extends BasicNewResourceWizard {
 		mainPage.setTitle("Create a new Requirement Model");
 		mainPage.setFileExtension("reqs");
 		mainPage.setDescription("Requirement Models store informations about requirements in a project.");
-		mainPage.setFileName("myModel.reqs");
+		mainPage.setFileName("model.reqs");
 		addPage(mainPage);
 	}
 

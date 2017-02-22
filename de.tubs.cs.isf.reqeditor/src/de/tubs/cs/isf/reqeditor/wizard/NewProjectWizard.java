@@ -9,6 +9,7 @@ import de.tubs.cs.isf.reqeditor.RequirementsProjectSupport;
 import java.net.URI;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
 public class NewProjectWizard extends BasicNewProjectResourceWizard {
@@ -44,7 +45,9 @@ public class NewProjectWizard extends BasicNewProjectResourceWizard {
 		if (!page.useDefaults())
 			location = page.getLocationURI();
 		
-		RequirementsProjectSupport.createProject(name, location);
+		IProject project = RequirementsProjectSupport.createProject(name, location);
+		RequirementsEditingDomainFactory factory = new RequirementsEditingDomainFactory();
+		factory.createResource("model.reqs");
 		
 		return true;
 	}

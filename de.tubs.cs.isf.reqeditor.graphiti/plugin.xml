@@ -21,5 +21,46 @@
          </diagramType>
       </diagramTypeProvider>
    </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="de.tubs.cs.isf.reqeditor.graphiti.propertyContributor">
+         <propertyCategory
+               category="Graphiti"></propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="de.tubs.cs.isf.reqeditor.graphiti.propertyContributor">
+         <propertySection
+               class="de.tubs.cs.isf.reqeditor.graphiti.AbstractPropertySection"
+               filter="de.tubs.cs.isf.reqeditor.graphiti.PropertiesFilter"
+               id="de.tubs.cs.isf.reqeditor.graphiti.propertySection"
+               tab="de.tubs.cs.isf.reqeditor.graphiti.propertyTab">
+         </propertySection>
+         <propertySection
+               class="org.eclipse.ui.views.properties.tabbed.AdvancedPropertySection"
+               id="de.tubs.cs.isf.reqeditor.graphiti.propertySection2"
+               tab="de.tubs.cs.isf.reqeditor.graphiti.propertyTab2">
+         </propertySection>
+      </propertySections>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="de.tubs.cs.isf.reqeditor.graphiti.propertyTabs">
+         <propertyTab
+               category="de.tubs.cs.isf.reqeditor.graphiti.propertyTab"
+               id="de.tubs.cs.isf.reqeditor.graphiti.propertyTab"
+               label="Graphiti">
+         </propertyTab>
+         <propertyTab
+               category="de.tubs.cs.isf.reqeditor.graphiti.propertyTab2"
+               id="de.tubs.cs.isf.reqeditor.graphiti.propertyTab2"
+               label="Table">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
 
 </plugin>

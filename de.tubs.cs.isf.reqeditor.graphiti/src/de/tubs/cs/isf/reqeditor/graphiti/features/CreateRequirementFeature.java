@@ -5,8 +5,11 @@ import org.eclipse.graphiti.features.context.ICreateContext;
 import org.eclipse.graphiti.features.impl.AbstractCreateFeature;
 import org.eclipse.graphiti.mm.pictograms.Diagram;
 
+import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
 import de.tubs.cs.isf.requirementseditor.Requirement;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
+import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
+import de.tubs.cs.isf.requirementseditor.util.RequirementsEditorAdapterFactory;
 
 public class CreateRequirementFeature extends AbstractCreateFeature {
 
@@ -21,10 +24,13 @@ public class CreateRequirementFeature extends AbstractCreateFeature {
 
 	@Override
 	public Object[] create(ICreateContext context) {
+		RequirementsEditingDomainFactory factory = new RequirementsEditingDomainFactory();
+		
 		Requirement requirement = RequirementsEditorFactory.eINSTANCE.createRequirement();
 		requirement.setName("NewRequirement");
 		
-		//TODO: Add to model
+		factory.getModel().getElements().add(requirement);
+		factory.saveModel();
 		
 		addGraphicalRepresentation(context, requirement);
 		
