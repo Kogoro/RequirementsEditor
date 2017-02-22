@@ -7,3 +7,6 @@ Require-Bundle: org.eclipse.ui,
  de.tubs.cs.isf.reqeditor;bundle-version="1.0.0",
  org.eclipse.core.resources;bundle-version="3.11.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: de.tubs.cs.isf.reqeditor,
+ de.tubs.cs.isf.reqeditor.transformation.text,
+ org.eclipse.core.runtime

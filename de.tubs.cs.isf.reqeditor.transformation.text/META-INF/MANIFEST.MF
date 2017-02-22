@@ -10,3 +10,6 @@ Require-Bundle: de.tubs.cs.isf.reqeditor;bundle-version="1.0.0",
  org.eclipse.epsilon.emc.plainxml;bundle-version="1.4.0",
  org.eclipse.epsilon.eol.engine;bundle-version="1.4.0",
  org.eclipse.epsilon.egl.engine;bundle-version="1.4.0"
+Export-Package: de.tubs.cs.isf.reqeditor.transformation.text
+Import-Package: de.tubs.cs.isf.reqeditor,
+ de.tubs.cs.isf.requirementseditor
