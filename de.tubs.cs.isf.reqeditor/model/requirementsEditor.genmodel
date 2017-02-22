@@ -6,7 +6,7 @@
     codeFormatting="true" testsDirectory="/de.tubs.cs.isf.reqeditor.tests/src-gen"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
-  <foreignModel>../../de.tubs.cs.isf.requirementseditor/model/requirementsEditor.ecore</foreignModel>
+  <foreignModel>requirementsEditor.ecore</foreignModel>
   <genPackages prefix="RequirementsEditor" basePackage="de.tubs.cs.isf" disposableProviderFactory="true"
       multipleEditorPages="false" fileExtensions="reqs" ecorePackage="requirementsEditor.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="requirementsEditor.ecore#//RequirementType">
@@ -16,37 +16,55 @@
       <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementType/OTHER"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="requirementsEditor.ecore#//RequirementPriority">
-      <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementPriority/HIGH"/>
-      <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementPriority/NORMAL"/>
-      <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementPriority/LOW"/>
-      <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementPriority/VERY_HIGH"/>
+      <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementPriority/ESSENTIAL"/>
+      <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementPriority/CONDITIONAL"/>
+      <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementPriority/OPTIONAL"/>
     </genEnums>
     <genClasses ecoreClass="requirementsEditor.ecore#//RequirementsModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//RequirementsModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//RequirementsModel/elements"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//RequirementsModel/creator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//RequirementsModel/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//RequirementsModel/attributes"/>
     </genClasses>
-    <genClasses ecoreClass="requirementsEditor.ecore#//RequirementsGroup"/>
+    <genClasses ecoreClass="requirementsEditor.ecore#//RequirementsGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//RequirementsGroup/elements"/>
+    </genClasses>
     <genClasses ecoreClass="requirementsEditor.ecore#//Requirement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//Requirement/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//Requirement/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//Requirement/attributes"/>
     </genClasses>
     <genClasses ecoreClass="requirementsEditor.ecore#//Constraint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//Constraint/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//Constraint/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference requirementsEditor.ecore#//Constraint/expression"/>
     </genClasses>
     <genClasses ecoreClass="requirementsEditor.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//Attribute/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//Attribute/value"/>
     </genClasses>
     <genClasses image="false" ecoreClass="requirementsEditor.ecore#//RequirementModelElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//RequirementModelElement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//RequirementModelElement/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//RequirementModelElement/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//RequirementModelElement/constraints"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//RequirementModelElement/elements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//RequirementModelElement/attributes"/>
     </genClasses>
+    <genClasses ecoreClass="requirementsEditor.ecore#//AttributeValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//AttributeValue/valueOf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//AttributeValue/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="requirementsEditor.ecore#//NestableExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//NestableExpression/operand1"/>
+    </genClasses>
+    <genClasses ecoreClass="requirementsEditor.ecore#//OR">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//OR/operand2"/>
+    </genClasses>
+    <genClasses ecoreClass="requirementsEditor.ecore#//AND">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//AND/operand2"/>
+    </genClasses>
+    <genClasses ecoreClass="requirementsEditor.ecore#//NOT"/>
+    <genClasses ecoreClass="requirementsEditor.ecore#//Literal">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//Literal/element"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="requirementsEditor.ecore#//Expression"/>
   </genPackages>
 </genmodel:GenModel>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="M2TCategory"
+            id="de.tubs.cs.isf.reqeditor.transformation.text.UI.category"
+            name="TransformationUI">
+      </category>
+      <command
+            name="ToCSV"
+            categoryId="de.tubs.cs.isf.reqeditor.transformation.text.UI.category"
+            id="de.tubs.cs.isf.reqeditor.transformation.text.UI.commands.toCSV">
+      </command>
+      <command
+            categoryId="de.tubs.cs.isf.reqeditor.transformation.text.UI.category"
+            id="de.tubs.cs.isf.reqeditor.transformation.text.UI.commands.toTex"
+            name="ToTex">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="de.tubs.cs.isf.reqeditor.transformation.text.UI.commands.toCSV"
+            class="de.tubs.cs.isf.reqeditor.transformation.text.ui.handlers.ToCSV">
+      </handler>
+      <handler
+            class="de.tubs.cs.isf.reqeditor.transformation.text.ui.handlers.ToTex"
+            commandId="de.tubs.cs.isf.reqeditor.transformation.text.UI.commands.toTex">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               label="Transformation"
+               mnemonic="M"
+               id="de.tubs.cs.isf.reqeditor.transformation.text.UI.menus.transformation">
+            <command
+                  commandId="de.tubs.cs.isf.reqeditor.transformation.text.UI.commands.toCSV"
+                  id="de.tubs.cs.isf.reqeditor.transformation.text.UI.menus.transformation.toCSV"
+                  label="To CSV">
+            </command>
+            <command
+                  commandId="de.tubs.cs.isf.reqeditor.transformation.text.UI.commands.toTex"
+                  id="de.tubs.cs.isf.reqeditor.transformation.text.UI.menus.transformation.toTex"
+                  label="To LaTeX"
+                  style="push">
+            </command>
+            <visibleWhen>
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                     <adapt
+                           type="org.eclipse.core.resources.IResource">
+                        <or>
+                           <test
+                                 property="org.eclipse.core.resources.contentTypeId"
+                                 value="de.tubs.cs.isf.reqeditor.content-types.model">
+                           </test>
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.reqs">
+                           </test>
+                        </or>
+                     </adapt>
+               </iterate>
+            </visibleWhen>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
