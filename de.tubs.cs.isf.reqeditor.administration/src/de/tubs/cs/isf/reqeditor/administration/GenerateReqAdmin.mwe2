@@ -30,7 +30,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "de.tubs.cs.isf.reqeditor.administration.ReqAdmin"
-			fileExtensions = "reqadmin"
+			fileExtensions = "reqs"
 			referencedResource = "platform:/resource/de.tubs.cs.isf.reqeditor/model/requirementsEditor.genmodel" // Gen-Model-Reference
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}

@@ -9,8 +9,8 @@ RequirementsModel returns RequirementsModel:
 	{RequirementsModel} 'create' 'RequirementsModel' name=EString
 		('by' creator=EString)?
 		('version' version=EString)?
-		('with' 'requirements' 'list' elements+=RequirementModelElement ( '.' elements+=RequirementModelElement)* )?
-		('with' 'attributes' 'list' attributes+=Attribute ( '.' attributes+=Attribute)* )?
+		('with' 'requirements' elements+=RequirementModelElement ( '.' elements+=RequirementModelElement)* )?
+		('with' 'attributes' attributes+=Attribute ( '.' attributes+=Attribute)* )?
 	;
 
 RequirementModelElement returns RequirementModelElement:
@@ -26,7 +26,7 @@ Attribute returns Attribute:
 Constraint returns Constraint:
 	{Constraint}
 	'Constraint' name=EString 
-		('with' 'expression' 'list' expression+=Expression ( '.' expression+=Expression)*  )?
+		('with' 'expression' expression+=Expression ( '.' expression+=Expression)*  )?
 	;
 
 RequirementsGroup returns RequirementsGroup:
