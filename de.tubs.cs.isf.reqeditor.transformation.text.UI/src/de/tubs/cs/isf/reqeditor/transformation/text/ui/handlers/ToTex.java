@@ -8,17 +8,14 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
-
-import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
-import de.tubs.cs.isf.reqeditor.transformation.text.CSVTransformer;
 import de.tubs.cs.isf.reqeditor.transformation.text.TeXTransformer;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
 /**
  * Handler for M2Tex, will call CreateTex.java.
+ * 
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
  */
@@ -30,17 +27,22 @@ public class ToTex extends AbstractHandler {
 		ISelectionService service = window.getSelectionService();
 		IStructuredSelection structured = (IStructuredSelection) service.getSelection();
 		IResource res = extractSelection(structured);
-		
+
 		try {
 			TeXTransformer.generate(res.getLocation());
+			showMsg(window);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
+
+	private void showMsg(IWorkbenchWindow window) {
+		MessageDialog.openInformation(window.getShell(), "Success", "Tex file generated in 'gen'. ");
+	}
+
 	private IResource extractSelection(ISelection sel) {
 		if (!(sel instanceof IStructuredSelection))
 			return null;

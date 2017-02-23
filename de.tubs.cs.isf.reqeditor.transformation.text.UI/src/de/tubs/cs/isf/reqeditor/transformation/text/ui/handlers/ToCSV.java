@@ -8,10 +8,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
-
-import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
 import de.tubs.cs.isf.reqeditor.transformation.text.CSVTransformer;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -30,17 +27,20 @@ public class ToCSV extends AbstractHandler {
 		ISelectionService service = window.getSelectionService();
 		IStructuredSelection structured = (IStructuredSelection) service.getSelection();
 		IResource res = extractSelection(structured);
-		
-		RequirementsEditingDomainFactory domain = new RequirementsEditingDomainFactory();
-		
+
 		try {
-			CSVTransformer.generate(res.getLocation());
+			CSVTransformer.generate(res.getLocation());// file path
+			showMsg(window);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
+	}
+
+	private void showMsg(IWorkbenchWindow window) {
+		MessageDialog.openInformation(window.getShell(), "Success", "CSV file generated in 'gen'. ");
 	}
 
 	private IResource extractSelection(ISelection sel) {
