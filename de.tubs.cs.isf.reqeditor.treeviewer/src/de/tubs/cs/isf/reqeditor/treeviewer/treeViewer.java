@@ -1,5 +1,6 @@
 package de.tubs.cs.isf.reqeditor.treeviewer;
 
+//import de.tubs.cs.isf.reqeditor.edit;
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.scene.Group;
@@ -18,7 +19,7 @@ public class treeViewer extends Application {
     
     @Override
     public void start(Stage stage) {
-        stage.setTitle("Tree Table View Samples");
+        stage.setTitle("Requirements Editor - Tree Table View");
         final Scene scene = new Scene(new Group(), 600, 400);
         Group sceneRoot = (Group)scene.getRoot();  
       
@@ -49,13 +50,16 @@ public class treeViewer extends Application {
     
     public TreeItem<String> requirementModelElement(String name, String id, String description) {
     	TreeItem<String> item = new TreeItem<>(name);
-    	
+    	TreeItem<String> attribute1 = new TreeItem<>(id);
+    	TreeItem<String> attribute2 = new TreeItem<>(description);
+    	item.getChildren().setAll(attribute1, attribute2);
     	return item;
 	}
     
-	public TreeItem<String> constraints(String name, String id, String description) {
+	public TreeItem<String> constraints(String name, String expression) {
 		TreeItem<String> item = new TreeItem<>(name);
-    	
+		TreeItem<String> attribute1 = new TreeItem<>(expression);
+    	item.getChildren().setAll(attribute1);
     	return item;
 	}
 	
