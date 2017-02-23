@@ -52,13 +52,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//AttributeValue/value"/>
     </genClasses>
     <genClasses image="false" ecoreClass="requirementsEditor.ecore#//NestableExpression">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//NestableExpression/operand1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//NestableExpression/operand1"/>
     </genClasses>
     <genClasses ecoreClass="requirementsEditor.ecore#//OR">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//OR/operand2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//OR/operand2"/>
     </genClasses>
     <genClasses ecoreClass="requirementsEditor.ecore#//AND">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//AND/operand2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//AND/operand2"/>
     </genClasses>
     <genClasses ecoreClass="requirementsEditor.ecore#//NOT"/>
     <genClasses ecoreClass="requirementsEditor.ecore#//Literal">

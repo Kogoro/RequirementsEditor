@@ -73,15 +73,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="NestableExpression" abstract="true"
       eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operand1" lowerBound="1"
-        eType="#//Expression"/>
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OR" eSuperTypes="#//NestableExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operand2" lowerBound="1"
-        eType="#//Expression"/>
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AND" eSuperTypes="#//NestableExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operand2" lowerBound="1"
-        eType="#//Expression"/>
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NOT" eSuperTypes="#//NestableExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//Expression">
