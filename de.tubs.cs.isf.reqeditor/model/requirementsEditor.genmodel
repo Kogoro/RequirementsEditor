@@ -3,12 +3,11 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.tubs.cs.isf.reqeditor/src-gen" editDirectory="/de.tubs.cs.isf.reqeditor.edit/src-gen"
     editorDirectory="/de.tubs.cs.isf.reqeditor.editor/src-gen" modelPluginID="de.tubs.cs.isf.reqeditor"
     modelName="RequirementsEditor" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" testsDirectory="/de.tubs.cs.isf.reqeditor.tests/src-gen"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    testsDirectory="/de.tubs.cs.isf.reqeditor.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>requirementsEditor.ecore</foreignModel>
   <genPackages prefix="RequirementsEditor" basePackage="de.tubs.cs.isf" disposableProviderFactory="true"
-      multipleEditorPages="false" fileExtensions="reqs" ecorePackage="requirementsEditor.ecore#/">
+      ecorePackage="requirementsEditor.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="requirementsEditor.ecore#//RequirementType">
       <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementType/FUNCTIONAL"/>
       <genEnumLiterals ecoreEnumLiteral="requirementsEditor.ecore#//RequirementType/NON_FUNCTIONAL"/>
@@ -37,7 +36,7 @@
     </genClasses>
     <genClasses ecoreClass="requirementsEditor.ecore#//Constraint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//Constraint/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference requirementsEditor.ecore#//Constraint/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//Constraint/expression"/>
     </genClasses>
     <genClasses ecoreClass="requirementsEditor.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirementsEditor.ecore#//Attribute/id"/>
