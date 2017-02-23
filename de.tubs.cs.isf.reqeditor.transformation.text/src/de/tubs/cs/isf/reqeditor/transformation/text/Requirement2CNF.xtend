@@ -1,4 +1,4 @@
-package de.tubs.cs.isf.reqeditor.administration
+package de.tubs.cs.isf.reqeditor.transformation.text
 
 import de.tubs.cs.isf.requirementseditor.Expression
 import de.tubs.cs.isf.requirementseditor.Literal
