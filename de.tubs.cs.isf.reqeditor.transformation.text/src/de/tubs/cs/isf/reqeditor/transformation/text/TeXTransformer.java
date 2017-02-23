@@ -21,7 +21,7 @@ public class TeXTransformer {
 		factory.setOutputRoot(path.toOSString());
 		EgxModule module = new EgxModule(factory);
 		// module.parse(new File("../workspace/RequirementsEditor/de.tubs.cs.isf.reqeditor.transformation.text/model/Output2Tex.egx").getAbsoluteFile());
-		module.parse(new File(transformerLocation + "model/Output2CSV.egx").getAbsoluteFile());
+		module.parse(new File(transformerLocation + "model/Output2Tex.egx").getAbsoluteFile());
 
 		if (!module.getParseProblems().isEmpty()) {
 			System.out.println("Syntax errors found. Exiting.");
