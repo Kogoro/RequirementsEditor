@@ -12,6 +12,10 @@ import de.tubs.cs.isf.requirementseditor.RequirementsModel
 import java.util.HashMap
 import de.tubs.cs.isf.requirementseditor.RequirementModelElement
 import de.tubs.cs.isf.requirementseditor.RequirementsGroup
+import de.tubs.cs.isf.requirementseditor.NestableExpression
+import de.tubs.cs.isf.requirementseditor.TwoOperandsExpression
+import java.util.Map
+import java.util.Set
 
 class Requirement2CNF {
 	
@@ -19,23 +23,26 @@ class Requirement2CNF {
 	
 	def static convertToCNF(RequirementsModel model) {
 		val List<Expression> list = model.elements.map[collectExpressions].flatten.toList
-//		val Expression expr = model.elements.map[constraints].flatten.map[expression].flatten.reduce[l,r| (reFactory.createAND =>
-		val Expression expr = list.reduce[l,r| (reFactory.createAND =>
+		System.out.println(list)
+		//val Expression expr = model.elements.map[constraints].flatten.map[expression].flatten.reduce[l,r| (reFactory.createAND =>
+		val Expression expr = list.reduce[Expression l, Expression r| (reFactory.createAND => 
 			[
-				operand1 = l
-				operand2 = r
+				operand1 = l.detachedCopy
+				operand2 = r.detachedCopy
 			]) as Expression
 		]
 		
-		val Expression cnf = toCNF(expr)
+		val nnf = toNNF(expr)
+		val Expression cnf = toCNF(nnf)
 		
 		var List<Expression> clauses = newArrayList(cnf)
-		val numVars = model.elements.size
+		val vars = cnf.literalElements.toList
+		val numVars = vars.size
 		if (cnf instanceof AND) {
 			clauses = conjunctionTermList(cnf as AND)
 		}
 		
-		val HashMap<RequirementModelElement, Integer> idMapping = newHashMap()
+		//val Map<RequirementModelElement, Integer> idMapping = newHashMap()
 		
 		val date = java.text.DateFormat.dateTimeInstance.format(new java.util.Date)
 		
@@ -52,38 +59,54 @@ class Requirement2CNF {
 		«ELSE»
 			p cnf «numVars» «clauses.size»
 			«FOR clause : clauses»
-				c «print(clause, idMapping)» 0
+				c «print(clause, vars)» 0
 			«ENDFOR»
 		«ENDIF»
 		'''		
 	}
 	
-	def static private String print(Expression expression, HashMap<RequirementModelElement, Integer> ids) {
+	def static private Set<RequirementModelElement> literalElements(Expression expression) {
+		if (expression instanceof Literal) {
+			return newHashSet(expression.element)
+		} else if (expression instanceof NestableExpression) {
+			val set = literalElements(expression.operand1)
+			if (expression instanceof TwoOperandsExpression) {
+				set.addAll(expression.operand2.literalElements)
+			}
+			return set
+		}
+	}
+	
+	//def static private String print(Expression expression, Map<RequirementModelElement, Integer> ids) {
+	def static private String print(Expression expression, List<RequirementModelElement> ids) {
 		if (expression instanceof NOT) {
 			val modelElement = ((expression as NOT).operand1 as Literal).element
-			ids.putIfAbsent(modelElement, ids.size +1)
-			return '''-«ids.get(expression)» '''
+			return '''-«ids.indexOf(modelElement) + 1» '''
 		} else if (expression instanceof Literal) {
 			val modelElement = (expression as Literal).element
-			ids.putIfAbsent(modelElement, ids.size +1)
-			return '''«ids.get(expression)» '''
+			return ''' «ids.indexOf(modelElement) + 1» '''
 		} else if (expression instanceof OR) {
 			val or = expression as OR
-			return '''«print(or.operand1, ids)» «print(or.operand2, ids)» '''
+			return '''«print(or.operand1, ids)»«print(or.operand2, ids)»'''
 		} else {
 			throw new IllegalStateException
 		}
 	}
 	
 	def static private Expression toCNF(Expression expression) {
+		if (expression == null) {
+			return null
+		}
 		// recursively creates a CNF for the given Expression
 		if (expression instanceof Literal) {
-			return expression
+			return expression.detachedCopy
 		}
-		val nnf = toNNF(expression)
+		//val nnf = toNNF(expression)
+		// already done before calling toCNF
+		val nnf = expression
 		if (nnf instanceof NOT) {
 			// negated Literal is in NNF => atom
-			return nnf
+			return nnf.detachedCopy
 		} else if (nnf instanceof AND) {
 			val and = nnf as AND
 			return reFactory.createAND => [
@@ -106,20 +129,22 @@ class Requirement2CNF {
 			for (l : leftList) {
 				for (r : rightList) {
 					conjugationOfDisjunctions += reFactory.createOR => [
-						operand1 = l
-						operand2 = r
+						operand1 = l.detachedCopy
+						operand2 = r.detachedCopy
 					]
 				}
 			}
-			conjugationOfDisjunctions.reduce[l, r| (reFactory.createAND => [operand1=l; operand2=r]) as Expression]
-			or
+			if (conjugationOfDisjunctions.size == 1) {
+				return conjugationOfDisjunctions.get(0);
+			}
+			return conjugationOfDisjunctions.reduce[l, r| (reFactory.createAND => [operand1=l.detachedCopy; operand2=r.detachedCopy]) as Expression]
 		}
 	}
 	
 	def static private Expression toNNF(Expression expression) {
 		// recursively creates a NNF for the given Expression
 		if (expression instanceof Literal) {
-			return expression
+			return expression.detachedCopy
 		} else if (expression instanceof AND) {
 			val and = expression as AND
 			return reFactory.createAND =>[
@@ -135,27 +160,29 @@ class Requirement2CNF {
 		} else if (expression instanceof NOT) {
 			var negatedExpression = (expression as NOT).operand1
 			if (negatedExpression instanceof Literal) {
-				return expression
+				return expression.detachedCopy
 			} else if (negatedExpression instanceof NOT) {
 				return toNNF(negatedExpression.operand1)
 			} else if (negatedExpression instanceof AND) {
 				val and = negatedExpression as AND
+				val op1 = and.operand1.detachedCopy
+				val op2 = and.operand2.detachedCopy
 				return reFactory.createOR => [
 					operand1 = toNNF(reFactory.createNOT => [
-						and.operand1
+						operand1 = op1
 					])
 					operand2 = toNNF(reFactory.createNOT => [
-						and.operand2
+						operand1 = op2
 					])
 				]
 			} else if (negatedExpression instanceof OR) {
 				val or = negatedExpression as OR
 				return reFactory.createAND => [
 					operand1 = toNNF(reFactory.createNOT => [
-						or.operand1
+						operand1 = or.operand1.detachedCopy
 					])
 					operand2 = toNNF(reFactory.createNOT => [
-						or.operand2
+						operand1 = or.operand2.detachedCopy
 					])
 				]
 			}
@@ -181,8 +208,22 @@ class Requirement2CNF {
 	def static private List<Expression> collectExpressions(RequirementModelElement element) {
 		var list = element.constraints.map[expression].flatten.toList
 		if (element instanceof RequirementsGroup) {
-			list += (element as RequirementsGroup).elements.map[collectExpressions]
+			val List<Expression> subExpressions = (element as RequirementsGroup).elements.map[collectExpressions].flatten.toList
+			list.addAll(subExpressions)
 		}
 		list
+	}
+	
+	def static private Expression detachedCopy(Expression expression){
+		val newExpr = reFactory.create(expression.eClass) as Expression
+		if (expression instanceof Literal) {
+			(newExpr as Literal).element = expression.element
+		} else if (expression instanceof NestableExpression) {
+			(newExpr as NestableExpression).operand1 = expression.operand1
+			if (expression instanceof TwoOperandsExpression) {
+				(newExpr as TwoOperandsExpression).operand2 = expression.operand2
+			}
+		}
+		newExpr
 	}
 }
