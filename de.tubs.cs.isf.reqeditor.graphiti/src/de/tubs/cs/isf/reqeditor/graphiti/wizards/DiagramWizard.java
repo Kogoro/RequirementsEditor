@@ -1,23 +1,32 @@
-package de.tubs.cs.isf.reqeditor.wizard;
+package de.tubs.cs.isf.reqeditor.graphiti.wizards;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
+import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.eclipse.core.runtime.*;
+import org.eclipse.jface.operation.*;
+import java.lang.reflect.InvocationTargetException;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.core.resources.*;
 
-public class NewModelWizard extends BasicNewResourceWizard {
+import java.io.*;
+import org.eclipse.ui.*;
+import org.eclipse.ui.ide.IDE;
 
-	public static final String ID = "de.tubs.cs.isf.reqeditor.wizard.model";
+import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
+
+public class DiagramWizard extends BasicNewResourceWizard {
+
+	public static final String ID = "de.tubs.cs.isf.reqeditor.graphiti.wizard.model";
 	private WizardNewFileCreationPage mainPage;
 
 	/**
 	 * Creates a wizard for creating a new file resource in the workspace.
 	 */
-	public NewModelWizard() {
+	public DiagramWizard() {
 		super();
 	}
 
@@ -40,10 +49,10 @@ public class NewModelWizard extends BasicNewResourceWizard {
 			}
 		};
 		
-		mainPage.setTitle("Create a new Requirement Model");
-		mainPage.setFileExtension("reqs");
-		mainPage.setDescription("Requirement Models store informations about requirements in a project.");
-		mainPage.setFileName("model.reqs");
+		mainPage.setTitle("Create a new Diagram");
+		mainPage.setFileExtension("diagram");
+		mainPage.setDescription("A diagram shows the structure of a requirement model.");
+		mainPage.setFileName("model.diagram");
 		addPage(mainPage);
 	}
 
@@ -60,16 +69,9 @@ public class NewModelWizard extends BasicNewResourceWizard {
 	 * (non-Javadoc) Method declared on IWizard.
 	 */
 	public boolean performFinish() {
-		RequirementsEditingDomainFactory domain = new RequirementsEditingDomainFactory();
-		
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IPath path = workspace.getRoot().getRawLocation().append(mainPage.getContainerFullPath()).append(mainPage.getFileName());
-		IFile file = workspace.getRoot().getFile(path);
-
-		domain.createResource(file.getFullPath().toString());
+		mainPage.createNewFile();
 		
 		return true;
 	}
-
 
 }

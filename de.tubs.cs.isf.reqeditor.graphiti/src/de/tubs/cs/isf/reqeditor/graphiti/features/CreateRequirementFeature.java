@@ -9,6 +9,7 @@ import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
 import de.tubs.cs.isf.requirementseditor.Requirement;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
+import de.tubs.cs.isf.requirementseditor.RequirementsModel;
 import de.tubs.cs.isf.requirementseditor.util.RequirementsEditorAdapterFactory;
 
 public class CreateRequirementFeature extends AbstractCreateFeature {
@@ -29,8 +30,9 @@ public class CreateRequirementFeature extends AbstractCreateFeature {
 		Requirement requirement = RequirementsEditorFactory.eINSTANCE.createRequirement();
 		requirement.setName("NewRequirement");
 		
-		factory.getModel().getElements().add(requirement);
-		factory.saveModel();
+		RequirementsModel model = factory.getModel();
+		model.getElements().add(requirement);
+		factory.saveModel(model);
 		
 		addGraphicalRepresentation(context, requirement);
 		

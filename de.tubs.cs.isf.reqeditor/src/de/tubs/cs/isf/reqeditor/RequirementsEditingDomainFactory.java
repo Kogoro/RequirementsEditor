@@ -30,6 +30,7 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	static ResourceSet resourceSet;
 	static CommandStack commandStack;
 	static RequirementsModel model;
+	static Resource modelResource;
 
 	public RequirementsEditingDomainFactory() {
 		super();
@@ -38,21 +39,27 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	}
 
 	public RequirementsModel getModel() {
+		if (modelResource == null)
+			loadResource("model.reqs");
 		if (model == null)
-			model = (RequirementsModel) loadResource("model.reqs").getContents().get(0);
+			model = (RequirementsModel) modelResource.getContents().get(0);
 		return model;
 	}
 
 	public void setModel(RequirementsModel model) {
 		RequirementsEditingDomainFactory.model = model;
 	}
-
+	
 	public void saveModel() {
-		Resource res = loadResource("model.reqs");
-		res.getContents().clear();
-		res.getContents().add(model);
+		saveModel(getModel());
+	}
+
+	public void saveModel(RequirementsModel model) {
+		//Resource res = loadResource("model.reqs");
+		//modelResource.getContents().clear();
+		modelResource.getContents().add(model);
 		try {
-			res.save(Collections.EMPTY_MAP);
+			modelResource.save(Collections.EMPTY_MAP);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,6 +83,7 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 
 			Resource resource = resourceSet.createResource(URI.createFileURI(file));
 			if (resource != null) {
+				modelResource = resource;
 				resource.getContents().add(model);
 				try {
 					resource.save(options);
@@ -92,7 +100,8 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	@Override
 	public Resource loadResource(String fileNameURI) {
 		if (resourceSet != null) {
-			return resourceSet.getResource(URI.createFileURI(fileNameURI), true);
+			modelResource = resourceSet.getResource(URI.createFileURI(fileNameURI), true);
+			return modelResource;
 		}
 		return null;
 	}

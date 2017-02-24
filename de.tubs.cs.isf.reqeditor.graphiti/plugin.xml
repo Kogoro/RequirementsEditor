@@ -62,5 +62,15 @@
          </propertyTab>
       </propertyTabs>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="de.tubs.cs.isf.reqeditor.category"
+            class="de.tubs.cs.isf.reqeditor.graphiti.wizards.DiagramWizard"
+            icon="icons/repository_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.graphiti.wizards.DiagramWizard"
+            name="New Diagram">
+      </wizard>
+   </extension>
 
 </plugin>
