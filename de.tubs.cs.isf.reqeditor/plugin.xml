@@ -141,6 +141,7 @@
       <editor
             class="de.tubs.cs.isf.reqeditor.editors.RequirementsTableEditor"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            default="false"
             extensions="reqs"
             icon="icons/repository_rep.gif"
             id="de.tubs.cs.isf.reqeditor.editors.RequirementsTableEditor"
