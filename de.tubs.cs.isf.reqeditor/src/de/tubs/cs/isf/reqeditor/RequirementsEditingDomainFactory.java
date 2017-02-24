@@ -3,6 +3,7 @@ package de.tubs.cs.isf.reqeditor;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,21 +15,12 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.OverrideableCommand;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
-
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
 import de.tubs.cs.isf.requirementseditor.RequirementsModel;
@@ -51,8 +43,14 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 		return model;
 	}
 
+	public void setModel(RequirementsModel model) {
+		RequirementsEditingDomainFactory.model = model;
+	}
+
 	public void saveModel() {
 		Resource res = loadResource("model.reqs");
+		res.getContents().clear();
+		res.getContents().add(model);
 		try {
 			res.save(Collections.EMPTY_MAP);
 		} catch (IOException e) {
@@ -61,32 +59,34 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 		}
 	}
 
-	@Override
-	public Resource createResource(String fileNameURI) {
-		if (resourceSet == null)
-			resourceSet = getResourceSet();
-		
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-        Map<String, Object> m = reg.getExtensionToFactoryMap();
-        m.put("reqs", new XMIResourceFactoryImpl());
+	/*
+	 * file must be the complete path to a file
+	 */
+	public Resource createResource(String file) {
+		if (file != null) {
 
-		RequirementsEditorPackage.eINSTANCE.eClass();
-		RequirementsEditorFactory factory = RequirementsEditorFactory.eINSTANCE;
+			RequirementsEditorPackage.eINSTANCE.eClass();
+			RequirementsEditorFactory factory = RequirementsEditorFactory.eINSTANCE;
 
-		RequirementsModel model = factory.createRequirementsModel();
-		model.setName("Default");
-		
-		Resource resource = resourceSet.createResource(URI.createURI(fileNameURI));
-		if (resource != null) {
-			resource.getContents().add(model);
-			try {
-				resource.save(Collections.EMPTY_MAP);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			RequirementsModel model = factory.createRequirementsModel();
+			model.setName("Default");
+
+			Map<String, String> options = new HashMap<String, String>();
+			options.put(XMIResource.OPTION_ENCODING, "UTF-8");
+
+			Resource resource = resourceSet.createResource(URI.createFileURI(file));
+			if (resource != null) {
+				resource.getContents().add(model);
+				try {
+					resource.save(options);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		}
-		return resource;
+			return resource;
+		} else
+			return null;
 	}
 
 	@Override
@@ -99,9 +99,12 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 
 	@Override
 	public ResourceSet getResourceSet() {
-		ResourceSet rs = new ResourceSetImpl();
-		rs.getPackageRegistry().put(RequirementsEditorPackage.eNS_URI, RequirementsEditorPackage.eINSTANCE);
-		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("reqs", new XMIResourceFactoryImpl());
+		ResourceSet rs;
+		if (resourceSet == null)
+			rs = new ResourceSetImpl();
+		else
+			return resourceSet;
+		resourceSet = rs;
 		return rs;
 	}
 

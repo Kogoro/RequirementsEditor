@@ -1,6 +1,7 @@
 package de.tubs.cs.isf.reqeditor.wizard;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,10 +9,23 @@ import java.nio.charset.StandardCharsets;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.graphiti.mm.pictograms.Diagram;
+import org.eclipse.graphiti.mm.pictograms.PictogramLink;
+import org.eclipse.graphiti.mm.pictograms.PictogramsFactory;
+import org.eclipse.graphiti.services.Graphiti;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.internal.dialogs.DialogUtil;
+
+import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
+import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
+import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
+import de.tubs.cs.isf.requirementseditor.RequirementsModel;
 
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.IWorkbench;
@@ -48,13 +62,6 @@ public class NewModelWizard extends BasicNewResourceWizard {
 					}
 				return true;
 			}
-
-			@Override
-			protected InputStream getInitialContents() {
-				String defaultContent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><RequirementsEditor:RequirementsModel xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:RequirementsEditor=\"http://www.isf.cs.tu-bs.de/reqeditor\"/>";
-				return new ByteArrayInputStream(defaultContent.getBytes(StandardCharsets.UTF_8));
-			}
-			
 		};
 		
 		mainPage.setTitle("Create a new Requirement Model");
@@ -77,29 +84,24 @@ public class NewModelWizard extends BasicNewResourceWizard {
 	 * (non-Javadoc) Method declared on IWizard.
 	 */
 	public boolean performFinish() {
-		IFile file = mainPage.createNewFile();
+		// create diagram
+		Diagram diagram = Graphiti.getPeCreateService().createDiagram("reqs", "Requirement Model", true);
+
+		RequirementsEditingDomainFactory domain = new RequirementsEditingDomainFactory();
 		
-		if (file == null) {
-			return false;
-		}
+		//get object which represents the workspace  
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		IPath path = workspace.getRoot().getRawLocation().append(mainPage.getContainerFullPath()).append(mainPage.getFileName());
+		//get location of workspace (java.io.File)  
+		IFile file = workspace.getRoot().getFile(path);
 
-		selectAndReveal(file);
-
-		// Open editor on new file.
-		IWorkbenchWindow dw = getWorkbench().getActiveWorkbenchWindow();
-		try {
-			if (dw != null) {
-				IWorkbenchPage page = dw.getActivePage();
-				if (page != null) {
-					IDE.openEditor(page, file, true);
-				}
-			}
-		} catch (PartInitException e) {
-			DialogUtil.openError(dw.getShell(),
-					"File could not be created:", e.getMessage(),
-					e);
-		}
-
+		domain.createResource(file.getFullPath().toString());
+		
+		// link diagram to network
+		PictogramLink link = PictogramsFactory.eINSTANCE.createPictogramLink();
+		link.getBusinessObjects().add(domain.getModel());
+		diagram.setLink(link);
+		
 		return true;
 	}
 
