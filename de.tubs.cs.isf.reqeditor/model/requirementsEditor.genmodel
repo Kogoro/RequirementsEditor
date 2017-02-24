@@ -54,16 +54,15 @@
     <genClasses image="false" ecoreClass="requirementsEditor.ecore#//NestableExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//NestableExpression/operand1"/>
     </genClasses>
-    <genClasses ecoreClass="requirementsEditor.ecore#//OR">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//OR/operand2"/>
-    </genClasses>
-    <genClasses ecoreClass="requirementsEditor.ecore#//AND">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//AND/operand2"/>
-    </genClasses>
+    <genClasses ecoreClass="requirementsEditor.ecore#//OR"/>
+    <genClasses ecoreClass="requirementsEditor.ecore#//AND"/>
     <genClasses ecoreClass="requirementsEditor.ecore#//NOT"/>
     <genClasses ecoreClass="requirementsEditor.ecore#//Literal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//Literal/element"/>
     </genClasses>
     <genClasses image="false" ecoreClass="requirementsEditor.ecore#//Expression"/>
+    <genClasses image="false" ecoreClass="requirementsEditor.ecore#//TwoOperandsExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference requirementsEditor.ecore#//TwoOperandsExpression/operand2"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
