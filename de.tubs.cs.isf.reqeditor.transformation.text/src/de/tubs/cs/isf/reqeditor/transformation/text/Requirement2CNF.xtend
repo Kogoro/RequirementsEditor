@@ -11,18 +11,23 @@ import java.util.List
 import de.tubs.cs.isf.requirementseditor.RequirementsModel
 import java.util.HashMap
 import de.tubs.cs.isf.requirementseditor.RequirementModelElement
+import de.tubs.cs.isf.requirementseditor.RequirementsGroup
 
 class Requirement2CNF {
 	
 	val static reFactory = RequirementsEditorFactory.eINSTANCE
 	
 	def static convertToCNF(RequirementsModel model) {
-		var Expression cnf = model.elements.map[constraints].flatten.map[expression].flatten.reduce[l,r| (reFactory.createAND =>
+		val List<Expression> list = model.elements.map[collectExpressions].flatten.toList
+//		val Expression expr = model.elements.map[constraints].flatten.map[expression].flatten.reduce[l,r| (reFactory.createAND =>
+		val Expression expr = list.reduce[l,r| (reFactory.createAND =>
 			[
 				operand1 = l
 				operand2 = r
 			]) as Expression
 		]
+		
+		val Expression cnf = toCNF(expr)
 		
 		var List<Expression> clauses = newArrayList(cnf)
 		val numVars = model.elements.size
@@ -41,10 +46,15 @@ class Requirement2CNF {
 		c For Model «model.name» Version «model.version»
 		c Created by «model.creator»
 		c
-		p cnf «numVars» «clauses.size»
-		«FOR clause : clauses»
-			c «print(clause, idMapping)» 0
-		«ENDFOR»
+		«IF cnf == null»
+			c Model has no constraints
+			p cnf 0 0
+		«ELSE»
+			p cnf «numVars» «clauses.size»
+			«FOR clause : clauses»
+				c «print(clause, idMapping)» 0
+			«ENDFOR»
+		«ENDIF»
 		'''		
 	}
 	
@@ -150,7 +160,7 @@ class Requirement2CNF {
 				]
 			}
 		}
-		throw new IllegalArgumentException
+		throw new IllegalArgumentException('''Argument «expression»  not one of [Literal, AND, NOT, OR]''')
 	}
 	
 	def static private List<Expression> conjunctionTermList(AND and) {
@@ -164,6 +174,14 @@ class Requirement2CNF {
 			list.addAll(conjunctionTermList(and.operand2 as AND))
 		} else {
 			list += and.operand2
+		}
+		list
+	}
+	
+	def static private List<Expression> collectExpressions(RequirementModelElement element) {
+		var list = element.constraints.map[expression].flatten.toList
+		if (element instanceof RequirementsGroup) {
+			list += (element as RequirementsGroup).elements.map[collectExpressions]
 		}
 		list
 	}
