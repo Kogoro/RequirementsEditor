@@ -5,7 +5,6 @@ Bundle-SymbolicName: de.tubs.cs.isf.reqeditor.treeviewer;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: de.tubs.cs.isf.reqeditor;bundle-version="1.0.0",
- de.tubs.cs.isf.reqeditor.administration;bundle-version="1.0.0",
  de.tubs.cs.isf.reqeditor.edit;bundle-version="1.0.0",
  de.tubs.cs.isf.reqeditor.editor;bundle-version="1.0.0",
  de.tubs.cs.isf.reqeditor.graphiti;bundle-version="1.0.0",
