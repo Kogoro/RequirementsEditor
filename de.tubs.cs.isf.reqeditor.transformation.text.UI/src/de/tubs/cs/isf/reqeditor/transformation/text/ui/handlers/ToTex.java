@@ -14,7 +14,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
 /**
- * Handler for M2Tex, will call CreateTex.java.
+ * Handler for M2Tex, will call TeXTransformer.java.
  * 
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
@@ -32,7 +32,6 @@ public class ToTex extends AbstractHandler {
 			TeXTransformer.generate(res.getLocation());
 			showMsg(window);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
