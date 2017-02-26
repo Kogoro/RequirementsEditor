@@ -1,4 +1,4 @@
-module de.tubs.cs.isf.reqeditor.dsl.GenerateReqs
+module de.tubs.cs.isf.reqeditor.dsl.GenerateReqLanguage
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
@@ -30,8 +30,8 @@ Workflow {
 			}
 		}
 		language = StandardLanguage {
-			name = "de.tubs.cs.isf.reqeditor.dsl.Reqs"
-			fileExtensions = "reqs"
+			name = "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage"
+			fileExtensions = "reql"
 			referencedResource = "platform:/resource/de.tubs.cs.isf.reqeditor/model/requirementsEditor.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}

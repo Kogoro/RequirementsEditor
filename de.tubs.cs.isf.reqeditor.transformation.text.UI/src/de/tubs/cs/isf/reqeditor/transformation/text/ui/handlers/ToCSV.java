@@ -14,7 +14,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 
 /**
- * Handler for M2CSV, will call CreateCSV.java.
+ * Handler for M2CSV, will call CSVTransformer.java.
  * 
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
