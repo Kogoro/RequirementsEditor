@@ -85,7 +85,7 @@ public class NewModelWizard extends BasicNewResourceWizard {
 	 */
 	public boolean performFinish() {
 		// create diagram
-		Diagram diagram = Graphiti.getPeCreateService().createDiagram("reqs", "Requirement Model", true);
+		Diagram diagram = Graphiti.getPeCreateService().createDiagram("de.tubs.cs.isf.reqeditor.graphiti.diagramType", "Requirement Model", true);
 
 		RequirementsEditingDomainFactory domain = new RequirementsEditingDomainFactory();
 		

@@ -16,5 +16,7 @@ Require-Bundle: org.eclipse.graphiti;bundle-version="0.13.2",
  org.eclipse.gef;bundle-version="3.11.0",
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
- org.eclipse.swt
-Import-Package: org.eclipse.emf.transaction
+ org.eclipse.swt,
+ org.eclipse.e4.ui.dialogs;bundle-version="1.1.0"
+Import-Package: org.eclipse.emf.transaction,
+ org.eclipse.ui.dialogs

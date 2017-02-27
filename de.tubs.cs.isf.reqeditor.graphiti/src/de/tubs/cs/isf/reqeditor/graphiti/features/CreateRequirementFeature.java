@@ -8,8 +8,7 @@ import org.eclipse.graphiti.mm.pictograms.Diagram;
 import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
 import de.tubs.cs.isf.requirementseditor.Requirement;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
-import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
-import de.tubs.cs.isf.requirementseditor.util.RequirementsEditorAdapterFactory;
+import de.tubs.cs.isf.requirementseditor.RequirementsModel;
 
 public class CreateRequirementFeature extends AbstractCreateFeature {
 

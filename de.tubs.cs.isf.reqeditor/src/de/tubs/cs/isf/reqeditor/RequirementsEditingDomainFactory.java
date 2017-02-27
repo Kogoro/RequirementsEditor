@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
@@ -21,6 +25,8 @@ import org.eclipse.emf.edit.command.OverrideableCommand;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
+
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorPackage;
 import de.tubs.cs.isf.requirementseditor.RequirementsModel;
@@ -48,7 +54,10 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	}
 
 	public void saveModel() {
-		Resource res = loadResource("model.reqs");
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		IPath path = workspace.getRoot().getRawLocation().append("/MyRequirementProject/model.reqs");
+		
+		Resource res = loadResource(path.toOSString());
 		res.getContents().clear();
 		res.getContents().add(model);
 		try {

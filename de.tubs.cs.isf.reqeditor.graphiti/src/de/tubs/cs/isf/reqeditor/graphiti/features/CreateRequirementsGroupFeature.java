@@ -5,6 +5,7 @@ import org.eclipse.graphiti.features.context.ICreateContext;
 import org.eclipse.graphiti.features.impl.AbstractCreateFeature;
 import org.eclipse.graphiti.mm.pictograms.Diagram;
 
+import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
 import de.tubs.cs.isf.requirementseditor.RequirementsGroup;
 import de.tubs.cs.isf.requirementseditor.RequirementsModel;
@@ -22,10 +23,14 @@ public class CreateRequirementsGroupFeature extends AbstractCreateFeature {
 
 	@Override
 	public Object[] create(ICreateContext context) {
+		RequirementsEditingDomainFactory factory = new RequirementsEditingDomainFactory();
+		
 		RequirementsGroup requirementsGroup = RequirementsEditorFactory.eINSTANCE.createRequirementsGroup();
 		requirementsGroup.setName("NewRequirementsGroup");
 		
 		//TODO: Add to model
+		factory.getModel().getElements().add(requirementsGroup);
+		factory.saveModel();
 		
 		addGraphicalRepresentation(context, requirementsGroup);
 		
