@@ -34,9 +34,12 @@ class Requirement2CNF {
 		
 		val nnf = toNNF(expr)
 		val Expression cnf = toCNF(nnf)
+		val vars = newArrayList
+		if (expr != null) {
+			vars.addAll(cnf.literalElements)
+		}
 		
 		var List<Expression> clauses = newArrayList(cnf)
-		val vars = cnf.literalElements.toList
 		val numVars = vars.size
 		if (cnf instanceof AND) {
 			clauses = conjunctionTermList(cnf as AND)
@@ -53,13 +56,13 @@ class Requirement2CNF {
 		c For Model «model.name» Version «model.version»
 		c Created by «model.creator»
 		c
-		«IF cnf == null»
+		«IF expr == null»
 			c Model has no constraints
 			p cnf 0 0
 		«ELSE»
 			p cnf «numVars» «clauses.size»
 			«FOR clause : clauses»
-				c «print(clause, vars)» 0
+				«print(clause, vars)» 0
 			«ENDFOR»
 		«ENDIF»
 		'''		
@@ -143,7 +146,9 @@ class Requirement2CNF {
 	
 	def static private Expression toNNF(Expression expression) {
 		// recursively creates a NNF for the given Expression
-		if (expression instanceof Literal) {
+		if (expression == null) {
+			return null
+		} else if (expression instanceof Literal) {
 			return expression.detachedCopy
 		} else if (expression instanceof AND) {
 			val and = expression as AND
