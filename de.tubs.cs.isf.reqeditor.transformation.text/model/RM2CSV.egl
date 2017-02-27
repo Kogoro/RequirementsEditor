@@ -11,7 +11,7 @@ id;name;description;priority;type;attribute
 	var attributeValues = self.getAttributes();
 	var attributeInfo = "";
 	for (attributeValue in attributeValues){
-		attributeInfo += attributeValue.getValueOf().Id + ":" + attributeValue.value+";";
+		attributeInfo += attributeValue.getValueOf().name + ":" + attributeValue.value+";";
 		}
 	if (attributeInfo == ""){attributeInfo = "None";}//Need or not?
 	return attributeInfo;}		

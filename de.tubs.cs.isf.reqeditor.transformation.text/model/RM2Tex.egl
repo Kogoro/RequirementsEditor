@@ -17,7 +17,7 @@
 	var attributeValues = self.getAttributes();
 	var attributeInfo : String;
 	for (attributeValue in attributeValues){
-		attributeInfo += attributeValue.getValueOf().Id + ":" + attributeValue.value+";";
+		attributeInfo += attributeValue.getValueOf().name + ":" + attributeValue.value+";";
 		}
 	return attributeInfo;}		
 	
