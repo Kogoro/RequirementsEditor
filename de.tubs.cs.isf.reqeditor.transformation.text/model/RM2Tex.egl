@@ -7,8 +7,12 @@
 \begin{document}
 \begin{itemize}
 [% var reqs = Requirement.all;%]
+[% if (reqs.size() > 1) {%]
 [% for (req in reqs) { %]
 \item Id:[%=req.Id.adaptLatex()%]\newline Name: [%=req.name.adaptLatex()%]\newline Description: [%=req.description.adaptLatex()%]\newline Priority: [%=req->priority%]\newline Type: [%=req->type.toString().adaptLatex()%]\newline Attribute: [%=req.getAttributeInfo().adaptLatex()%]
+[%}}%]
+[%else{%]
+\item No requirement.
 [%}%]
 \end{itemize}
 \end{document}
@@ -17,7 +21,7 @@
 	var attributeValues = self.getAttributes();
 	var attributeInfo : String;
 	for (attributeValue in attributeValues){
-		attributeInfo += attributeValue.getValueOf().Id + ":" + attributeValue.value+";";
+		attributeInfo += attributeValue.getValueOf().name + ":" + attributeValue.value+";";
 		}
 	return attributeInfo;}		
 	

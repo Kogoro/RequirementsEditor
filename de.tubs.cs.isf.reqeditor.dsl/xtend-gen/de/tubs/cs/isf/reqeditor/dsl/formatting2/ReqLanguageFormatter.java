@@ -25,13 +25,13 @@ public class ReqLanguageFormatter extends AbstractFormatter2 {
   private ReqLanguageGrammarAccess _reqLanguageGrammarAccess;
   
   protected void _format(final RequirementsModel requirementsModel, @Extension final IFormattableDocument document) {
-    EList<RequirementModelElement> _elements = requirementsModel.getElements();
-    for (final RequirementModelElement requirementModelElement : _elements) {
-      document.<RequirementModelElement>format(requirementModelElement);
-    }
     EList<Attribute> _attributes = requirementsModel.getAttributes();
     for (final Attribute attribute : _attributes) {
       document.<Attribute>format(attribute);
+    }
+    EList<RequirementModelElement> _elements = requirementsModel.getElements();
+    for (final RequirementModelElement requirementModelElement : _elements) {
+      document.<RequirementModelElement>format(requirementModelElement);
     }
   }
   

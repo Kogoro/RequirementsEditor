@@ -19,11 +19,11 @@ class ReqLanguageFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(RequirementsModel requirementsModel, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (RequirementModelElement requirementModelElement : requirementsModel.getElements()) {
-			requirementModelElement.format;
-		}
 		for (Attribute attribute : requirementsModel.getAttributes()) {
 			attribute.format;
+		}
+		for (RequirementModelElement requirementModelElement : requirementsModel.getElements()) {
+			requirementModelElement.format;
 		}
 	}
 

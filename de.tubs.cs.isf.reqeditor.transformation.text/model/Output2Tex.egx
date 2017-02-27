@@ -1,5 +1,12 @@
-rule RM2CSV
-	transform RM: RequirementsModel{
+rule RM2Tex
+	transform RM: RequirementsModel{	
+	guard: RM.name <> null
 	template :"RM2Tex.egl"
 	target: "../gen/" + RM.name + ".tex"
+	}
+rule emptyRM2Tex
+	transform RM: RequirementsModel{	
+	guard: RM.name = null
+	template :"RM2Tex.egl"
+	target: "../gen/" + "unnamed" + ".tex"
 	}
