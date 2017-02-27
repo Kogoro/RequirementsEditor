@@ -35,39 +35,18 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 public class Requirement2CNF {
   private final static RequirementsEditorFactory reFactory = RequirementsEditorFactory.eINSTANCE;
   
-  public static CharSequence convertToCNF(final RequirementsModel model) {
+  public static CharSequence convertToCNFFile(final RequirementsModel model) {
     CharSequence _xblockexpression = null;
     {
-      EList<RequirementModelElement> _elements = model.getElements();
-      final Function1<RequirementModelElement, List<Expression>> _function = (RequirementModelElement it) -> {
-        return Requirement2CNF.collectExpressions(it);
-      };
-      List<List<Expression>> _map = ListExtensions.<RequirementModelElement, List<Expression>>map(_elements, _function);
-      Iterable<Expression> _flatten = Iterables.<Expression>concat(_map);
-      final List<Expression> list = IterableExtensions.<Expression>toList(_flatten);
-      System.out.println(list);
-      final Function2<Expression, Expression, Expression> _function_1 = (Expression l, Expression r) -> {
-        AND _createAND = Requirement2CNF.reFactory.createAND();
-        final Procedure1<AND> _function_2 = (AND it) -> {
-          Expression _detachedCopy = Requirement2CNF.detachedCopy(l);
-          it.setOperand1(_detachedCopy);
-          Expression _detachedCopy_1 = Requirement2CNF.detachedCopy(r);
-          it.setOperand2(_detachedCopy_1);
-        };
-        AND _doubleArrow = ObjectExtensions.<AND>operator_doubleArrow(_createAND, _function_2);
-        return ((Expression) _doubleArrow);
-      };
-      final Expression expr = IterableExtensions.<Expression>reduce(list, _function_1);
-      final Expression nnf = Requirement2CNF.toNNF(expr);
-      final Expression cnf = Requirement2CNF.toCNF(nnf);
-      List<Expression> clauses = CollectionLiterals.<Expression>newArrayList(cnf);
-      Set<RequirementModelElement> _literalElements = Requirement2CNF.literalElements(cnf);
-      final List<RequirementModelElement> vars = IterableExtensions.<RequirementModelElement>toList(_literalElements);
-      final int numVars = vars.size();
-      if ((cnf instanceof AND)) {
-        List<Expression> _conjunctionTermList = Requirement2CNF.conjunctionTermList(((AND) cnf));
-        clauses = _conjunctionTermList;
+      final Expression cnf = Requirement2CNF.convertToCNF(model);
+      List<Expression> clauses = Requirement2CNF.clausesForCNF(cnf);
+      final ArrayList<RequirementModelElement> vars = CollectionLiterals.<RequirementModelElement>newArrayList();
+      boolean _notEquals = (!Objects.equal(clauses, null));
+      if (_notEquals) {
+        Set<RequirementModelElement> _literalElements = Requirement2CNF.literalElements(cnf);
+        vars.addAll(_literalElements);
       }
+      final int numVars = vars.size();
       DateFormat _dateTimeInstance = DateFormat.getDateTimeInstance();
       Date _date = new Date();
       final String date = _dateTimeInstance.format(_date);
@@ -93,7 +72,7 @@ public class Requirement2CNF {
       _builder.append("c");
       _builder.newLine();
       {
-        boolean _equals = Objects.equal(cnf, null);
+        boolean _equals = Objects.equal(clauses, null);
         if (_equals) {
           _builder.append("c Model has no constraints");
           _builder.newLine();
@@ -108,7 +87,6 @@ public class Requirement2CNF {
           _builder.newLineIfNotEmpty();
           {
             for(final Expression clause : clauses) {
-              _builder.append("c ");
               String _print = Requirement2CNF.print(clause, vars);
               _builder.append(_print, "");
               _builder.append(" 0");
@@ -122,7 +100,53 @@ public class Requirement2CNF {
     return _xblockexpression;
   }
   
-  private static Set<RequirementModelElement> literalElements(final Expression expression) {
+  public static Expression convertToCNF(final RequirementsModel model) {
+    Expression _xblockexpression = null;
+    {
+      EList<RequirementModelElement> _elements = model.getElements();
+      final Function1<RequirementModelElement, List<Expression>> _function = (RequirementModelElement it) -> {
+        return Requirement2CNF.collectExpressions(it);
+      };
+      List<List<Expression>> _map = ListExtensions.<RequirementModelElement, List<Expression>>map(_elements, _function);
+      Iterable<Expression> _flatten = Iterables.<Expression>concat(_map);
+      final List<Expression> list = IterableExtensions.<Expression>toList(_flatten);
+      final Function2<Expression, Expression, Expression> _function_1 = (Expression l, Expression r) -> {
+        AND _createAND = Requirement2CNF.reFactory.createAND();
+        final Procedure1<AND> _function_2 = (AND it) -> {
+          Expression _detachedCopy = Requirement2CNF.detachedCopy(l);
+          it.setOperand1(_detachedCopy);
+          Expression _detachedCopy_1 = Requirement2CNF.detachedCopy(r);
+          it.setOperand2(_detachedCopy_1);
+        };
+        AND _doubleArrow = ObjectExtensions.<AND>operator_doubleArrow(_createAND, _function_2);
+        return ((Expression) _doubleArrow);
+      };
+      final Expression expr = IterableExtensions.<Expression>reduce(list, _function_1);
+      boolean _equals = Objects.equal(expr, null);
+      if (_equals) {
+        return null;
+      }
+      final Expression nnf = Requirement2CNF.toNNF(expr);
+      _xblockexpression = Requirement2CNF.toCNF(nnf);
+    }
+    return _xblockexpression;
+  }
+  
+  public static List<Expression> clausesForCNF(final Expression cnf) {
+    List<Expression> _xblockexpression = null;
+    {
+      List<Expression> clauses = CollectionLiterals.<Expression>newArrayList(cnf);
+      List<Expression> _xifexpression = null;
+      if ((cnf instanceof AND)) {
+        List<Expression> _conjunctionTermList = Requirement2CNF.conjunctionTermList(((AND) cnf));
+        _xifexpression = clauses = _conjunctionTermList;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public static Set<RequirementModelElement> literalElements(final Expression expression) {
     if ((expression instanceof Literal)) {
       RequirementModelElement _element = ((Literal)expression).getElement();
       return CollectionLiterals.<RequirementModelElement>newHashSet(_element);
@@ -259,93 +283,98 @@ public class Requirement2CNF {
   }
   
   private static Expression toNNF(final Expression expression) {
-    if ((expression instanceof Literal)) {
-      return Requirement2CNF.detachedCopy(expression);
+    boolean _equals = Objects.equal(expression, null);
+    if (_equals) {
+      return null;
     } else {
-      if ((expression instanceof AND)) {
-        final AND and = ((AND) expression);
-        AND _createAND = Requirement2CNF.reFactory.createAND();
-        final Procedure1<AND> _function = (AND it) -> {
-          Expression _operand1 = and.getOperand1();
-          Expression _nNF = Requirement2CNF.toNNF(_operand1);
-          it.setOperand1(_nNF);
-          Expression _operand2 = and.getOperand2();
-          Expression _nNF_1 = Requirement2CNF.toNNF(_operand2);
-          it.setOperand2(_nNF_1);
-        };
-        return ObjectExtensions.<AND>operator_doubleArrow(_createAND, _function);
+      if ((expression instanceof Literal)) {
+        return Requirement2CNF.detachedCopy(expression);
       } else {
-        if ((expression instanceof OR)) {
-          final OR or = ((OR) expression);
-          OR _createOR = Requirement2CNF.reFactory.createOR();
-          final Procedure1<OR> _function_1 = (OR it) -> {
-            Expression _operand1 = or.getOperand1();
+        if ((expression instanceof AND)) {
+          final AND and = ((AND) expression);
+          AND _createAND = Requirement2CNF.reFactory.createAND();
+          final Procedure1<AND> _function = (AND it) -> {
+            Expression _operand1 = and.getOperand1();
             Expression _nNF = Requirement2CNF.toNNF(_operand1);
             it.setOperand1(_nNF);
-            Expression _operand2 = or.getOperand2();
+            Expression _operand2 = and.getOperand2();
             Expression _nNF_1 = Requirement2CNF.toNNF(_operand2);
             it.setOperand2(_nNF_1);
           };
-          return ObjectExtensions.<OR>operator_doubleArrow(_createOR, _function_1);
+          return ObjectExtensions.<AND>operator_doubleArrow(_createAND, _function);
         } else {
-          if ((expression instanceof NOT)) {
-            Expression negatedExpression = ((NOT) expression).getOperand1();
-            if ((negatedExpression instanceof Literal)) {
-              return Requirement2CNF.detachedCopy(expression);
-            } else {
-              if ((negatedExpression instanceof NOT)) {
-                Expression _operand1 = ((NOT)negatedExpression).getOperand1();
-                return Requirement2CNF.toNNF(_operand1);
+          if ((expression instanceof OR)) {
+            final OR or = ((OR) expression);
+            OR _createOR = Requirement2CNF.reFactory.createOR();
+            final Procedure1<OR> _function_1 = (OR it) -> {
+              Expression _operand1 = or.getOperand1();
+              Expression _nNF = Requirement2CNF.toNNF(_operand1);
+              it.setOperand1(_nNF);
+              Expression _operand2 = or.getOperand2();
+              Expression _nNF_1 = Requirement2CNF.toNNF(_operand2);
+              it.setOperand2(_nNF_1);
+            };
+            return ObjectExtensions.<OR>operator_doubleArrow(_createOR, _function_1);
+          } else {
+            if ((expression instanceof NOT)) {
+              Expression negatedExpression = ((NOT) expression).getOperand1();
+              if ((negatedExpression instanceof Literal)) {
+                return Requirement2CNF.detachedCopy(expression);
               } else {
-                if ((negatedExpression instanceof AND)) {
-                  final AND and_1 = ((AND) negatedExpression);
-                  Expression _operand1_1 = and_1.getOperand1();
-                  final Expression op1 = Requirement2CNF.detachedCopy(_operand1_1);
-                  Expression _operand2 = and_1.getOperand2();
-                  final Expression op2 = Requirement2CNF.detachedCopy(_operand2);
-                  OR _createOR_1 = Requirement2CNF.reFactory.createOR();
-                  final Procedure1<OR> _function_2 = (OR it) -> {
-                    NOT _createNOT = Requirement2CNF.reFactory.createNOT();
-                    final Procedure1<NOT> _function_3 = (NOT it_1) -> {
-                      it_1.setOperand1(op1);
-                    };
-                    NOT _doubleArrow = ObjectExtensions.<NOT>operator_doubleArrow(_createNOT, _function_3);
-                    Expression _nNF = Requirement2CNF.toNNF(_doubleArrow);
-                    it.setOperand1(_nNF);
-                    NOT _createNOT_1 = Requirement2CNF.reFactory.createNOT();
-                    final Procedure1<NOT> _function_4 = (NOT it_1) -> {
-                      it_1.setOperand1(op2);
-                    };
-                    NOT _doubleArrow_1 = ObjectExtensions.<NOT>operator_doubleArrow(_createNOT_1, _function_4);
-                    Expression _nNF_1 = Requirement2CNF.toNNF(_doubleArrow_1);
-                    it.setOperand2(_nNF_1);
-                  };
-                  return ObjectExtensions.<OR>operator_doubleArrow(_createOR_1, _function_2);
+                if ((negatedExpression instanceof NOT)) {
+                  Expression _operand1 = ((NOT)negatedExpression).getOperand1();
+                  return Requirement2CNF.toNNF(_operand1);
                 } else {
-                  if ((negatedExpression instanceof OR)) {
-                    final OR or_1 = ((OR) negatedExpression);
-                    AND _createAND_1 = Requirement2CNF.reFactory.createAND();
-                    final Procedure1<AND> _function_3 = (AND it) -> {
+                  if ((negatedExpression instanceof AND)) {
+                    final AND and_1 = ((AND) negatedExpression);
+                    Expression _operand1_1 = and_1.getOperand1();
+                    final Expression op1 = Requirement2CNF.detachedCopy(_operand1_1);
+                    Expression _operand2 = and_1.getOperand2();
+                    final Expression op2 = Requirement2CNF.detachedCopy(_operand2);
+                    OR _createOR_1 = Requirement2CNF.reFactory.createOR();
+                    final Procedure1<OR> _function_2 = (OR it) -> {
                       NOT _createNOT = Requirement2CNF.reFactory.createNOT();
-                      final Procedure1<NOT> _function_4 = (NOT it_1) -> {
-                        Expression _operand1_2 = or_1.getOperand1();
-                        Expression _detachedCopy = Requirement2CNF.detachedCopy(_operand1_2);
-                        it_1.setOperand1(_detachedCopy);
+                      final Procedure1<NOT> _function_3 = (NOT it_1) -> {
+                        it_1.setOperand1(op1);
                       };
-                      NOT _doubleArrow = ObjectExtensions.<NOT>operator_doubleArrow(_createNOT, _function_4);
+                      NOT _doubleArrow = ObjectExtensions.<NOT>operator_doubleArrow(_createNOT, _function_3);
                       Expression _nNF = Requirement2CNF.toNNF(_doubleArrow);
                       it.setOperand1(_nNF);
                       NOT _createNOT_1 = Requirement2CNF.reFactory.createNOT();
-                      final Procedure1<NOT> _function_5 = (NOT it_1) -> {
-                        Expression _operand2_1 = or_1.getOperand2();
-                        Expression _detachedCopy = Requirement2CNF.detachedCopy(_operand2_1);
-                        it_1.setOperand1(_detachedCopy);
+                      final Procedure1<NOT> _function_4 = (NOT it_1) -> {
+                        it_1.setOperand1(op2);
                       };
-                      NOT _doubleArrow_1 = ObjectExtensions.<NOT>operator_doubleArrow(_createNOT_1, _function_5);
+                      NOT _doubleArrow_1 = ObjectExtensions.<NOT>operator_doubleArrow(_createNOT_1, _function_4);
                       Expression _nNF_1 = Requirement2CNF.toNNF(_doubleArrow_1);
                       it.setOperand2(_nNF_1);
                     };
-                    return ObjectExtensions.<AND>operator_doubleArrow(_createAND_1, _function_3);
+                    return ObjectExtensions.<OR>operator_doubleArrow(_createOR_1, _function_2);
+                  } else {
+                    if ((negatedExpression instanceof OR)) {
+                      final OR or_1 = ((OR) negatedExpression);
+                      AND _createAND_1 = Requirement2CNF.reFactory.createAND();
+                      final Procedure1<AND> _function_3 = (AND it) -> {
+                        NOT _createNOT = Requirement2CNF.reFactory.createNOT();
+                        final Procedure1<NOT> _function_4 = (NOT it_1) -> {
+                          Expression _operand1_2 = or_1.getOperand1();
+                          Expression _detachedCopy = Requirement2CNF.detachedCopy(_operand1_2);
+                          it_1.setOperand1(_detachedCopy);
+                        };
+                        NOT _doubleArrow = ObjectExtensions.<NOT>operator_doubleArrow(_createNOT, _function_4);
+                        Expression _nNF = Requirement2CNF.toNNF(_doubleArrow);
+                        it.setOperand1(_nNF);
+                        NOT _createNOT_1 = Requirement2CNF.reFactory.createNOT();
+                        final Procedure1<NOT> _function_5 = (NOT it_1) -> {
+                          Expression _operand2_1 = or_1.getOperand2();
+                          Expression _detachedCopy = Requirement2CNF.detachedCopy(_operand2_1);
+                          it_1.setOperand1(_detachedCopy);
+                        };
+                        NOT _doubleArrow_1 = ObjectExtensions.<NOT>operator_doubleArrow(_createNOT_1, _function_5);
+                        Expression _nNF_1 = Requirement2CNF.toNNF(_doubleArrow_1);
+                        it.setOperand2(_nNF_1);
+                      };
+                      return ObjectExtensions.<AND>operator_doubleArrow(_createAND_1, _function_3);
+                    }
                   }
                 }
               }

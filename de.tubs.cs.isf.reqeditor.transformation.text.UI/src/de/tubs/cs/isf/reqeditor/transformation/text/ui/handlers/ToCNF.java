@@ -49,13 +49,11 @@ public class ToCNF extends AbstractHandler {
 				rfReg.getExtensionToFactoryMap().put("reqs", new XMIResourceFactoryImpl());
 				
 				ResourceSet rs = new ResourceSetImpl();
-//				System.out.println(""+file.getLocationURI()+"\n"+file.getRawLocationURI());
-//				Resource r = rs.getResource(URI.createFileURI((file.getRawLocationURI()).toString()), true);
 				Resource r = rs.getResource(URI.createFileURI((file.getLocation()).toString()), true);
 				
 				RequirementsModel model = (RequirementsModel) r.getContents().get(0);
 				
-				CharSequence cnf = Requirement2CNF.convertToCNF(model);
+				CharSequence cnf = Requirement2CNF.convertToCNFFile(model);
 				
 				org.eclipse.ui.dialogs.SaveAsDialog dialog = new SaveAsDialog(window.getShell());
 				dialog.setTitle("To DIMACS CNF format");

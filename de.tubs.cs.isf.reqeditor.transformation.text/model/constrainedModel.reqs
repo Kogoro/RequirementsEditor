@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RequirementsEditor:RequirementsModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RequirementsEditor="http://www.isf.cs.tu-bs.de/reqeditor" name="ConstrainedModel" creator="Me" version="0.0.0.idc.4.Fününüh">
+  <elements xsi:type="RequirementsEditor:RequirementsGroup" name="A">
+    <constraints name="AorB">
+      <expression xsi:type="RequirementsEditor:NOT">
+        <operand1 xsi:type="RequirementsEditor:AND">
+          <operand1 xsi:type="RequirementsEditor:Literal" element="//@elements.0"/>
+          <operand2 xsi:type="RequirementsEditor:Literal" element="//@elements.1"/>
+        </operand1>
+      </expression>
+    </constraints>
+    <elements xsi:type="RequirementsEditor:Requirement" name="a">
+      <constraints>
+        <expression xsi:type="RequirementsEditor:OR">
+          <operand1 xsi:type="RequirementsEditor:NOT">
+            <operand1 xsi:type="RequirementsEditor:Literal" element="//@elements.0/@elements.0"/>
+          </operand1>
+          <operand2 xsi:type="RequirementsEditor:Literal" element="//@elements.0/@elements.1/@elements.0"/>
+        </expression>
+      </constraints>
+    </elements>
+    <elements xsi:type="RequirementsEditor:RequirementsGroup" name="A_1">
+      <elements xsi:type="RequirementsEditor:Requirement" name="a1"/>
+    </elements>
+  </elements>
+  <elements xsi:type="RequirementsEditor:RequirementsGroup" name="B">
+    <elements xsi:type="RequirementsEditor:Requirement" name="b"/>
+  </elements>
+</RequirementsEditor:RequirementsModel>
