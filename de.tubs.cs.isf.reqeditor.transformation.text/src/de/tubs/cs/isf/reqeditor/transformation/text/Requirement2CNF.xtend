@@ -9,41 +9,26 @@ import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory
 import java.util.ArrayList
 import java.util.List
 import de.tubs.cs.isf.requirementseditor.RequirementsModel
-import java.util.HashMap
 import de.tubs.cs.isf.requirementseditor.RequirementModelElement
 import de.tubs.cs.isf.requirementseditor.RequirementsGroup
 import de.tubs.cs.isf.requirementseditor.NestableExpression
 import de.tubs.cs.isf.requirementseditor.TwoOperandsExpression
-import java.util.Map
 import java.util.Set
 
 class Requirement2CNF {
 	
 	val static reFactory = RequirementsEditorFactory.eINSTANCE
 	
-	def static convertToCNF(RequirementsModel model) {
-		val List<Expression> list = model.elements.map[collectExpressions].flatten.toList
-		System.out.println(list)
-		//val Expression expr = model.elements.map[constraints].flatten.map[expression].flatten.reduce[l,r| (reFactory.createAND =>
-		val Expression expr = list.reduce[Expression l, Expression r| (reFactory.createAND => 
-			[
-				operand1 = l.detachedCopy
-				operand2 = r.detachedCopy
-			]) as Expression
-		]
+	def static convertToCNFFile(RequirementsModel model) {
+		val cnf = convertToCNF(model)
 		
-		val nnf = toNNF(expr)
-		val Expression cnf = toCNF(nnf)
+		var clauses = clausesForCNF(cnf)
+		
 		val vars = newArrayList
-		if (expr != null) {
+		if (clauses != null) {
 			vars.addAll(cnf.literalElements)
 		}
-		
-		var List<Expression> clauses = newArrayList(cnf)
 		val numVars = vars.size
-		if (cnf instanceof AND) {
-			clauses = conjunctionTermList(cnf as AND)
-		}
 		
 		//val Map<RequirementModelElement, Integer> idMapping = newHashMap()
 		
@@ -56,7 +41,7 @@ class Requirement2CNF {
 		c For Model «model.name» Version «model.version»
 		c Created by «model.creator»
 		c
-		«IF expr == null»
+		«IF clauses == null»
 			c Model has no constraints
 			p cnf 0 0
 		«ELSE»
@@ -68,7 +53,33 @@ class Requirement2CNF {
 		'''		
 	}
 	
-	def static private Set<RequirementModelElement> literalElements(Expression expression) {
+	def static Expression convertToCNF(RequirementsModel model) {
+		val List<Expression> list = model.elements.map[collectExpressions].flatten.toList
+		//System.out.println(list)
+		//val Expression expr = model.elements.map[constraints].flatten.map[expression].flatten.reduce[l,r| (reFactory.createAND =>
+		val Expression expr = list.reduce[Expression l, Expression r| (reFactory.createAND => 
+			[
+				operand1 = l.detachedCopy
+				operand2 = r.detachedCopy
+			]) as Expression
+		]
+		
+		if (expr == null) {
+			return null
+		}
+		
+		val nnf = toNNF(expr)
+		toCNF(nnf)
+	}
+	
+	def static List<Expression> clausesForCNF(Expression cnf) {
+		var List<Expression> clauses = newArrayList(cnf)
+		if (cnf instanceof AND) {
+			clauses = conjunctionTermList(cnf as AND)
+		}
+	}
+	
+	def static Set<RequirementModelElement> literalElements(Expression expression) {
 		if (expression instanceof Literal) {
 			return newHashSet(expression.element)
 		} else if (expression instanceof NestableExpression) {

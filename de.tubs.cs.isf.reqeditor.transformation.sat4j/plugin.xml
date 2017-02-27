@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.tubs.cs.isf.reqeditor.transformation.sat4j.ui.handler.VerifyRequirementModel"
+            commandId="de.tubs.cs.isf.reqeditor.transformation.sat4j.command.verify">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="de.tubs.cs.isf.reqeditor.transformation.sat4j.catVerify"
+            name="Verify Constraints">
+      </category>
+      <command
+            categoryId="de.tubs.cs.isf.reqeditor.transformation.sat4j.catVerify"
+            id="de.tubs.cs.isf.reqeditor.transformation.sat4j.command.verify"
+            name="Sat4J">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               id="de.tubs.cs.isf.reqeditor.transformation.sat4j.ui.menus.verify"
+               label="Verify Constraints">
+            <command
+                  commandId="de.tubs.cs.isf.reqeditor.transformation.sat4j.command.verify"
+                  id="de.tubs.cs.isf.reqeditor.transformation.sat4j.ui.menus.verify.sat4j"
+                  label="Sat4J"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -35,43 +35,18 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 public class Requirement2CNF {
   private final static RequirementsEditorFactory reFactory = RequirementsEditorFactory.eINSTANCE;
   
-  public static CharSequence convertToCNF(final RequirementsModel model) {
+  public static CharSequence convertToCNFFile(final RequirementsModel model) {
     CharSequence _xblockexpression = null;
     {
-      EList<RequirementModelElement> _elements = model.getElements();
-      final Function1<RequirementModelElement, List<Expression>> _function = (RequirementModelElement it) -> {
-        return Requirement2CNF.collectExpressions(it);
-      };
-      List<List<Expression>> _map = ListExtensions.<RequirementModelElement, List<Expression>>map(_elements, _function);
-      Iterable<Expression> _flatten = Iterables.<Expression>concat(_map);
-      final List<Expression> list = IterableExtensions.<Expression>toList(_flatten);
-      System.out.println(list);
-      final Function2<Expression, Expression, Expression> _function_1 = (Expression l, Expression r) -> {
-        AND _createAND = Requirement2CNF.reFactory.createAND();
-        final Procedure1<AND> _function_2 = (AND it) -> {
-          Expression _detachedCopy = Requirement2CNF.detachedCopy(l);
-          it.setOperand1(_detachedCopy);
-          Expression _detachedCopy_1 = Requirement2CNF.detachedCopy(r);
-          it.setOperand2(_detachedCopy_1);
-        };
-        AND _doubleArrow = ObjectExtensions.<AND>operator_doubleArrow(_createAND, _function_2);
-        return ((Expression) _doubleArrow);
-      };
-      final Expression expr = IterableExtensions.<Expression>reduce(list, _function_1);
-      final Expression nnf = Requirement2CNF.toNNF(expr);
-      final Expression cnf = Requirement2CNF.toCNF(nnf);
+      final Expression cnf = Requirement2CNF.convertToCNF(model);
+      List<Expression> clauses = Requirement2CNF.clausesForCNF(cnf);
       final ArrayList<RequirementModelElement> vars = CollectionLiterals.<RequirementModelElement>newArrayList();
-      boolean _notEquals = (!Objects.equal(expr, null));
+      boolean _notEquals = (!Objects.equal(clauses, null));
       if (_notEquals) {
         Set<RequirementModelElement> _literalElements = Requirement2CNF.literalElements(cnf);
         vars.addAll(_literalElements);
       }
-      List<Expression> clauses = CollectionLiterals.<Expression>newArrayList(cnf);
       final int numVars = vars.size();
-      if ((cnf instanceof AND)) {
-        List<Expression> _conjunctionTermList = Requirement2CNF.conjunctionTermList(((AND) cnf));
-        clauses = _conjunctionTermList;
-      }
       DateFormat _dateTimeInstance = DateFormat.getDateTimeInstance();
       Date _date = new Date();
       final String date = _dateTimeInstance.format(_date);
@@ -97,7 +72,7 @@ public class Requirement2CNF {
       _builder.append("c");
       _builder.newLine();
       {
-        boolean _equals = Objects.equal(expr, null);
+        boolean _equals = Objects.equal(clauses, null);
         if (_equals) {
           _builder.append("c Model has no constraints");
           _builder.newLine();
@@ -125,7 +100,53 @@ public class Requirement2CNF {
     return _xblockexpression;
   }
   
-  private static Set<RequirementModelElement> literalElements(final Expression expression) {
+  public static Expression convertToCNF(final RequirementsModel model) {
+    Expression _xblockexpression = null;
+    {
+      EList<RequirementModelElement> _elements = model.getElements();
+      final Function1<RequirementModelElement, List<Expression>> _function = (RequirementModelElement it) -> {
+        return Requirement2CNF.collectExpressions(it);
+      };
+      List<List<Expression>> _map = ListExtensions.<RequirementModelElement, List<Expression>>map(_elements, _function);
+      Iterable<Expression> _flatten = Iterables.<Expression>concat(_map);
+      final List<Expression> list = IterableExtensions.<Expression>toList(_flatten);
+      final Function2<Expression, Expression, Expression> _function_1 = (Expression l, Expression r) -> {
+        AND _createAND = Requirement2CNF.reFactory.createAND();
+        final Procedure1<AND> _function_2 = (AND it) -> {
+          Expression _detachedCopy = Requirement2CNF.detachedCopy(l);
+          it.setOperand1(_detachedCopy);
+          Expression _detachedCopy_1 = Requirement2CNF.detachedCopy(r);
+          it.setOperand2(_detachedCopy_1);
+        };
+        AND _doubleArrow = ObjectExtensions.<AND>operator_doubleArrow(_createAND, _function_2);
+        return ((Expression) _doubleArrow);
+      };
+      final Expression expr = IterableExtensions.<Expression>reduce(list, _function_1);
+      boolean _equals = Objects.equal(expr, null);
+      if (_equals) {
+        return null;
+      }
+      final Expression nnf = Requirement2CNF.toNNF(expr);
+      _xblockexpression = Requirement2CNF.toCNF(nnf);
+    }
+    return _xblockexpression;
+  }
+  
+  public static List<Expression> clausesForCNF(final Expression cnf) {
+    List<Expression> _xblockexpression = null;
+    {
+      List<Expression> clauses = CollectionLiterals.<Expression>newArrayList(cnf);
+      List<Expression> _xifexpression = null;
+      if ((cnf instanceof AND)) {
+        List<Expression> _conjunctionTermList = Requirement2CNF.conjunctionTermList(((AND) cnf));
+        _xifexpression = clauses = _conjunctionTermList;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public static Set<RequirementModelElement> literalElements(final Expression expression) {
     if ((expression instanceof Literal)) {
       RequirementModelElement _element = ((Literal)expression).getElement();
       return CollectionLiterals.<RequirementModelElement>newHashSet(_element);
