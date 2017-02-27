@@ -1,10 +1,15 @@
 [%//Output is CSV:%]
 [%//Formate: id, name, description, priority, type, attribute%]
 [%//TODO: Discuss if " is necessary for description and attribute%]
+[% var reqs  = Requirement.all; %]
+[%//when requirement exist%]
+[% if (reqs.size() > 1) {%]
 id;name;description;priority;type;attribute
-[% var reqs  = Requirement.allInstances(); %]
 [% for (req in reqs) {%]
 [%=req.Id%];[%=req.name%];"[%=req.description%]";[%=req.priority%];[%=req->type%];"[%=req.getAttributeInfo()%]"
+[%}}%]
+[%else {%]
+No requirement.
 [%}%]
 [%//See Output2Files.egl for final output%]
 [% operation Requirement getAttributeInfo(): String{
@@ -16,3 +21,7 @@ id;name;description;priority;type;attribute
 	if (attributeInfo == ""){attributeInfo = "None";}//Need or not?
 	return attributeInfo;}		
 %]
+[% operation String format():String{
+	if(self.length()>0){return self;}
+	else {return "None";}
+}%]
