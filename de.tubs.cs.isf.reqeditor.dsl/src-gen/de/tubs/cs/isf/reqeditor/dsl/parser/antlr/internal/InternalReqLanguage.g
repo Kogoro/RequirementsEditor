@@ -426,17 +426,17 @@ ruleAttribute returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAttributeAccess().getIdEStringParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getAttributeAccess().getNameEStringParserRuleCall_2_0());
 				}
-				lv_id_2_0=ruleEString
+				lv_name_2_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAttributeRule());
 					}
 					set(
 						$current,
-						"id",
-						lv_id_2_0,
+						"name",
+						lv_name_2_0,
 						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
 					afterParserOrEnumRuleCall();
 				}

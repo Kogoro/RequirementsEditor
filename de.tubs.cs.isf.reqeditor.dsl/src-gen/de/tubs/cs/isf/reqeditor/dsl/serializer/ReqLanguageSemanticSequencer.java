@@ -115,15 +115,15 @@ public class ReqLanguageSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     id=EString
+	 *     name=EString
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RequirementsEditorPackage.Literals.ATTRIBUTE__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RequirementsEditorPackage.Literals.ATTRIBUTE__ID));
+			if (transientValues.isValueTransient(semanticObject, RequirementsEditorPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RequirementsEditorPackage.Literals.ATTRIBUTE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeAccess().getIdEStringParserRuleCall_2_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getAttributeAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

@@ -28,7 +28,8 @@ EString returns ecore::EString:
 Attribute returns Attribute:
 	{Attribute}
 	'attribute'
-	id=EString
+	name=EString
+	
 	;
 
 Constraint returns Constraint:

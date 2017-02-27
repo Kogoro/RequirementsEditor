@@ -1064,23 +1064,23 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttribute"
-    // InternalReqLanguage.g:407:1: ruleAttribute returns [EObject current=null] : ( () otherlv_1= 'attribute' ( (lv_id_2_0= ruleEString ) ) ) ;
+    // InternalReqLanguage.g:407:1: ruleAttribute returns [EObject current=null] : ( () otherlv_1= 'attribute' ( (lv_name_2_0= ruleEString ) ) ) ;
     public final EObject ruleAttribute() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
-        AntlrDatatypeRuleToken lv_id_2_0 = null;
+        AntlrDatatypeRuleToken lv_name_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalReqLanguage.g:413:2: ( ( () otherlv_1= 'attribute' ( (lv_id_2_0= ruleEString ) ) ) )
-            // InternalReqLanguage.g:414:2: ( () otherlv_1= 'attribute' ( (lv_id_2_0= ruleEString ) ) )
+            // InternalReqLanguage.g:413:2: ( ( () otherlv_1= 'attribute' ( (lv_name_2_0= ruleEString ) ) ) )
+            // InternalReqLanguage.g:414:2: ( () otherlv_1= 'attribute' ( (lv_name_2_0= ruleEString ) ) )
             {
-            // InternalReqLanguage.g:414:2: ( () otherlv_1= 'attribute' ( (lv_id_2_0= ruleEString ) ) )
-            // InternalReqLanguage.g:415:3: () otherlv_1= 'attribute' ( (lv_id_2_0= ruleEString ) )
+            // InternalReqLanguage.g:414:2: ( () otherlv_1= 'attribute' ( (lv_name_2_0= ruleEString ) ) )
+            // InternalReqLanguage.g:415:3: () otherlv_1= 'attribute' ( (lv_name_2_0= ruleEString ) )
             {
             // InternalReqLanguage.g:415:3: ()
             // InternalReqLanguage.g:416:4: 
@@ -1097,17 +1097,17 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getAttributeAccess().getAttributeKeyword_1());
             		
-            // InternalReqLanguage.g:426:3: ( (lv_id_2_0= ruleEString ) )
-            // InternalReqLanguage.g:427:4: (lv_id_2_0= ruleEString )
+            // InternalReqLanguage.g:426:3: ( (lv_name_2_0= ruleEString ) )
+            // InternalReqLanguage.g:427:4: (lv_name_2_0= ruleEString )
             {
-            // InternalReqLanguage.g:427:4: (lv_id_2_0= ruleEString )
-            // InternalReqLanguage.g:428:5: lv_id_2_0= ruleEString
+            // InternalReqLanguage.g:427:4: (lv_name_2_0= ruleEString )
+            // InternalReqLanguage.g:428:5: lv_name_2_0= ruleEString
             {
 
-            					newCompositeNode(grammarAccess.getAttributeAccess().getIdEStringParserRuleCall_2_0());
+            					newCompositeNode(grammarAccess.getAttributeAccess().getNameEStringParserRuleCall_2_0());
             				
             pushFollow(FOLLOW_2);
-            lv_id_2_0=ruleEString();
+            lv_name_2_0=ruleEString();
 
             state._fsp--;
 
@@ -1117,8 +1117,8 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
             					}
             					set(
             						current,
-            						"id",
-            						lv_id_2_0,
+            						"name",
+            						lv_name_2_0,
             						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
             					afterParserOrEnumRuleCall();
             				

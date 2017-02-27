@@ -238,16 +238,16 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAttributeAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cAttributeKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cIdEStringParserRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//Attribute:
 		//	{Attribute}
 		//	'attribute'
-		//	id=EString;
+		//	name=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Attribute} 'attribute' id=EString
+		//{Attribute} 'attribute' name=EString
 		public Group getGroup() { return cGroup; }
 		
 		//{Attribute}
@@ -256,11 +256,11 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//'attribute'
 		public Keyword getAttributeKeyword_1() { return cAttributeKeyword_1; }
 		
-		//id=EString
-		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
+		//name=EString
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//EString
-		public RuleCall getIdEStringParserRuleCall_2_0() { return cIdEStringParserRuleCall_2_0; }
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 	}
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Constraint");
@@ -1071,7 +1071,7 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	//Attribute:
 	//	{Attribute}
 	//	'attribute'
-	//	id=EString;
+	//	name=EString;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
