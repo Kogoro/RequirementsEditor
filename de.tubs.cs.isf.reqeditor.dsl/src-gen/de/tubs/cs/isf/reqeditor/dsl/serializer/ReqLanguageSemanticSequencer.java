@@ -103,7 +103,7 @@ public class ReqLanguageSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     AttributeValue returns AttributeValue
 	 *
 	 * Constraint:
-	 *     (value=EString? valueOf=[Attribute|EString]?)
+	 *     (value=EString? valueOf=[Attribute|EString])
 	 */
 	protected void sequence_AttributeValue(ISerializationContext context, AttributeValue semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -115,10 +115,16 @@ public class ReqLanguageSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     id=EString?
+	 *     id=EString
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RequirementsEditorPackage.Literals.ATTRIBUTE__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RequirementsEditorPackage.Literals.ATTRIBUTE__ID));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAttributeAccess().getIdEStringParserRuleCall_2_0(), semanticObject.getId());
+		feeder.finish();
 	}
 	
 	
@@ -167,7 +173,7 @@ public class ReqLanguageSemanticSequencer extends AbstractDelegatingSemanticSequ
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RequirementsEditorPackage.Literals.NESTABLE_EXPRESSION__OPERAND1));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNOTAccess().getOperand1ExpressionParserRuleCall_3_0(), semanticObject.getOperand1());
+		feeder.accept(grammarAccess.getNOTAccess().getOperand1ExpressionParserRuleCall_2_0(), semanticObject.getOperand1());
 		feeder.finish();
 	}
 	
@@ -202,10 +208,10 @@ public class ReqLanguageSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         id=EString? 
+	 *         id=EString 
 	 *         description=EString? 
-	 *         type=RequirementType? 
-	 *         priority=RequirementPriority? 
+	 *         type=RequirementType 
+	 *         priority=RequirementPriority 
 	 *         (constraints+=Constraint constraints+=Constraint*)? 
 	 *         (attributes+=AttributeValue attributes+=AttributeValue*)?
 	 *     )
@@ -223,7 +229,7 @@ public class ReqLanguageSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         id=EString? 
+	 *         id=EString 
 	 *         description=EString? 
 	 *         (constraints+=Constraint constraints+=Constraint*)? 
 	 *         (elements+=RequirementModelElement elements+=RequirementModelElement*)?
@@ -243,8 +249,8 @@ public class ReqLanguageSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         name=EString 
 	 *         creator=EString? 
 	 *         version=EString? 
-	 *         (elements+=RequirementModelElement elements+=RequirementModelElement*)? 
-	 *         (attributes+=Attribute attributes+=Attribute*)?
+	 *         (attributes+=Attribute attributes+=Attribute*)? 
+	 *         (elements+=RequirementModelElement elements+=RequirementModelElement*)?
 	 *     )
 	 */
 	protected void sequence_RequirementsModel(ISerializationContext context, RequirementsModel semanticObject) {

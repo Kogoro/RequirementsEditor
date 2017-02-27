@@ -31,154 +31,142 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.RequirementsModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRequirementsModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cNewKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cRequirementsModelKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cRequirementsModelKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCreatedKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cByKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cCreatorAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cCreatorEStringParserRuleCall_3_2_0 = (RuleCall)cCreatorAssignment_3_2.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cCreatedKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cByKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cCreatorAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cCreatorEStringParserRuleCall_4_2_0 = (RuleCall)cCreatorAssignment_4_2.eContents().get(0);
+		private final Keyword cVersionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cVersionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cVersionEStringParserRuleCall_4_1_0 = (RuleCall)cVersionAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cVersionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cVersionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cVersionEStringParserRuleCall_5_1_0 = (RuleCall)cVersionAssignment_5_1.eContents().get(0);
+		private final Keyword cAttributesKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cAreKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Assignment cAttributesAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cAttributesAttributeParserRuleCall_5_3_0 = (RuleCall)cAttributesAssignment_5_3.eContents().get(0);
+		private final Group cGroup_5_4 = (Group)cGroup_5.eContents().get(4);
+		private final Keyword cCommaKeyword_5_4_0 = (Keyword)cGroup_5_4.eContents().get(0);
+		private final Assignment cAttributesAssignment_5_4_1 = (Assignment)cGroup_5_4.eContents().get(1);
+		private final RuleCall cAttributesAttributeParserRuleCall_5_4_1_0 = (RuleCall)cAttributesAssignment_5_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5_5 = (Keyword)cGroup_5.eContents().get(5);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cElementsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cElementsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cElementsRequirementModelElementParserRuleCall_6_2_0 = (RuleCall)cElementsAssignment_6_2.eContents().get(0);
-		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
-		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cElementsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cElementsRequirementModelElementParserRuleCall_6_3_1_0 = (RuleCall)cElementsAssignment_6_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cAttributesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cAttributesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cAttributesAttributeParserRuleCall_7_2_0 = (RuleCall)cAttributesAssignment_7_2.eContents().get(0);
-		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
-		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
-		private final Assignment cAttributesAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
-		private final RuleCall cAttributesAttributeParserRuleCall_7_3_1_0 = (RuleCall)cAttributesAssignment_7_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Assignment cElementsAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cElementsRequirementModelElementParserRuleCall_6_0_0 = (RuleCall)cElementsAssignment_6_0.eContents().get(0);
+		private final Group cGroup_6_1 = (Group)cGroup_6.eContents().get(1);
+		private final Keyword cCommaKeyword_6_1_0 = (Keyword)cGroup_6_1.eContents().get(0);
+		private final Assignment cElementsAssignment_6_1_1 = (Assignment)cGroup_6_1.eContents().get(1);
+		private final RuleCall cElementsRequirementModelElementParserRuleCall_6_1_1_0 = (RuleCall)cElementsAssignment_6_1_1.eContents().get(0);
 		
 		//RequirementsModel:
 		//	{RequirementsModel}
-		//	'new' 'RequirementsModel'
-		//	name=EString ('created' 'by' creator=EString)? ('version' version=EString)? ('elements' '{'
-		//	elements+=RequirementModelElement ("," elements+=RequirementModelElement)* '}')? ('attributes' '{'
-		//	attributes+=Attribute ("," attributes+=Attribute)* '}')?;
+		//	'requirementsModel'
+		//	name=EString ('created' 'by' creator=EString)? ('version' version=EString)? ('attributes' 'are' '{'
+		//	attributes+=Attribute ("," attributes+=Attribute)* '}')? (elements+=RequirementModelElement (","
+		//	elements+=RequirementModelElement)*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RequirementsModel} 'new' 'RequirementsModel' name=EString ('created' 'by' creator=EString)? ('version'
-		//version=EString)? ('elements' '{' elements+=RequirementModelElement ("," elements+=RequirementModelElement)* '}')?
-		//('attributes' '{' attributes+=Attribute ("," attributes+=Attribute)* '}')?
+		//{RequirementsModel} 'requirementsModel' name=EString ('created' 'by' creator=EString)? ('version' version=EString)?
+		//('attributes' 'are' '{' attributes+=Attribute ("," attributes+=Attribute)* '}')? (elements+=RequirementModelElement
+		//("," elements+=RequirementModelElement)*)?
 		public Group getGroup() { return cGroup; }
 		
 		//{RequirementsModel}
 		public Action getRequirementsModelAction_0() { return cRequirementsModelAction_0; }
 		
-		//'new'
-		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
-		
-		//'RequirementsModel'
-		public Keyword getRequirementsModelKeyword_2() { return cRequirementsModelKeyword_2; }
+		//'requirementsModel'
+		public Keyword getRequirementsModelKeyword_1() { return cRequirementsModelKeyword_1; }
 		
 		//name=EString
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 		
 		//('created' 'by' creator=EString)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'created'
-		public Keyword getCreatedKeyword_4_0() { return cCreatedKeyword_4_0; }
+		public Keyword getCreatedKeyword_3_0() { return cCreatedKeyword_3_0; }
 		
 		//'by'
-		public Keyword getByKeyword_4_1() { return cByKeyword_4_1; }
+		public Keyword getByKeyword_3_1() { return cByKeyword_3_1; }
 		
 		//creator=EString
-		public Assignment getCreatorAssignment_4_2() { return cCreatorAssignment_4_2; }
+		public Assignment getCreatorAssignment_3_2() { return cCreatorAssignment_3_2; }
 		
 		//EString
-		public RuleCall getCreatorEStringParserRuleCall_4_2_0() { return cCreatorEStringParserRuleCall_4_2_0; }
+		public RuleCall getCreatorEStringParserRuleCall_3_2_0() { return cCreatorEStringParserRuleCall_3_2_0; }
 		
 		//('version' version=EString)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//'version'
-		public Keyword getVersionKeyword_5_0() { return cVersionKeyword_5_0; }
+		public Keyword getVersionKeyword_4_0() { return cVersionKeyword_4_0; }
 		
 		//version=EString
-		public Assignment getVersionAssignment_5_1() { return cVersionAssignment_5_1; }
+		public Assignment getVersionAssignment_4_1() { return cVersionAssignment_4_1; }
 		
 		//EString
-		public RuleCall getVersionEStringParserRuleCall_5_1_0() { return cVersionEStringParserRuleCall_5_1_0; }
+		public RuleCall getVersionEStringParserRuleCall_4_1_0() { return cVersionEStringParserRuleCall_4_1_0; }
 		
-		//('elements' '{' elements+=RequirementModelElement ("," elements+=RequirementModelElement)* '}')?
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'elements'
-		public Keyword getElementsKeyword_6_0() { return cElementsKeyword_6_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
-		
-		//elements+=RequirementModelElement
-		public Assignment getElementsAssignment_6_2() { return cElementsAssignment_6_2; }
-		
-		//RequirementModelElement
-		public RuleCall getElementsRequirementModelElementParserRuleCall_6_2_0() { return cElementsRequirementModelElementParserRuleCall_6_2_0; }
-		
-		//("," elements+=RequirementModelElement)*
-		public Group getGroup_6_3() { return cGroup_6_3; }
-		
-		//","
-		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
-		
-		//elements+=RequirementModelElement
-		public Assignment getElementsAssignment_6_3_1() { return cElementsAssignment_6_3_1; }
-		
-		//RequirementModelElement
-		public RuleCall getElementsRequirementModelElementParserRuleCall_6_3_1_0() { return cElementsRequirementModelElementParserRuleCall_6_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
-		
-		//('attributes' '{' attributes+=Attribute ("," attributes+=Attribute)* '}')?
-		public Group getGroup_7() { return cGroup_7; }
+		//('attributes' 'are' '{' attributes+=Attribute ("," attributes+=Attribute)* '}')?
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//'attributes'
-		public Keyword getAttributesKeyword_7_0() { return cAttributesKeyword_7_0; }
+		public Keyword getAttributesKeyword_5_0() { return cAttributesKeyword_5_0; }
+		
+		//'are'
+		public Keyword getAreKeyword_5_1() { return cAreKeyword_5_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
+		public Keyword getLeftCurlyBracketKeyword_5_2() { return cLeftCurlyBracketKeyword_5_2; }
 		
 		//attributes+=Attribute
-		public Assignment getAttributesAssignment_7_2() { return cAttributesAssignment_7_2; }
+		public Assignment getAttributesAssignment_5_3() { return cAttributesAssignment_5_3; }
 		
 		//Attribute
-		public RuleCall getAttributesAttributeParserRuleCall_7_2_0() { return cAttributesAttributeParserRuleCall_7_2_0; }
+		public RuleCall getAttributesAttributeParserRuleCall_5_3_0() { return cAttributesAttributeParserRuleCall_5_3_0; }
 		
 		//("," attributes+=Attribute)*
-		public Group getGroup_7_3() { return cGroup_7_3; }
+		public Group getGroup_5_4() { return cGroup_5_4; }
 		
 		//","
-		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
+		public Keyword getCommaKeyword_5_4_0() { return cCommaKeyword_5_4_0; }
 		
 		//attributes+=Attribute
-		public Assignment getAttributesAssignment_7_3_1() { return cAttributesAssignment_7_3_1; }
+		public Assignment getAttributesAssignment_5_4_1() { return cAttributesAssignment_5_4_1; }
 		
 		//Attribute
-		public RuleCall getAttributesAttributeParserRuleCall_7_3_1_0() { return cAttributesAttributeParserRuleCall_7_3_1_0; }
+		public RuleCall getAttributesAttributeParserRuleCall_5_4_1_0() { return cAttributesAttributeParserRuleCall_5_4_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
+		public Keyword getRightCurlyBracketKeyword_5_5() { return cRightCurlyBracketKeyword_5_5; }
+		
+		//(elements+=RequirementModelElement ("," elements+=RequirementModelElement)*)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//elements+=RequirementModelElement
+		public Assignment getElementsAssignment_6_0() { return cElementsAssignment_6_0; }
+		
+		//RequirementModelElement
+		public RuleCall getElementsRequirementModelElementParserRuleCall_6_0_0() { return cElementsRequirementModelElementParserRuleCall_6_0_0; }
+		
+		//("," elements+=RequirementModelElement)*
+		public Group getGroup_6_1() { return cGroup_6_1; }
+		
+		//","
+		public Keyword getCommaKeyword_6_1_0() { return cCommaKeyword_6_1_0; }
+		
+		//elements+=RequirementModelElement
+		public Assignment getElementsAssignment_6_1_1() { return cElementsAssignment_6_1_1; }
+		
+		//RequirementModelElement
+		public RuleCall getElementsRequirementModelElementParserRuleCall_6_1_1_0() { return cElementsRequirementModelElementParserRuleCall_6_1_1_0; }
 	}
 	public class RequirementModelElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.RequirementModelElement");
@@ -249,41 +237,30 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Attribute");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAttributeAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cNewKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cAttributeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cIdKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cIdAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cIdEStringParserRuleCall_3_1_0 = (RuleCall)cIdAssignment_3_1.eContents().get(0);
+		private final Keyword cAttributeKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIdEStringParserRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
 		
 		//Attribute:
 		//	{Attribute}
-		//	'new' 'Attribute' ('id' id=EString)?;
+		//	'attribute'
+		//	id=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Attribute} 'new' 'Attribute' ('id' id=EString)?
+		//{Attribute} 'attribute' id=EString
 		public Group getGroup() { return cGroup; }
 		
 		//{Attribute}
 		public Action getAttributeAction_0() { return cAttributeAction_0; }
 		
-		//'new'
-		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
-		
-		//'Attribute'
-		public Keyword getAttributeKeyword_2() { return cAttributeKeyword_2; }
-		
-		//('id' id=EString)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'id'
-		public Keyword getIdKeyword_3_0() { return cIdKeyword_3_0; }
+		//'attribute'
+		public Keyword getAttributeKeyword_1() { return cAttributeKeyword_1; }
 		
 		//id=EString
-		public Assignment getIdAssignment_3_1() { return cIdAssignment_3_1; }
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
 		
 		//EString
-		public RuleCall getIdEStringParserRuleCall_3_1_0() { return cIdEStringParserRuleCall_3_1_0; }
+		public RuleCall getIdEStringParserRuleCall_2_0() { return cIdEStringParserRuleCall_2_0; }
 	}
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Constraint");
@@ -303,11 +280,11 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Constraint:
 		//	{Constraint}
-		//	'new' 'Constraint'
+		//	'new' 'constraint'
 		//	name=EString (expression+=Expression ("," expression+=Expression)*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Constraint} 'new' 'Constraint' name=EString (expression+=Expression ("," expression+=Expression)*)?
+		//{Constraint} 'new' 'constraint' name=EString (expression+=Expression ("," expression+=Expression)*)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Constraint}
@@ -316,7 +293,7 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		//'new'
 		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
 		
-		//'Constraint'
+		//'constraint'
 		public Keyword getConstraintKeyword_2() { return cConstraintKeyword_2; }
 		
 		//name=EString
@@ -350,331 +327,368 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.RequirementsGroup");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRequirementsGroupAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cNewKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cRequirementsGroupKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cIdAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cIdEStringParserRuleCall_4_1_0 = (RuleCall)cIdAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cDescriptionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cDescriptionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
+		private final Keyword cRequirementsGroupKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cIdKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cIsKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cIdAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cIdEStringParserRuleCall_5_0 = (RuleCall)cIdAssignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cConstraintsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cConstraintsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cConstraintsConstraintParserRuleCall_6_2_0 = (RuleCall)cConstraintsAssignment_6_2.eContents().get(0);
-		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
-		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cConstraintsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cConstraintsConstraintParserRuleCall_6_3_1_0 = (RuleCall)cConstraintsAssignment_6_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cIsKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cDescriptionAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cDescriptionEStringParserRuleCall_6_2_0 = (RuleCall)cDescriptionAssignment_6_2.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cElementsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cElementsAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cElementsRequirementModelElementParserRuleCall_7_2_0 = (RuleCall)cElementsAssignment_7_2.eContents().get(0);
-		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
-		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
-		private final Assignment cElementsAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
-		private final RuleCall cElementsRequirementModelElementParserRuleCall_7_3_1_0 = (RuleCall)cElementsAssignment_7_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Keyword cConstraintsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cAreKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Assignment cConstraintsAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cConstraintsConstraintParserRuleCall_7_3_0 = (RuleCall)cConstraintsAssignment_7_3.eContents().get(0);
+		private final Group cGroup_7_4 = (Group)cGroup_7.eContents().get(4);
+		private final Keyword cCommaKeyword_7_4_0 = (Keyword)cGroup_7_4.eContents().get(0);
+		private final Assignment cConstraintsAssignment_7_4_1 = (Assignment)cGroup_7_4.eContents().get(1);
+		private final RuleCall cConstraintsConstraintParserRuleCall_7_4_1_0 = (RuleCall)cConstraintsAssignment_7_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7_5 = (Keyword)cGroup_7.eContents().get(5);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cElementsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cAreKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
+		private final Assignment cElementsAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
+		private final RuleCall cElementsRequirementModelElementParserRuleCall_8_3_0 = (RuleCall)cElementsAssignment_8_3.eContents().get(0);
+		private final Group cGroup_8_4 = (Group)cGroup_8.eContents().get(4);
+		private final Keyword cCommaKeyword_8_4_0 = (Keyword)cGroup_8_4.eContents().get(0);
+		private final Assignment cElementsAssignment_8_4_1 = (Assignment)cGroup_8_4.eContents().get(1);
+		private final RuleCall cElementsRequirementModelElementParserRuleCall_8_4_1_0 = (RuleCall)cElementsAssignment_8_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8_5 = (Keyword)cGroup_8.eContents().get(5);
 		
 		//RequirementsGroup:
 		//	{RequirementsGroup}
-		//	'new' 'RequirementsGroup'
-		//	name=EString ('id' id=EString)? ('description' description=EString)? ('constraints' '{' constraints+=Constraint (","
-		//	constraints+=Constraint)* '}')? ('elements' '{' elements+=RequirementModelElement (","
+		//	'requirementsGroup'
+		//	name=EString
+		//	'id' 'is' id=EString ('description' 'is' description=EString)? ('constraints' 'are' '{' constraints+=Constraint (","
+		//	constraints+=Constraint)* '}')? ('elements' 'are' '{' elements+=RequirementModelElement (","
 		//	elements+=RequirementModelElement)* '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RequirementsGroup} 'new' 'RequirementsGroup' name=EString ('id' id=EString)? ('description' description=EString)?
-		//('constraints' '{' constraints+=Constraint ("," constraints+=Constraint)* '}')? ('elements' '{'
+		//{RequirementsGroup} 'requirementsGroup' name=EString 'id' 'is' id=EString ('description' 'is' description=EString)?
+		//('constraints' 'are' '{' constraints+=Constraint ("," constraints+=Constraint)* '}')? ('elements' 'are' '{'
 		//elements+=RequirementModelElement ("," elements+=RequirementModelElement)* '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//{RequirementsGroup}
 		public Action getRequirementsGroupAction_0() { return cRequirementsGroupAction_0; }
 		
-		//'new'
-		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
-		
-		//'RequirementsGroup'
-		public Keyword getRequirementsGroupKeyword_2() { return cRequirementsGroupKeyword_2; }
+		//'requirementsGroup'
+		public Keyword getRequirementsGroupKeyword_1() { return cRequirementsGroupKeyword_1; }
 		
 		//name=EString
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
-		
-		//('id' id=EString)?
-		public Group getGroup_4() { return cGroup_4; }
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 		
 		//'id'
-		public Keyword getIdKeyword_4_0() { return cIdKeyword_4_0; }
+		public Keyword getIdKeyword_3() { return cIdKeyword_3; }
+		
+		//'is'
+		public Keyword getIsKeyword_4() { return cIsKeyword_4; }
 		
 		//id=EString
-		public Assignment getIdAssignment_4_1() { return cIdAssignment_4_1; }
+		public Assignment getIdAssignment_5() { return cIdAssignment_5; }
 		
 		//EString
-		public RuleCall getIdEStringParserRuleCall_4_1_0() { return cIdEStringParserRuleCall_4_1_0; }
+		public RuleCall getIdEStringParserRuleCall_5_0() { return cIdEStringParserRuleCall_5_0; }
 		
-		//('description' description=EString)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'description'
-		public Keyword getDescriptionKeyword_5_0() { return cDescriptionKeyword_5_0; }
-		
-		//description=EString
-		public Assignment getDescriptionAssignment_5_1() { return cDescriptionAssignment_5_1; }
-		
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_5_1_0() { return cDescriptionEStringParserRuleCall_5_1_0; }
-		
-		//('constraints' '{' constraints+=Constraint ("," constraints+=Constraint)* '}')?
+		//('description' 'is' description=EString)?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//'constraints'
-		public Keyword getConstraintsKeyword_6_0() { return cConstraintsKeyword_6_0; }
+		//'description'
+		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_6_1() { return cLeftCurlyBracketKeyword_6_1; }
+		//'is'
+		public Keyword getIsKeyword_6_1() { return cIsKeyword_6_1; }
 		
-		//constraints+=Constraint
-		public Assignment getConstraintsAssignment_6_2() { return cConstraintsAssignment_6_2; }
+		//description=EString
+		public Assignment getDescriptionAssignment_6_2() { return cDescriptionAssignment_6_2; }
 		
-		//Constraint
-		public RuleCall getConstraintsConstraintParserRuleCall_6_2_0() { return cConstraintsConstraintParserRuleCall_6_2_0; }
+		//EString
+		public RuleCall getDescriptionEStringParserRuleCall_6_2_0() { return cDescriptionEStringParserRuleCall_6_2_0; }
 		
-		//("," constraints+=Constraint)*
-		public Group getGroup_6_3() { return cGroup_6_3; }
-		
-		//","
-		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
-		
-		//constraints+=Constraint
-		public Assignment getConstraintsAssignment_6_3_1() { return cConstraintsAssignment_6_3_1; }
-		
-		//Constraint
-		public RuleCall getConstraintsConstraintParserRuleCall_6_3_1_0() { return cConstraintsConstraintParserRuleCall_6_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6_4() { return cRightCurlyBracketKeyword_6_4; }
-		
-		//('elements' '{' elements+=RequirementModelElement ("," elements+=RequirementModelElement)* '}')?
+		//('constraints' 'are' '{' constraints+=Constraint ("," constraints+=Constraint)* '}')?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'elements'
-		public Keyword getElementsKeyword_7_0() { return cElementsKeyword_7_0; }
+		//'constraints'
+		public Keyword getConstraintsKeyword_7_0() { return cConstraintsKeyword_7_0; }
+		
+		//'are'
+		public Keyword getAreKeyword_7_1() { return cAreKeyword_7_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_7_1() { return cLeftCurlyBracketKeyword_7_1; }
+		public Keyword getLeftCurlyBracketKeyword_7_2() { return cLeftCurlyBracketKeyword_7_2; }
 		
-		//elements+=RequirementModelElement
-		public Assignment getElementsAssignment_7_2() { return cElementsAssignment_7_2; }
+		//constraints+=Constraint
+		public Assignment getConstraintsAssignment_7_3() { return cConstraintsAssignment_7_3; }
 		
-		//RequirementModelElement
-		public RuleCall getElementsRequirementModelElementParserRuleCall_7_2_0() { return cElementsRequirementModelElementParserRuleCall_7_2_0; }
+		//Constraint
+		public RuleCall getConstraintsConstraintParserRuleCall_7_3_0() { return cConstraintsConstraintParserRuleCall_7_3_0; }
 		
-		//("," elements+=RequirementModelElement)*
-		public Group getGroup_7_3() { return cGroup_7_3; }
+		//("," constraints+=Constraint)*
+		public Group getGroup_7_4() { return cGroup_7_4; }
 		
 		//","
-		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
+		public Keyword getCommaKeyword_7_4_0() { return cCommaKeyword_7_4_0; }
 		
-		//elements+=RequirementModelElement
-		public Assignment getElementsAssignment_7_3_1() { return cElementsAssignment_7_3_1; }
+		//constraints+=Constraint
+		public Assignment getConstraintsAssignment_7_4_1() { return cConstraintsAssignment_7_4_1; }
 		
-		//RequirementModelElement
-		public RuleCall getElementsRequirementModelElementParserRuleCall_7_3_1_0() { return cElementsRequirementModelElementParserRuleCall_7_3_1_0; }
+		//Constraint
+		public RuleCall getConstraintsConstraintParserRuleCall_7_4_1_0() { return cConstraintsConstraintParserRuleCall_7_4_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7_4() { return cRightCurlyBracketKeyword_7_4; }
+		public Keyword getRightCurlyBracketKeyword_7_5() { return cRightCurlyBracketKeyword_7_5; }
+		
+		//('elements' 'are' '{' elements+=RequirementModelElement ("," elements+=RequirementModelElement)* '}')?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'elements'
+		public Keyword getElementsKeyword_8_0() { return cElementsKeyword_8_0; }
+		
+		//'are'
+		public Keyword getAreKeyword_8_1() { return cAreKeyword_8_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_8_2() { return cLeftCurlyBracketKeyword_8_2; }
+		
+		//elements+=RequirementModelElement
+		public Assignment getElementsAssignment_8_3() { return cElementsAssignment_8_3; }
+		
+		//RequirementModelElement
+		public RuleCall getElementsRequirementModelElementParserRuleCall_8_3_0() { return cElementsRequirementModelElementParserRuleCall_8_3_0; }
+		
+		//("," elements+=RequirementModelElement)*
+		public Group getGroup_8_4() { return cGroup_8_4; }
+		
+		//","
+		public Keyword getCommaKeyword_8_4_0() { return cCommaKeyword_8_4_0; }
+		
+		//elements+=RequirementModelElement
+		public Assignment getElementsAssignment_8_4_1() { return cElementsAssignment_8_4_1; }
+		
+		//RequirementModelElement
+		public RuleCall getElementsRequirementModelElementParserRuleCall_8_4_1_0() { return cElementsRequirementModelElementParserRuleCall_8_4_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8_5() { return cRightCurlyBracketKeyword_8_5; }
 	}
 	public class RequirementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Requirement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRequirementAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cNewKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cRequirementKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cIdAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cIdEStringParserRuleCall_4_1_0 = (RuleCall)cIdAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cDescriptionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cDescriptionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cTypeKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cTypeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cTypeRequirementTypeEnumRuleCall_6_1_0 = (RuleCall)cTypeAssignment_6_1.eContents().get(0);
+		private final Keyword cRequirementKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cIdKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cIsKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cIdAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cIdEStringParserRuleCall_5_0 = (RuleCall)cIdAssignment_5.eContents().get(0);
+		private final Keyword cFullStopKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cPriorityKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cPriorityAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cPriorityRequirementPriorityEnumRuleCall_7_1_0 = (RuleCall)cPriorityAssignment_7_1.eContents().get(0);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cConstraintsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
-		private final Assignment cConstraintsAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cConstraintsConstraintParserRuleCall_8_2_0 = (RuleCall)cConstraintsAssignment_8_2.eContents().get(0);
-		private final Group cGroup_8_3 = (Group)cGroup_8.eContents().get(3);
-		private final Keyword cCommaKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
-		private final Assignment cConstraintsAssignment_8_3_1 = (Assignment)cGroup_8_3.eContents().get(1);
-		private final RuleCall cConstraintsConstraintParserRuleCall_8_3_1_0 = (RuleCall)cConstraintsAssignment_8_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cAttributesKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
-		private final Assignment cAttributesAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
-		private final RuleCall cAttributesAttributeValueParserRuleCall_9_2_0 = (RuleCall)cAttributesAssignment_9_2.eContents().get(0);
-		private final Group cGroup_9_3 = (Group)cGroup_9.eContents().get(3);
-		private final Keyword cCommaKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
-		private final Assignment cAttributesAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
-		private final RuleCall cAttributesAttributeValueParserRuleCall_9_3_1_0 = (RuleCall)cAttributesAssignment_9_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9_4 = (Keyword)cGroup_9.eContents().get(4);
+		private final Keyword cDescriptionKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cIsKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cDescriptionAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cDescriptionEStringParserRuleCall_7_2_0 = (RuleCall)cDescriptionAssignment_7_2.eContents().get(0);
+		private final Keyword cFullStopKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
+		private final Keyword cTypeKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cIsKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cTypeAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cTypeRequirementTypeEnumRuleCall_10_0 = (RuleCall)cTypeAssignment_10.eContents().get(0);
+		private final Keyword cFullStopKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cPriorityKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cIsKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Assignment cPriorityAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cPriorityRequirementPriorityEnumRuleCall_14_0 = (RuleCall)cPriorityAssignment_14.eContents().get(0);
+		private final Keyword cFullStopKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
+		private final Keyword cConstraintsKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
+		private final Keyword cAreKeyword_16_1 = (Keyword)cGroup_16.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_16_2 = (Keyword)cGroup_16.eContents().get(2);
+		private final Assignment cConstraintsAssignment_16_3 = (Assignment)cGroup_16.eContents().get(3);
+		private final RuleCall cConstraintsConstraintParserRuleCall_16_3_0 = (RuleCall)cConstraintsAssignment_16_3.eContents().get(0);
+		private final Group cGroup_16_4 = (Group)cGroup_16.eContents().get(4);
+		private final Keyword cCommaKeyword_16_4_0 = (Keyword)cGroup_16_4.eContents().get(0);
+		private final Assignment cConstraintsAssignment_16_4_1 = (Assignment)cGroup_16_4.eContents().get(1);
+		private final RuleCall cConstraintsConstraintParserRuleCall_16_4_1_0 = (RuleCall)cConstraintsAssignment_16_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_16_5 = (Keyword)cGroup_16.eContents().get(5);
+		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
+		private final Keyword cAttributesKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
+		private final Keyword cAreKeyword_17_1 = (Keyword)cGroup_17.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_17_2 = (Keyword)cGroup_17.eContents().get(2);
+		private final Assignment cAttributesAssignment_17_3 = (Assignment)cGroup_17.eContents().get(3);
+		private final RuleCall cAttributesAttributeValueParserRuleCall_17_3_0 = (RuleCall)cAttributesAssignment_17_3.eContents().get(0);
+		private final Group cGroup_17_4 = (Group)cGroup_17.eContents().get(4);
+		private final Keyword cCommaKeyword_17_4_0 = (Keyword)cGroup_17_4.eContents().get(0);
+		private final Assignment cAttributesAssignment_17_4_1 = (Assignment)cGroup_17_4.eContents().get(1);
+		private final RuleCall cAttributesAttributeValueParserRuleCall_17_4_1_0 = (RuleCall)cAttributesAssignment_17_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_17_5 = (Keyword)cGroup_17.eContents().get(5);
 		
 		//Requirement:
 		//	{Requirement}
-		//	'new' 'Requirement'
-		//	name=EString ('id' id=EString)? ('description' description=EString)? ('type' type=RequirementType)? ('priority'
-		//	priority=RequirementPriority)? ('constraints' '{' constraints+=Constraint ("," constraints+=Constraint)* '}')?
-		//	('attributes' '{' attributes+=AttributeValue ("," attributes+=AttributeValue)* '}')?;
+		//	'requirement'
+		//	name=EString
+		//	'id' 'is' id=EString '.' ('description' 'is' description=EString '.')?
+		//	'type' 'is' type=RequirementType '.'
+		//	'priority' 'is' priority=RequirementPriority '.' ('constraints' 'are' '{' constraints+=Constraint (","
+		//	constraints+=Constraint)* '}')? ('attributes' 'are' '{' attributes+=AttributeValue ("," attributes+=AttributeValue)*
+		//	'}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Requirement} 'new' 'Requirement' name=EString ('id' id=EString)? ('description' description=EString)? ('type'
-		//type=RequirementType)? ('priority' priority=RequirementPriority)? ('constraints' '{' constraints+=Constraint (","
-		//constraints+=Constraint)* '}')? ('attributes' '{' attributes+=AttributeValue ("," attributes+=AttributeValue)* '}')?
+		//{Requirement} 'requirement' name=EString 'id' 'is' id=EString '.' ('description' 'is' description=EString '.')? 'type'
+		//'is' type=RequirementType '.' 'priority' 'is' priority=RequirementPriority '.' ('constraints' 'are' '{'
+		//constraints+=Constraint ("," constraints+=Constraint)* '}')? ('attributes' 'are' '{' attributes+=AttributeValue (","
+		//attributes+=AttributeValue)* '}')?
 		public Group getGroup() { return cGroup; }
 		
 		//{Requirement}
 		public Action getRequirementAction_0() { return cRequirementAction_0; }
 		
-		//'new'
-		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
-		
-		//'Requirement'
-		public Keyword getRequirementKeyword_2() { return cRequirementKeyword_2; }
+		//'requirement'
+		public Keyword getRequirementKeyword_1() { return cRequirementKeyword_1; }
 		
 		//name=EString
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
-		
-		//('id' id=EString)?
-		public Group getGroup_4() { return cGroup_4; }
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 		
 		//'id'
-		public Keyword getIdKeyword_4_0() { return cIdKeyword_4_0; }
+		public Keyword getIdKeyword_3() { return cIdKeyword_3; }
+		
+		//'is'
+		public Keyword getIsKeyword_4() { return cIsKeyword_4; }
 		
 		//id=EString
-		public Assignment getIdAssignment_4_1() { return cIdAssignment_4_1; }
+		public Assignment getIdAssignment_5() { return cIdAssignment_5; }
 		
 		//EString
-		public RuleCall getIdEStringParserRuleCall_4_1_0() { return cIdEStringParserRuleCall_4_1_0; }
+		public RuleCall getIdEStringParserRuleCall_5_0() { return cIdEStringParserRuleCall_5_0; }
 		
-		//('description' description=EString)?
-		public Group getGroup_5() { return cGroup_5; }
+		//'.'
+		public Keyword getFullStopKeyword_6() { return cFullStopKeyword_6; }
 		
-		//'description'
-		public Keyword getDescriptionKeyword_5_0() { return cDescriptionKeyword_5_0; }
-		
-		//description=EString
-		public Assignment getDescriptionAssignment_5_1() { return cDescriptionAssignment_5_1; }
-		
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_5_1_0() { return cDescriptionEStringParserRuleCall_5_1_0; }
-		
-		//('type' type=RequirementType)?
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'type'
-		public Keyword getTypeKeyword_6_0() { return cTypeKeyword_6_0; }
-		
-		//type=RequirementType
-		public Assignment getTypeAssignment_6_1() { return cTypeAssignment_6_1; }
-		
-		//RequirementType
-		public RuleCall getTypeRequirementTypeEnumRuleCall_6_1_0() { return cTypeRequirementTypeEnumRuleCall_6_1_0; }
-		
-		//('priority' priority=RequirementPriority)?
+		//('description' 'is' description=EString '.')?
 		public Group getGroup_7() { return cGroup_7; }
 		
+		//'description'
+		public Keyword getDescriptionKeyword_7_0() { return cDescriptionKeyword_7_0; }
+		
+		//'is'
+		public Keyword getIsKeyword_7_1() { return cIsKeyword_7_1; }
+		
+		//description=EString
+		public Assignment getDescriptionAssignment_7_2() { return cDescriptionAssignment_7_2; }
+		
+		//EString
+		public RuleCall getDescriptionEStringParserRuleCall_7_2_0() { return cDescriptionEStringParserRuleCall_7_2_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_7_3() { return cFullStopKeyword_7_3; }
+		
+		//'type'
+		public Keyword getTypeKeyword_8() { return cTypeKeyword_8; }
+		
+		//'is'
+		public Keyword getIsKeyword_9() { return cIsKeyword_9; }
+		
+		//type=RequirementType
+		public Assignment getTypeAssignment_10() { return cTypeAssignment_10; }
+		
+		//RequirementType
+		public RuleCall getTypeRequirementTypeEnumRuleCall_10_0() { return cTypeRequirementTypeEnumRuleCall_10_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_11() { return cFullStopKeyword_11; }
+		
 		//'priority'
-		public Keyword getPriorityKeyword_7_0() { return cPriorityKeyword_7_0; }
+		public Keyword getPriorityKeyword_12() { return cPriorityKeyword_12; }
+		
+		//'is'
+		public Keyword getIsKeyword_13() { return cIsKeyword_13; }
 		
 		//priority=RequirementPriority
-		public Assignment getPriorityAssignment_7_1() { return cPriorityAssignment_7_1; }
+		public Assignment getPriorityAssignment_14() { return cPriorityAssignment_14; }
 		
 		//RequirementPriority
-		public RuleCall getPriorityRequirementPriorityEnumRuleCall_7_1_0() { return cPriorityRequirementPriorityEnumRuleCall_7_1_0; }
+		public RuleCall getPriorityRequirementPriorityEnumRuleCall_14_0() { return cPriorityRequirementPriorityEnumRuleCall_14_0; }
 		
-		//('constraints' '{' constraints+=Constraint ("," constraints+=Constraint)* '}')?
-		public Group getGroup_8() { return cGroup_8; }
+		//'.'
+		public Keyword getFullStopKeyword_15() { return cFullStopKeyword_15; }
+		
+		//('constraints' 'are' '{' constraints+=Constraint ("," constraints+=Constraint)* '}')?
+		public Group getGroup_16() { return cGroup_16; }
 		
 		//'constraints'
-		public Keyword getConstraintsKeyword_8_0() { return cConstraintsKeyword_8_0; }
+		public Keyword getConstraintsKeyword_16_0() { return cConstraintsKeyword_16_0; }
+		
+		//'are'
+		public Keyword getAreKeyword_16_1() { return cAreKeyword_16_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_8_1() { return cLeftCurlyBracketKeyword_8_1; }
+		public Keyword getLeftCurlyBracketKeyword_16_2() { return cLeftCurlyBracketKeyword_16_2; }
 		
 		//constraints+=Constraint
-		public Assignment getConstraintsAssignment_8_2() { return cConstraintsAssignment_8_2; }
+		public Assignment getConstraintsAssignment_16_3() { return cConstraintsAssignment_16_3; }
 		
 		//Constraint
-		public RuleCall getConstraintsConstraintParserRuleCall_8_2_0() { return cConstraintsConstraintParserRuleCall_8_2_0; }
+		public RuleCall getConstraintsConstraintParserRuleCall_16_3_0() { return cConstraintsConstraintParserRuleCall_16_3_0; }
 		
 		//("," constraints+=Constraint)*
-		public Group getGroup_8_3() { return cGroup_8_3; }
+		public Group getGroup_16_4() { return cGroup_16_4; }
 		
 		//","
-		public Keyword getCommaKeyword_8_3_0() { return cCommaKeyword_8_3_0; }
+		public Keyword getCommaKeyword_16_4_0() { return cCommaKeyword_16_4_0; }
 		
 		//constraints+=Constraint
-		public Assignment getConstraintsAssignment_8_3_1() { return cConstraintsAssignment_8_3_1; }
+		public Assignment getConstraintsAssignment_16_4_1() { return cConstraintsAssignment_16_4_1; }
 		
 		//Constraint
-		public RuleCall getConstraintsConstraintParserRuleCall_8_3_1_0() { return cConstraintsConstraintParserRuleCall_8_3_1_0; }
+		public RuleCall getConstraintsConstraintParserRuleCall_16_4_1_0() { return cConstraintsConstraintParserRuleCall_16_4_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8_4() { return cRightCurlyBracketKeyword_8_4; }
+		public Keyword getRightCurlyBracketKeyword_16_5() { return cRightCurlyBracketKeyword_16_5; }
 		
-		//('attributes' '{' attributes+=AttributeValue ("," attributes+=AttributeValue)* '}')?
-		public Group getGroup_9() { return cGroup_9; }
+		//('attributes' 'are' '{' attributes+=AttributeValue ("," attributes+=AttributeValue)* '}')?
+		public Group getGroup_17() { return cGroup_17; }
 		
 		//'attributes'
-		public Keyword getAttributesKeyword_9_0() { return cAttributesKeyword_9_0; }
+		public Keyword getAttributesKeyword_17_0() { return cAttributesKeyword_17_0; }
+		
+		//'are'
+		public Keyword getAreKeyword_17_1() { return cAreKeyword_17_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_9_1() { return cLeftCurlyBracketKeyword_9_1; }
+		public Keyword getLeftCurlyBracketKeyword_17_2() { return cLeftCurlyBracketKeyword_17_2; }
 		
 		//attributes+=AttributeValue
-		public Assignment getAttributesAssignment_9_2() { return cAttributesAssignment_9_2; }
+		public Assignment getAttributesAssignment_17_3() { return cAttributesAssignment_17_3; }
 		
 		//AttributeValue
-		public RuleCall getAttributesAttributeValueParserRuleCall_9_2_0() { return cAttributesAttributeValueParserRuleCall_9_2_0; }
+		public RuleCall getAttributesAttributeValueParserRuleCall_17_3_0() { return cAttributesAttributeValueParserRuleCall_17_3_0; }
 		
 		//("," attributes+=AttributeValue)*
-		public Group getGroup_9_3() { return cGroup_9_3; }
+		public Group getGroup_17_4() { return cGroup_17_4; }
 		
 		//","
-		public Keyword getCommaKeyword_9_3_0() { return cCommaKeyword_9_3_0; }
+		public Keyword getCommaKeyword_17_4_0() { return cCommaKeyword_17_4_0; }
 		
 		//attributes+=AttributeValue
-		public Assignment getAttributesAssignment_9_3_1() { return cAttributesAssignment_9_3_1; }
+		public Assignment getAttributesAssignment_17_4_1() { return cAttributesAssignment_17_4_1; }
 		
 		//AttributeValue
-		public RuleCall getAttributesAttributeValueParserRuleCall_9_3_1_0() { return cAttributesAttributeValueParserRuleCall_9_3_1_0; }
+		public RuleCall getAttributesAttributeValueParserRuleCall_17_4_1_0() { return cAttributesAttributeValueParserRuleCall_17_4_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_9_4() { return cRightCurlyBracketKeyword_9_4; }
+		public Keyword getRightCurlyBracketKeyword_17_5() { return cRightCurlyBracketKeyword_17_5; }
 	}
 	public class ORElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.OR");
@@ -765,39 +779,36 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	public class NOTElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.NOT");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNOTKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cOperand1Keyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cOperand1Assignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cOperand1ExpressionParserRuleCall_3_0 = (RuleCall)cOperand1Assignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNOTKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cOperand1Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOperand1ExpressionParserRuleCall_2_0 = (RuleCall)cOperand1Assignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//NOT:
-		//	'NOT' '('
-		//	'operand1' operand1=Expression
+		//	'('
+		//	'NOT'
+		//	operand1=Expression
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'NOT' '(' 'operand1' operand1=Expression ')'
+		//'(' 'NOT' operand1=Expression ')'
 		public Group getGroup() { return cGroup; }
 		
-		//'NOT'
-		public Keyword getNOTKeyword_0() { return cNOTKeyword_0; }
-		
 		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 		
-		//'operand1'
-		public Keyword getOperand1Keyword_2() { return cOperand1Keyword_2; }
+		//'NOT'
+		public Keyword getNOTKeyword_1() { return cNOTKeyword_1; }
 		
 		//operand1=Expression
-		public Assignment getOperand1Assignment_3() { return cOperand1Assignment_3; }
+		public Assignment getOperand1Assignment_2() { return cOperand1Assignment_2; }
 		
 		//Expression
-		public RuleCall getOperand1ExpressionParserRuleCall_3_0() { return cOperand1ExpressionParserRuleCall_3_0; }
+		public RuleCall getOperand1ExpressionParserRuleCall_2_0() { return cOperand1ExpressionParserRuleCall_2_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 	public class LiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Literal");
@@ -822,61 +833,47 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.AttributeValue");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAttributeValueAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cNewKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cAttributeValueKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cValueKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueEStringParserRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cValueOfKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cValueOfAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cValueOfAttributeCrossReference_4_1_0 = (CrossReference)cValueOfAssignment_4_1.eContents().get(0);
-		private final RuleCall cValueOfAttributeEStringParserRuleCall_4_1_0_1 = (RuleCall)cValueOfAttributeCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cAttributeValueKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueEStringParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cOfKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cValueOfAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cValueOfAttributeCrossReference_4_0 = (CrossReference)cValueOfAssignment_4.eContents().get(0);
+		private final RuleCall cValueOfAttributeEStringParserRuleCall_4_0_1 = (RuleCall)cValueOfAttributeCrossReference_4_0.eContents().get(1);
 		
 		//AttributeValue:
 		//	{AttributeValue}
-		//	'new' 'AttributeValue' ('value' value=EString)? ('valueOf' valueOf=[Attribute|EString])?;
+		//	'attributeValue'
+		//	value=EString?
+		//	'of' valueOf=[Attribute|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AttributeValue} 'new' 'AttributeValue' ('value' value=EString)? ('valueOf' valueOf=[Attribute|EString])?
+		//{AttributeValue} 'attributeValue' value=EString? 'of' valueOf=[Attribute|EString]
 		public Group getGroup() { return cGroup; }
 		
 		//{AttributeValue}
 		public Action getAttributeValueAction_0() { return cAttributeValueAction_0; }
 		
-		//'new'
-		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
+		//'attributeValue'
+		public Keyword getAttributeValueKeyword_1() { return cAttributeValueKeyword_1; }
 		
-		//'AttributeValue'
-		public Keyword getAttributeValueKeyword_2() { return cAttributeValueKeyword_2; }
-		
-		//('value' value=EString)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'value'
-		public Keyword getValueKeyword_3_0() { return cValueKeyword_3_0; }
-		
-		//value=EString
-		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
+		//value=EString?
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 		
 		//EString
-		public RuleCall getValueEStringParserRuleCall_3_1_0() { return cValueEStringParserRuleCall_3_1_0; }
+		public RuleCall getValueEStringParserRuleCall_2_0() { return cValueEStringParserRuleCall_2_0; }
 		
-		//('valueOf' valueOf=[Attribute|EString])?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'valueOf'
-		public Keyword getValueOfKeyword_4_0() { return cValueOfKeyword_4_0; }
+		//'of'
+		public Keyword getOfKeyword_3() { return cOfKeyword_3; }
 		
 		//valueOf=[Attribute|EString]
-		public Assignment getValueOfAssignment_4_1() { return cValueOfAssignment_4_1; }
+		public Assignment getValueOfAssignment_4() { return cValueOfAssignment_4; }
 		
 		//[Attribute|EString]
-		public CrossReference getValueOfAttributeCrossReference_4_1_0() { return cValueOfAttributeCrossReference_4_1_0; }
+		public CrossReference getValueOfAttributeCrossReference_4_0() { return cValueOfAttributeCrossReference_4_0; }
 		
 		//EString
-		public RuleCall getValueOfAttributeEStringParserRuleCall_4_1_0_1() { return cValueOfAttributeEStringParserRuleCall_4_1_0_1; }
+		public RuleCall getValueOfAttributeEStringParserRuleCall_4_0_1() { return cValueOfAttributeEStringParserRuleCall_4_0_1; }
 	}
 	
 	public class RequirementTypeElements extends AbstractEnumRuleElementFinder {
@@ -1029,10 +1026,10 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//RequirementsModel:
 	//	{RequirementsModel}
-	//	'new' 'RequirementsModel'
-	//	name=EString ('created' 'by' creator=EString)? ('version' version=EString)? ('elements' '{'
-	//	elements+=RequirementModelElement ("," elements+=RequirementModelElement)* '}')? ('attributes' '{'
-	//	attributes+=Attribute ("," attributes+=Attribute)* '}')?;
+	//	'requirementsModel'
+	//	name=EString ('created' 'by' creator=EString)? ('version' version=EString)? ('attributes' 'are' '{'
+	//	attributes+=Attribute ("," attributes+=Attribute)* '}')? (elements+=RequirementModelElement (","
+	//	elements+=RequirementModelElement)*)?;
 	public RequirementsModelElements getRequirementsModelAccess() {
 		return pRequirementsModel;
 	}
@@ -1073,7 +1070,8 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Attribute:
 	//	{Attribute}
-	//	'new' 'Attribute' ('id' id=EString)?;
+	//	'attribute'
+	//	id=EString;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
@@ -1084,7 +1082,7 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Constraint:
 	//	{Constraint}
-	//	'new' 'Constraint'
+	//	'new' 'constraint'
 	//	name=EString (expression+=Expression ("," expression+=Expression)*)?;
 	public ConstraintElements getConstraintAccess() {
 		return pConstraint;
@@ -1096,9 +1094,10 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//RequirementsGroup:
 	//	{RequirementsGroup}
-	//	'new' 'RequirementsGroup'
-	//	name=EString ('id' id=EString)? ('description' description=EString)? ('constraints' '{' constraints+=Constraint (","
-	//	constraints+=Constraint)* '}')? ('elements' '{' elements+=RequirementModelElement (","
+	//	'requirementsGroup'
+	//	name=EString
+	//	'id' 'is' id=EString ('description' 'is' description=EString)? ('constraints' 'are' '{' constraints+=Constraint (","
+	//	constraints+=Constraint)* '}')? ('elements' 'are' '{' elements+=RequirementModelElement (","
 	//	elements+=RequirementModelElement)* '}')?;
 	public RequirementsGroupElements getRequirementsGroupAccess() {
 		return pRequirementsGroup;
@@ -1110,10 +1109,13 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Requirement:
 	//	{Requirement}
-	//	'new' 'Requirement'
-	//	name=EString ('id' id=EString)? ('description' description=EString)? ('type' type=RequirementType)? ('priority'
-	//	priority=RequirementPriority)? ('constraints' '{' constraints+=Constraint ("," constraints+=Constraint)* '}')?
-	//	('attributes' '{' attributes+=AttributeValue ("," attributes+=AttributeValue)* '}')?;
+	//	'requirement'
+	//	name=EString
+	//	'id' 'is' id=EString '.' ('description' 'is' description=EString '.')?
+	//	'type' 'is' type=RequirementType '.'
+	//	'priority' 'is' priority=RequirementPriority '.' ('constraints' 'are' '{' constraints+=Constraint (","
+	//	constraints+=Constraint)* '}')? ('attributes' 'are' '{' attributes+=AttributeValue ("," attributes+=AttributeValue)*
+	//	'}')?;
 	public RequirementElements getRequirementAccess() {
 		return pRequirement;
 	}
@@ -1151,8 +1153,9 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NOT:
-	//	'NOT' '('
-	//	'operand1' operand1=Expression
+	//	'('
+	//	'NOT'
+	//	operand1=Expression
 	//	')';
 	public NOTElements getNOTAccess() {
 		return pNOT;
@@ -1194,7 +1197,9 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AttributeValue:
 	//	{AttributeValue}
-	//	'new' 'AttributeValue' ('value' value=EString)? ('valueOf' valueOf=[Attribute|EString])?;
+	//	'attributeValue'
+	//	value=EString?
+	//	'of' valueOf=[Attribute|EString];
 	public AttributeValueElements getAttributeValueAccess() {
 		return pAttributeValue;
 	}

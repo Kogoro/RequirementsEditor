@@ -6,12 +6,12 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 RequirementsModel returns RequirementsModel:
 	{RequirementsModel}
-	'new' 'RequirementsModel'
+	'requirementsModel'
 	name=EString
 		('created' 'by' creator=EString)?
-		('version' version=EString)?
-		('elements' '{' elements+=RequirementModelElement ( "," elements+=RequirementModelElement)* '}' )?
-		('attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
+		('version' version=EString )?
+		('attributes' 'are' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
+		(elements +=RequirementModelElement ( "," elements+=RequirementModelElement)*)?
 	;
 
 RequirementModelElement returns RequirementModelElement:
@@ -27,37 +27,37 @@ EString returns ecore::EString:
 
 Attribute returns Attribute:
 	{Attribute}
-	'new' 'Attribute'
-		('id' id=EString)?
+	'attribute'
+	id=EString
 	;
 
 Constraint returns Constraint:
 	{Constraint}
-	'new' 'Constraint'
+	'new' 'constraint'
 	name=EString
 		(expression+=Expression ( "," expression+=Expression)*)?
 	;
 
 RequirementsGroup returns RequirementsGroup:
 	{RequirementsGroup}
-	'new' 'RequirementsGroup'
+	'requirementsGroup'
 	name=EString
-		('id' id=EString)?
-		('description' description=EString)?
-		('constraints' '{' constraints+=Constraint ( "," constraints+=Constraint)* '}' )?
-		('elements' '{' elements+=RequirementModelElement ( "," elements+=RequirementModelElement)* '}' )?
+		'id' 'is' id=EString
+		('description' 'is'description=EString)?
+		('constraints' 'are' '{' constraints+=Constraint ( "," constraints+=Constraint)* '}' )?
+		('elements' 'are' '{' elements+=RequirementModelElement ( "," elements+=RequirementModelElement)* '}' )?
 	;
 
 Requirement returns Requirement:
 	{Requirement}
-	'new' 'Requirement'
+	'requirement'
 	name=EString
-		('id' id=EString)?
-		('description' description=EString)?
-		('type' type=RequirementType)?
-		('priority' priority=RequirementPriority)?
-		('constraints' '{' constraints+=Constraint ( "," constraints+=Constraint)* '}' )?
-		('attributes' '{' attributes+=AttributeValue ( "," attributes+=AttributeValue)* '}' )?
+		'id' 'is' id=EString '.'
+		('description' 'is' description=EString '.')?
+		'type' 'is' type=RequirementType '.'
+		'priority' 'is' priority=RequirementPriority '.'
+		('constraints' 'are' '{' constraints+=Constraint ( "," constraints+=Constraint)* '}' )?
+		('attributes' 'are' '{' attributes+=AttributeValue ( "," attributes+=AttributeValue)* '}' )?
 	;
 
 OR returns OR:
@@ -77,8 +77,9 @@ AND returns AND:
 	;
 
 NOT returns NOT:
-	'NOT' '('
-		'operand1' operand1=Expression
+	'('
+	'NOT' 
+		operand1=Expression
 	')'
 	;
 
@@ -94,7 +95,7 @@ enum RequirementPriority returns RequirementPriority:
 
 AttributeValue returns AttributeValue:
 	{AttributeValue}
-	'new' 'AttributeValue'
-		('value' value=EString)?
-		('valueOf' valueOf=[Attribute|EString])?
+	'attributeValue'
+		(value=EString)?
+		'of' valueOf=[Attribute|EString]
 	;
