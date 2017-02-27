@@ -34,6 +34,26 @@
                   label="Sat4J"
                   style="push">
             </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <adapt
+                        type="org.eclipse.core.resources.IResource">
+                     <or>
+                        <test
+                              property="org.eclipse.core.resources.contentTypeId"
+                              value="de.tubs.cs.isf.reqeditor.content-types.model">
+                        </test>
+                        <test
+                              property="org.eclipse.core.resources.name"
+                              value="*.reqs">
+                        </test>
+                     </or>
+                  </adapt>
+               </iterate>
+            </visibleWhen>
          </menu>
       </menuContribution>
    </extension>
