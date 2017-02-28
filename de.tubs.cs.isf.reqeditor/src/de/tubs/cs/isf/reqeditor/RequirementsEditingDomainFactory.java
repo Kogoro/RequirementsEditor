@@ -14,8 +14,10 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -44,8 +46,15 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	}
 
 	public RequirementsModel getModel() {
-		if (model == null)
-			model = (RequirementsModel) loadResource("model.reqs").getContents().get(0);
+		if (model == null) {
+			Resource res = loadResource("/de.tubs.cs.isf.reqeditor.graphiti/model.reqs");
+			EList<EObject> contents = res.getContents();
+			if (contents.size() == 0) {
+				URI uri = res.getURI();
+				createResource(res.getURI().devicePath());
+			}
+			model = (RequirementsModel) contents.get(0);
+		}
 		return model;
 	}
 
@@ -54,10 +63,11 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 	}
 
 	public void saveModel() {
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IPath path = workspace.getRoot().getRawLocation().append("/MyRequirementProject/model.reqs");
-		
-		Resource res = loadResource(path.toOSString());
+//		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+//		IPath path = workspace.getRoot().getRawLocation().append("/MyRequirementProject/model.reqs");
+//		
+//		Resource res = loadResource(path.toOSString());
+		Resource res = loadResource("/de.tubs.cs.isf.reqeditor.graphiti/model.reqs");
 		res.getContents().clear();
 		res.getContents().add(model);
 		try {
@@ -83,7 +93,8 @@ public class RequirementsEditingDomainFactory implements TransactionalEditingDom
 			Map<String, String> options = new HashMap<String, String>();
 			options.put(XMIResource.OPTION_ENCODING, "UTF-8");
 
-			Resource resource = resourceSet.createResource(URI.createFileURI(file));
+			//Resource resource = resourceSet.createResource(URI.createFileURI(file));
+			Resource resource = loadResource(file);
 			if (resource != null) {
 				resource.getContents().add(model);
 				try {

@@ -89,11 +89,13 @@ public class NewModelWizard extends BasicNewResourceWizard {
 
 		RequirementsEditingDomainFactory domain = new RequirementsEditingDomainFactory();
 		
-		//get object which represents the workspace  
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IPath path = workspace.getRoot().getRawLocation().append(mainPage.getContainerFullPath()).append(mainPage.getFileName());
-		//get location of workspace (java.io.File)  
-		IFile file = workspace.getRoot().getFile(path);
+//		//get object which represents the workspace  
+//		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+//		IPath path = workspace.getRoot().getRawLocation().append(mainPage.getContainerFullPath()).append(mainPage.getFileName());
+//		//get location of workspace (java.io.File)  
+//		IFile file = workspace.getRoot().getFile(path);
+		
+		IFile file = mainPage.createNewFile();
 
 		domain.createResource(file.getFullPath().toString());
 		
