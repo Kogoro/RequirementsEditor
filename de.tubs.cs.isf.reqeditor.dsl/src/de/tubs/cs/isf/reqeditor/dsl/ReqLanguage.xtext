@@ -10,8 +10,8 @@ RequirementsModel returns RequirementsModel:
 	name=EString
 		('created' 'by' creator=EString)?
 		('version' version=EString )?
-		('attributes' 'are' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
-		(elements +=RequirementModelElement ( "," elements+=RequirementModelElement)*)?
+		('attributes' 'are' attributes+=Attribute ( "and" attributes+=Attribute)* '.' )?
+		('requirements' 'are' elements +=RequirementModelElement ( "and" elements+=RequirementModelElement)*)?
 	;
 
 RequirementModelElement returns RequirementModelElement:
@@ -34,9 +34,9 @@ Attribute returns Attribute:
 
 Constraint returns Constraint:
 	{Constraint}
-	'new' 'constraint'
+	'constraint'
 	name=EString
-		(expression+=Expression ( "," expression+=Expression)*)?
+		(expression+=Expression ( "and" expression+=Expression)*)?
 	;
 
 RequirementsGroup returns RequirementsGroup:
@@ -44,9 +44,9 @@ RequirementsGroup returns RequirementsGroup:
 	'requirementsGroup'
 	name=EString
 		'id' 'is' id=EString
-		('description' 'is'description=EString)?
-		('constraints' 'are' '{' constraints+=Constraint ( "," constraints+=Constraint)* '}' )?
-		('elements' 'are' '{' elements+=RequirementModelElement ( "," elements+=RequirementModelElement)* '}' )?
+		('description' 'is' description=EString)?
+		('constraints' 'are' constraints+=Constraint ( "and" constraints+=Constraint)* '.' )?
+		('elements' 'are' elements+=RequirementModelElement ( "and" elements+=RequirementModelElement)* '.' )?
 	;
 
 Requirement returns Requirement:
@@ -57,8 +57,8 @@ Requirement returns Requirement:
 		('description' 'is' description=EString '.')?
 		'type' 'is' type=RequirementType '.'
 		'priority' 'is' priority=RequirementPriority '.'
-		('constraints' 'are' '{' constraints+=Constraint ( "," constraints+=Constraint)* '}' )?
-		('attributes' 'are' '{' attributes+=AttributeValue ( "," attributes+=AttributeValue)* '}' )?
+		('constraints' 'are' constraints+=Constraint ( "and" constraints+=Constraint)* '.')?
+		('attributes' 'are' attributes+=AttributeValue ( "and" attributes+=AttributeValue)* '.')?
 	;
 
 OR returns OR:
@@ -96,7 +96,7 @@ enum RequirementPriority returns RequirementPriority:
 
 AttributeValue returns AttributeValue:
 	{AttributeValue}
-	'attributeValue'
 		(value=EString)?
-		'of' valueOf=[Attribute|EString]
+		'of'
+		valueOf=[Attribute|EString]
 	;
