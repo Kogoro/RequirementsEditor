@@ -170,16 +170,12 @@ ruleRequirementsModel returns [EObject current=null]
 			{
 				newLeafNode(otherlv_9, grammarAccess.getRequirementsModelAccess().getAreKeyword_5_1());
 			}
-			otherlv_10='{'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getRequirementsModelAccess().getLeftCurlyBracketKeyword_5_2());
-			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRequirementsModelAccess().getAttributesAttributeParserRuleCall_5_3_0());
+						newCompositeNode(grammarAccess.getRequirementsModelAccess().getAttributesAttributeParserRuleCall_5_2_0());
 					}
-					lv_attributes_11_0=ruleAttribute
+					lv_attributes_10_0=ruleAttribute
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRequirementsModelRule());
@@ -187,23 +183,23 @@ ruleRequirementsModel returns [EObject current=null]
 						add(
 							$current,
 							"attributes",
-							lv_attributes_11_0,
+							lv_attributes_10_0,
 							"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Attribute");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_12=','
+				otherlv_11='and'
 				{
-					newLeafNode(otherlv_12, grammarAccess.getRequirementsModelAccess().getCommaKeyword_5_4_0());
+					newLeafNode(otherlv_11, grammarAccess.getRequirementsModelAccess().getAndKeyword_5_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRequirementsModelAccess().getAttributesAttributeParserRuleCall_5_4_1_0());
+							newCompositeNode(grammarAccess.getRequirementsModelAccess().getAttributesAttributeParserRuleCall_5_3_1_0());
 						}
-						lv_attributes_13_0=ruleAttribute
+						lv_attributes_12_0=ruleAttribute
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRequirementsModelRule());
@@ -211,25 +207,33 @@ ruleRequirementsModel returns [EObject current=null]
 							add(
 								$current,
 								"attributes",
-								lv_attributes_13_0,
+								lv_attributes_12_0,
 								"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Attribute");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_14='}'
+			otherlv_13='.'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getRequirementsModelAccess().getRightCurlyBracketKeyword_5_5());
+				newLeafNode(otherlv_13, grammarAccess.getRequirementsModelAccess().getFullStopKeyword_5_4());
 			}
 		)?
 		(
+			otherlv_14='requirements'
+			{
+				newLeafNode(otherlv_14, grammarAccess.getRequirementsModelAccess().getRequirementsKeyword_6_0());
+			}
+			otherlv_15='are'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getRequirementsModelAccess().getAreKeyword_6_1());
+			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRequirementsModelAccess().getElementsRequirementModelElementParserRuleCall_6_0_0());
+						newCompositeNode(grammarAccess.getRequirementsModelAccess().getElementsRequirementModelElementParserRuleCall_6_2_0());
 					}
-					lv_elements_15_0=ruleRequirementModelElement
+					lv_elements_16_0=ruleRequirementModelElement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRequirementsModelRule());
@@ -237,23 +241,23 @@ ruleRequirementsModel returns [EObject current=null]
 						add(
 							$current,
 							"elements",
-							lv_elements_15_0,
+							lv_elements_16_0,
 							"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.RequirementModelElement");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_16=','
+				otherlv_17='and'
 				{
-					newLeafNode(otherlv_16, grammarAccess.getRequirementsModelAccess().getCommaKeyword_6_1_0());
+					newLeafNode(otherlv_17, grammarAccess.getRequirementsModelAccess().getAndKeyword_6_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRequirementsModelAccess().getElementsRequirementModelElementParserRuleCall_6_1_1_0());
+							newCompositeNode(grammarAccess.getRequirementsModelAccess().getElementsRequirementModelElementParserRuleCall_6_3_1_0());
 						}
-						lv_elements_17_0=ruleRequirementModelElement
+						lv_elements_18_0=ruleRequirementModelElement
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRequirementsModelRule());
@@ -261,7 +265,7 @@ ruleRequirementsModel returns [EObject current=null]
 							add(
 								$current,
 								"elements",
-								lv_elements_17_0,
+								lv_elements_18_0,
 								"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.RequirementModelElement");
 							afterParserOrEnumRuleCall();
 						}
@@ -468,20 +472,16 @@ ruleConstraint returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='new'
+		otherlv_1='constraint'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getNewKeyword_1());
-		}
-		otherlv_2='constraint'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getConstraintAccess().getConstraintKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getConstraintKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConstraintAccess().getNameEStringParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getConstraintAccess().getNameEStringParserRuleCall_2_0());
 				}
-				lv_name_3_0=ruleEString
+				lv_name_2_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getConstraintRule());
@@ -489,7 +489,7 @@ ruleConstraint returns [EObject current=null]
 					set(
 						$current,
 						"name",
-						lv_name_3_0,
+						lv_name_2_0,
 						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
 					afterParserOrEnumRuleCall();
 				}
@@ -499,9 +499,9 @@ ruleConstraint returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getConstraintAccess().getExpressionExpressionParserRuleCall_4_0_0());
+						newCompositeNode(grammarAccess.getConstraintAccess().getExpressionExpressionParserRuleCall_3_0_0());
 					}
-					lv_expression_4_0=ruleExpression
+					lv_expression_3_0=ruleExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getConstraintRule());
@@ -509,23 +509,23 @@ ruleConstraint returns [EObject current=null]
 						add(
 							$current,
 							"expression",
-							lv_expression_4_0,
+							lv_expression_3_0,
 							"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Expression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_5=','
+				otherlv_4='and'
 				{
-					newLeafNode(otherlv_5, grammarAccess.getConstraintAccess().getCommaKeyword_4_1_0());
+					newLeafNode(otherlv_4, grammarAccess.getConstraintAccess().getAndKeyword_3_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getConstraintAccess().getExpressionExpressionParserRuleCall_4_1_1_0());
+							newCompositeNode(grammarAccess.getConstraintAccess().getExpressionExpressionParserRuleCall_3_1_1_0());
 						}
-						lv_expression_6_0=ruleExpression
+						lv_expression_5_0=ruleExpression
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getConstraintRule());
@@ -533,7 +533,7 @@ ruleConstraint returns [EObject current=null]
 							add(
 								$current,
 								"expression",
-								lv_expression_6_0,
+								lv_expression_5_0,
 								"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Expression");
 							afterParserOrEnumRuleCall();
 						}
@@ -655,16 +655,12 @@ ruleRequirementsGroup returns [EObject current=null]
 			{
 				newLeafNode(otherlv_10, grammarAccess.getRequirementsGroupAccess().getAreKeyword_7_1());
 			}
-			otherlv_11='{'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getRequirementsGroupAccess().getLeftCurlyBracketKeyword_7_2());
-			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRequirementsGroupAccess().getConstraintsConstraintParserRuleCall_7_3_0());
+						newCompositeNode(grammarAccess.getRequirementsGroupAccess().getConstraintsConstraintParserRuleCall_7_2_0());
 					}
-					lv_constraints_12_0=ruleConstraint
+					lv_constraints_11_0=ruleConstraint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRequirementsGroupRule());
@@ -672,23 +668,23 @@ ruleRequirementsGroup returns [EObject current=null]
 						add(
 							$current,
 							"constraints",
-							lv_constraints_12_0,
+							lv_constraints_11_0,
 							"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Constraint");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_13=','
+				otherlv_12='and'
 				{
-					newLeafNode(otherlv_13, grammarAccess.getRequirementsGroupAccess().getCommaKeyword_7_4_0());
+					newLeafNode(otherlv_12, grammarAccess.getRequirementsGroupAccess().getAndKeyword_7_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRequirementsGroupAccess().getConstraintsConstraintParserRuleCall_7_4_1_0());
+							newCompositeNode(grammarAccess.getRequirementsGroupAccess().getConstraintsConstraintParserRuleCall_7_3_1_0());
 						}
-						lv_constraints_14_0=ruleConstraint
+						lv_constraints_13_0=ruleConstraint
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRequirementsGroupRule());
@@ -696,37 +692,33 @@ ruleRequirementsGroup returns [EObject current=null]
 							add(
 								$current,
 								"constraints",
-								lv_constraints_14_0,
+								lv_constraints_13_0,
 								"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Constraint");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_15='}'
+			otherlv_14='.'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getRequirementsGroupAccess().getRightCurlyBracketKeyword_7_5());
+				newLeafNode(otherlv_14, grammarAccess.getRequirementsGroupAccess().getFullStopKeyword_7_4());
 			}
 		)?
 		(
-			otherlv_16='elements'
+			otherlv_15='elements'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getRequirementsGroupAccess().getElementsKeyword_8_0());
+				newLeafNode(otherlv_15, grammarAccess.getRequirementsGroupAccess().getElementsKeyword_8_0());
 			}
-			otherlv_17='are'
+			otherlv_16='are'
 			{
-				newLeafNode(otherlv_17, grammarAccess.getRequirementsGroupAccess().getAreKeyword_8_1());
-			}
-			otherlv_18='{'
-			{
-				newLeafNode(otherlv_18, grammarAccess.getRequirementsGroupAccess().getLeftCurlyBracketKeyword_8_2());
+				newLeafNode(otherlv_16, grammarAccess.getRequirementsGroupAccess().getAreKeyword_8_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRequirementsGroupAccess().getElementsRequirementModelElementParserRuleCall_8_3_0());
+						newCompositeNode(grammarAccess.getRequirementsGroupAccess().getElementsRequirementModelElementParserRuleCall_8_2_0());
 					}
-					lv_elements_19_0=ruleRequirementModelElement
+					lv_elements_17_0=ruleRequirementModelElement
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRequirementsGroupRule());
@@ -734,23 +726,23 @@ ruleRequirementsGroup returns [EObject current=null]
 						add(
 							$current,
 							"elements",
-							lv_elements_19_0,
+							lv_elements_17_0,
 							"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.RequirementModelElement");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_20=','
+				otherlv_18='and'
 				{
-					newLeafNode(otherlv_20, grammarAccess.getRequirementsGroupAccess().getCommaKeyword_8_4_0());
+					newLeafNode(otherlv_18, grammarAccess.getRequirementsGroupAccess().getAndKeyword_8_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRequirementsGroupAccess().getElementsRequirementModelElementParserRuleCall_8_4_1_0());
+							newCompositeNode(grammarAccess.getRequirementsGroupAccess().getElementsRequirementModelElementParserRuleCall_8_3_1_0());
 						}
-						lv_elements_21_0=ruleRequirementModelElement
+						lv_elements_19_0=ruleRequirementModelElement
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRequirementsGroupRule());
@@ -758,16 +750,16 @@ ruleRequirementsGroup returns [EObject current=null]
 							add(
 								$current,
 								"elements",
-								lv_elements_21_0,
+								lv_elements_19_0,
 								"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.RequirementModelElement");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_22='}'
+			otherlv_20='.'
 			{
-				newLeafNode(otherlv_22, grammarAccess.getRequirementsGroupAccess().getRightCurlyBracketKeyword_8_5());
+				newLeafNode(otherlv_20, grammarAccess.getRequirementsGroupAccess().getFullStopKeyword_8_4());
 			}
 		)?
 	)
@@ -954,16 +946,12 @@ ruleRequirement returns [EObject current=null]
 			{
 				newLeafNode(otherlv_20, grammarAccess.getRequirementAccess().getAreKeyword_16_1());
 			}
-			otherlv_21='{'
-			{
-				newLeafNode(otherlv_21, grammarAccess.getRequirementAccess().getLeftCurlyBracketKeyword_16_2());
-			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRequirementAccess().getConstraintsConstraintParserRuleCall_16_3_0());
+						newCompositeNode(grammarAccess.getRequirementAccess().getConstraintsConstraintParserRuleCall_16_2_0());
 					}
-					lv_constraints_22_0=ruleConstraint
+					lv_constraints_21_0=ruleConstraint
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRequirementRule());
@@ -971,23 +959,23 @@ ruleRequirement returns [EObject current=null]
 						add(
 							$current,
 							"constraints",
-							lv_constraints_22_0,
+							lv_constraints_21_0,
 							"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Constraint");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_23=','
+				otherlv_22='and'
 				{
-					newLeafNode(otherlv_23, grammarAccess.getRequirementAccess().getCommaKeyword_16_4_0());
+					newLeafNode(otherlv_22, grammarAccess.getRequirementAccess().getAndKeyword_16_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRequirementAccess().getConstraintsConstraintParserRuleCall_16_4_1_0());
+							newCompositeNode(grammarAccess.getRequirementAccess().getConstraintsConstraintParserRuleCall_16_3_1_0());
 						}
-						lv_constraints_24_0=ruleConstraint
+						lv_constraints_23_0=ruleConstraint
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRequirementRule());
@@ -995,37 +983,33 @@ ruleRequirement returns [EObject current=null]
 							add(
 								$current,
 								"constraints",
-								lv_constraints_24_0,
+								lv_constraints_23_0,
 								"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.Constraint");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_25='}'
+			otherlv_24='.'
 			{
-				newLeafNode(otherlv_25, grammarAccess.getRequirementAccess().getRightCurlyBracketKeyword_16_5());
+				newLeafNode(otherlv_24, grammarAccess.getRequirementAccess().getFullStopKeyword_16_4());
 			}
 		)?
 		(
-			otherlv_26='attributes'
+			otherlv_25='attributes'
 			{
-				newLeafNode(otherlv_26, grammarAccess.getRequirementAccess().getAttributesKeyword_17_0());
+				newLeafNode(otherlv_25, grammarAccess.getRequirementAccess().getAttributesKeyword_17_0());
 			}
-			otherlv_27='are'
+			otherlv_26='are'
 			{
-				newLeafNode(otherlv_27, grammarAccess.getRequirementAccess().getAreKeyword_17_1());
-			}
-			otherlv_28='{'
-			{
-				newLeafNode(otherlv_28, grammarAccess.getRequirementAccess().getLeftCurlyBracketKeyword_17_2());
+				newLeafNode(otherlv_26, grammarAccess.getRequirementAccess().getAreKeyword_17_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRequirementAccess().getAttributesAttributeValueParserRuleCall_17_3_0());
+						newCompositeNode(grammarAccess.getRequirementAccess().getAttributesAttributeValueParserRuleCall_17_2_0());
 					}
-					lv_attributes_29_0=ruleAttributeValue
+					lv_attributes_27_0=ruleAttributeValue
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRequirementRule());
@@ -1033,23 +1017,23 @@ ruleRequirement returns [EObject current=null]
 						add(
 							$current,
 							"attributes",
-							lv_attributes_29_0,
+							lv_attributes_27_0,
 							"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.AttributeValue");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_30=','
+				otherlv_28='and'
 				{
-					newLeafNode(otherlv_30, grammarAccess.getRequirementAccess().getCommaKeyword_17_4_0());
+					newLeafNode(otherlv_28, grammarAccess.getRequirementAccess().getAndKeyword_17_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getRequirementAccess().getAttributesAttributeValueParserRuleCall_17_4_1_0());
+							newCompositeNode(grammarAccess.getRequirementAccess().getAttributesAttributeValueParserRuleCall_17_3_1_0());
 						}
-						lv_attributes_31_0=ruleAttributeValue
+						lv_attributes_29_0=ruleAttributeValue
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getRequirementRule());
@@ -1057,16 +1041,16 @@ ruleRequirement returns [EObject current=null]
 							add(
 								$current,
 								"attributes",
-								lv_attributes_31_0,
+								lv_attributes_29_0,
 								"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.AttributeValue");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_32='}'
+			otherlv_30='.'
 			{
-				newLeafNode(otherlv_32, grammarAccess.getRequirementAccess().getRightCurlyBracketKeyword_17_5());
+				newLeafNode(otherlv_30, grammarAccess.getRequirementAccess().getFullStopKeyword_17_4());
 			}
 		)?
 	)
@@ -1316,33 +1300,6 @@ ruleAttributeValue returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='attributeValue'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getAttributeValueAccess().getAttributeValueKeyword_1());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueEStringParserRuleCall_2_0());
-				}
-				lv_value_2_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAttributeValueRule());
-					}
-					set(
-						$current,
-						"value",
-						lv_value_2_0,
-						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-		otherlv_3='of'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getAttributeValueAccess().getOfKeyword_3());
-		}
 		(
 			(
 				{
@@ -1351,7 +1308,7 @@ ruleAttributeValue returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueOfAttributeCrossReference_4_0());
+					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueOfAttributeCrossReference_1_0());
 				}
 				ruleEString
 				{
@@ -1359,6 +1316,33 @@ ruleAttributeValue returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_2='with'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAttributeValueAccess().getWithKeyword_2());
+		}
+		otherlv_3='value'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAttributeValueAccess().getValueKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueEStringParserRuleCall_4_0());
+				}
+				lv_value_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAttributeValueRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_4_0,
+						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
