@@ -39,26 +39,16 @@
                id="de.tubs.cs.isf.reqeditor.graphiti.propertySection"
                tab="de.tubs.cs.isf.reqeditor.graphiti.propertyTab">
          </propertySection>
-         <propertySection
-               class="org.eclipse.ui.views.properties.tabbed.AdvancedPropertySection"
-               id="de.tubs.cs.isf.reqeditor.graphiti.propertySection2"
-               tab="de.tubs.cs.isf.reqeditor.graphiti.propertyTab2">
-         </propertySection>
       </propertySections>
    </extension>
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="de.tubs.cs.isf.reqeditor.graphiti.propertyTabs">
+            contributorId="de.tubs.cs.isf.reqeditor.graphiti.propertyContributor">
          <propertyTab
-               category="de.tubs.cs.isf.reqeditor.graphiti.propertyTab"
+               category="Graphiti"
                id="de.tubs.cs.isf.reqeditor.graphiti.propertyTab"
                label="Graphiti">
-         </propertyTab>
-         <propertyTab
-               category="de.tubs.cs.isf.reqeditor.graphiti.propertyTab2"
-               id="de.tubs.cs.isf.reqeditor.graphiti.propertyTab2"
-               label="Table">
          </propertyTab>
       </propertyTabs>
    </extension>
@@ -71,6 +61,39 @@
             id="de.tubs.cs.isf.reqeditor.graphiti.wizard"
             name="New Diagram">
       </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="de.tubs.cs.isf.reqeditor.graphiti.MyDiagramEditor"
+            contributorClass="org.eclipse.graphiti.ui.editor.DiagramEditorActionBarContributor"
+            default="true"
+            extensions="reqdia"
+            icon="icons/repository_rep.gif"
+            id="de.tubs.cs.isf.reqeditor.graphiti.editor"
+            name="Requirement Diagram Editor">
+         <contentTypeBinding
+               contentTypeId="de.tubs.cs.isf.reqeditor.graphiti.content-type">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            file-extensions=".reqdia"
+            id="de.tubs.cs.isf.reqeditor.graphiti.content-type"
+            name="Requirements Diagram"
+            priority="high">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonWizard
+            menuGroupId="de.tubs.cs.isf.reqeditor.category"
+            type="new"
+            wizardId="de.tubs.cs.isf.reqeditor.graphiti.wizard">
+         <enablement></enablement>
+      </commonWizard>
    </extension>
 
 </plugin>

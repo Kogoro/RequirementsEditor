@@ -1,8 +1,6 @@
 package de.tubs.cs.isf.reqeditor.graphiti.wizards;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collections;
 
 import org.eclipse.core.resources.IFile;
@@ -19,7 +17,6 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import de.tubs.cs.isf.reqeditor.RequirementsEditingDomainFactory;
 import de.tubs.cs.isf.requirementseditor.RequirementsEditorFactory;
 import de.tubs.cs.isf.requirementseditor.RequirementsModel;
-import de.tubs.cs.isf.requirementseditor.impl.RequirementsEditorFactoryImpl;
 
 public class DiagramWizard extends BasicNewResourceWizard {
 
@@ -55,9 +52,9 @@ public class DiagramWizard extends BasicNewResourceWizard {
 		};
 
 	mainPage.setTitle("Create a new Diagram");
-	mainPage.setFileExtension("diagram");
+	mainPage.setFileExtension("reqdia");
 	mainPage.setDescription("A diagram shows the structure of a requirement model.");
-	mainPage.setFileName("model.diagram");
+	mainPage.setFileName("model.reqdia");
 
 	addPage(mainPage);
 	}
@@ -78,8 +75,8 @@ public class DiagramWizard extends BasicNewResourceWizard {
 		IFile file = mainPage.createNewFile();
 		
 		RequirementsEditingDomainFactory domain = new RequirementsEditingDomainFactory();
-		Resource diagramFile = domain.getResourceSet().getResource(URI.createFileURI(file.getLocation().toOSString()), true);
-		RequirementsModel oldModel = domain.getModel();
+		Resource diagramFile = domain.getResourceSet().createResource(URI.createFileURI(file.getLocation().toOSString()));
+		RequirementsModel oldModel = null;//domain.getModel();
 		RequirementsModel model;
 		if (oldModel == null) {
 			model = RequirementsEditorFactory.eINSTANCE.createRequirementsModel();
