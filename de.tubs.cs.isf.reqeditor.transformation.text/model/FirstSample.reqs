@@ -12,6 +12,6 @@
   </elements>
   <elements xsi:type="RequirementsEditor:RequirementsGroup" name="Reg_1" id="R_1" description="This is the first test. (test if unic)"/>
   <elements xsi:type="RequirementsEditor:Requirement" name="Re_3" id="R_1" description="Test\and&lt;see~what happens." type="NON_FUNCTIONAL" priority="OPTIONAL"/>
-  <attributes id="ATTR_1"/>
-  <attributes id="ATTR_2"/>
+  <attributes name="ATTR_1"/>
+  <attributes name="ATTR_2"/>
 </RequirementsEditor:RequirementsModel>
