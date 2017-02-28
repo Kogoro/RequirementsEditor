@@ -817,42 +817,46 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.AttributeValue");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAttributeValueAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueEStringParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
-		private final Keyword cOfKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueOfAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cValueOfAttributeCrossReference_3_0 = (CrossReference)cValueOfAssignment_3.eContents().get(0);
-		private final RuleCall cValueOfAttributeEStringParserRuleCall_3_0_1 = (RuleCall)cValueOfAttributeCrossReference_3_0.eContents().get(1);
+		private final Assignment cValueOfAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cValueOfAttributeCrossReference_1_0 = (CrossReference)cValueOfAssignment_1.eContents().get(0);
+		private final RuleCall cValueOfAttributeEStringParserRuleCall_1_0_1 = (RuleCall)cValueOfAttributeCrossReference_1_0.eContents().get(1);
+		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cValueKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cValueEStringParserRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
 		
 		//AttributeValue:
-		//	{AttributeValue} value=EString?
-		//	'of'
-		//	valueOf=[Attribute|EString];
+		//	{AttributeValue} valueOf=[Attribute|EString]
+		//	'with' 'value'
+		//	value=EString?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AttributeValue} value=EString? 'of' valueOf=[Attribute|EString]
+		//{AttributeValue} valueOf=[Attribute|EString] 'with' 'value' value=EString?
 		public Group getGroup() { return cGroup; }
 		
 		//{AttributeValue}
 		public Action getAttributeValueAction_0() { return cAttributeValueAction_0; }
 		
-		//value=EString?
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
-		
-		//EString
-		public RuleCall getValueEStringParserRuleCall_1_0() { return cValueEStringParserRuleCall_1_0; }
-		
-		//'of'
-		public Keyword getOfKeyword_2() { return cOfKeyword_2; }
-		
 		//valueOf=[Attribute|EString]
-		public Assignment getValueOfAssignment_3() { return cValueOfAssignment_3; }
+		public Assignment getValueOfAssignment_1() { return cValueOfAssignment_1; }
 		
 		//[Attribute|EString]
-		public CrossReference getValueOfAttributeCrossReference_3_0() { return cValueOfAttributeCrossReference_3_0; }
+		public CrossReference getValueOfAttributeCrossReference_1_0() { return cValueOfAttributeCrossReference_1_0; }
 		
 		//EString
-		public RuleCall getValueOfAttributeEStringParserRuleCall_3_0_1() { return cValueOfAttributeEStringParserRuleCall_3_0_1; }
+		public RuleCall getValueOfAttributeEStringParserRuleCall_1_0_1() { return cValueOfAttributeEStringParserRuleCall_1_0_1; }
+		
+		//'with'
+		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
+		
+		//'value'
+		public Keyword getValueKeyword_3() { return cValueKeyword_3; }
+		
+		//value=EString?
+		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
+		
+		//EString
+		public RuleCall getValueEStringParserRuleCall_4_0() { return cValueEStringParserRuleCall_4_0; }
 	}
 	
 	public class RequirementTypeElements extends AbstractEnumRuleElementFinder {
@@ -1175,9 +1179,9 @@ public class ReqLanguageGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AttributeValue:
-	//	{AttributeValue} value=EString?
-	//	'of'
-	//	valueOf=[Attribute|EString];
+	//	{AttributeValue} valueOf=[Attribute|EString]
+	//	'with' 'value'
+	//	value=EString?;
 	public AttributeValueElements getAttributeValueAccess() {
 		return pAttributeValue;
 	}

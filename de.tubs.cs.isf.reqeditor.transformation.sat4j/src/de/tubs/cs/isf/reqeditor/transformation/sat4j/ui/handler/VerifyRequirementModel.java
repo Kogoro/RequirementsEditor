@@ -85,7 +85,10 @@ public class VerifyRequirementModel extends AbstractHandler{
 						solver.addClause(new VecInt(clause)); // adapt Array to IVecInt
 					} catch (ContradictionException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						//e.printStackTrace();
+						String reqElements = Arrays.stream(clause).mapToObj(j -> vars.get(Math.abs(j)-1).getName()).reduce("", (l,m) -> l + ", " + m);
+						MessageDialog.openInformation(window.getShell(), "Shit Happened", "One of the following RequirementModelElements is part of a contradiction:\n" + reqElements.substring(2));
+						return null;
 					}
 				}
 

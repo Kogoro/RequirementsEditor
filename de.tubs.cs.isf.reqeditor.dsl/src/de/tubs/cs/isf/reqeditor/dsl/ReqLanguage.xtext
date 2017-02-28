@@ -96,7 +96,8 @@ enum RequirementPriority returns RequirementPriority:
 
 AttributeValue returns AttributeValue:
 	{AttributeValue}
-		(value=EString)?
-		'of'
 		valueOf=[Attribute|EString]
+		'with' 'value'
+		(value=EString)?
+		
 	;
