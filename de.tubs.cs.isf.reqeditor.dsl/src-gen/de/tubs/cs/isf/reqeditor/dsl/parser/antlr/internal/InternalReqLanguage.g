@@ -1303,35 +1303,12 @@ ruleAttributeValue returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueEStringParserRuleCall_1_0());
-				}
-				lv_value_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAttributeValueRule());
-					}
-					set(
-						$current,
-						"value",
-						lv_value_1_0,
-						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-		otherlv_2='of'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getAttributeValueAccess().getOfKeyword_2());
-		}
-		(
-			(
-				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getAttributeValueRule());
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueOfAttributeCrossReference_3_0());
+					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueOfAttributeCrossReference_1_0());
 				}
 				ruleEString
 				{
@@ -1339,6 +1316,33 @@ ruleAttributeValue returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_2='with'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAttributeValueAccess().getWithKeyword_2());
+		}
+		otherlv_3='value'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAttributeValueAccess().getValueKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueEStringParserRuleCall_4_0());
+				}
+				lv_value_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAttributeValueRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_4_0,
+						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 

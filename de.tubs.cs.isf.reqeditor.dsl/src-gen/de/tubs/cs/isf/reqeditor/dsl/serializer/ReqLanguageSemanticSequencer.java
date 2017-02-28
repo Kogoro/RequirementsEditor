@@ -103,7 +103,7 @@ public class ReqLanguageSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     AttributeValue returns AttributeValue
 	 *
 	 * Constraint:
-	 *     (value=EString? valueOf=[Attribute|EString])
+	 *     (valueOf=[Attribute|EString] value=EString?)
 	 */
 	protected void sequence_AttributeValue(ISerializationContext context, AttributeValue semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

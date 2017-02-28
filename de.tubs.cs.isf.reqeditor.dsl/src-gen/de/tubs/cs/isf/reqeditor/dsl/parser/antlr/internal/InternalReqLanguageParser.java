@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'requirementsModel'", "'created'", "'by'", "'version'", "'attributes'", "'are'", "'and'", "'.'", "'requirements'", "'attribute'", "'constraint'", "'requirementsGroup'", "'id'", "'is'", "'description'", "'constraints'", "'elements'", "'requirement'", "'type'", "'priority'", "'('", "'OR'", "')'", "'['", "'AND'", "']'", "'NOT'", "'of'", "'FUNCTIONAL'", "'NON_FUNCTIONAL'", "'NONE'", "'OTHER'", "'ESSENTIAL'", "'CONDITIONAL'", "'OPTIONAL'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'requirementsModel'", "'created'", "'by'", "'version'", "'attributes'", "'are'", "'and'", "'.'", "'requirements'", "'attribute'", "'constraint'", "'requirementsGroup'", "'id'", "'is'", "'description'", "'constraints'", "'elements'", "'requirement'", "'type'", "'priority'", "'('", "'OR'", "')'", "'['", "'AND'", "']'", "'NOT'", "'with'", "'value'", "'FUNCTIONAL'", "'NON_FUNCTIONAL'", "'NONE'", "'OTHER'", "'ESSENTIAL'", "'CONDITIONAL'", "'OPTIONAL'"
     };
     public static final int T__19=19;
     public static final int T__15=15;
@@ -63,6 +63,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
     public static final int RULE_ANY_OTHER=10;
     public static final int T__44=44;
     public static final int T__45=45;
+    public static final int T__46=46;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
@@ -2333,7 +2334,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_25, grammarAccess.getRequirementAccess().getAttributesKeyword_17_0());
                     			
-                    otherlv_26=(Token)match(input,16,FOLLOW_30); 
+                    otherlv_26=(Token)match(input,16,FOLLOW_3); 
 
                     				newLeafNode(otherlv_26, grammarAccess.getRequirementAccess().getAreKeyword_17_1());
                     			
@@ -2383,7 +2384,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalReqLanguage.g:1027:5: otherlv_28= 'and' ( (lv_attributes_29_0= ruleAttributeValue ) )
                     	    {
-                    	    otherlv_28=(Token)match(input,17,FOLLOW_30); 
+                    	    otherlv_28=(Token)match(input,17,FOLLOW_3); 
 
                     	    					newLeafNode(otherlv_28, grammarAccess.getRequirementAccess().getAndKeyword_17_3_0());
                     	    				
@@ -2531,7 +2532,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getORAccess().getOperand1ExpressionParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_30);
             lv_operand1_1_0=ruleExpression();
 
             state._fsp--;
@@ -2566,7 +2567,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getORAccess().getOperand2ExpressionParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             lv_operand2_3_0=ruleExpression();
 
             state._fsp--;
@@ -2686,7 +2687,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getANDAccess().getOperand1ExpressionParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_32);
             lv_operand1_1_0=ruleExpression();
 
             state._fsp--;
@@ -2721,7 +2722,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getANDAccess().getOperand2ExpressionParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_33);
             lv_operand2_3_0=ruleExpression();
 
             state._fsp--;
@@ -2826,7 +2827,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
             // InternalReqLanguage.g:1212:2: (otherlv_0= '(' otherlv_1= 'NOT' ( (lv_operand1_2_0= ruleExpression ) ) otherlv_3= ')' )
             // InternalReqLanguage.g:1213:3: otherlv_0= '(' otherlv_1= 'NOT' ( (lv_operand1_2_0= ruleExpression ) ) otherlv_3= ')'
             {
-            otherlv_0=(Token)match(input,31,FOLLOW_35); 
+            otherlv_0=(Token)match(input,31,FOLLOW_34); 
 
             			newLeafNode(otherlv_0, grammarAccess.getNOTAccess().getLeftParenthesisKeyword_0());
             		
@@ -2843,7 +2844,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getNOTAccess().getOperand1ExpressionParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_31);
             lv_operand1_2_0=ruleExpression();
 
             state._fsp--;
@@ -3023,23 +3024,24 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttributeValue"
-    // InternalReqLanguage.g:1288:1: ruleAttributeValue returns [EObject current=null] : ( () ( (lv_value_1_0= ruleEString ) )? otherlv_2= 'of' ( ( ruleEString ) ) ) ;
+    // InternalReqLanguage.g:1288:1: ruleAttributeValue returns [EObject current=null] : ( () ( ( ruleEString ) ) otherlv_2= 'with' otherlv_3= 'value' ( (lv_value_4_0= ruleEString ) )? ) ;
     public final EObject ruleAttributeValue() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
-        AntlrDatatypeRuleToken lv_value_1_0 = null;
+        Token otherlv_3=null;
+        AntlrDatatypeRuleToken lv_value_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalReqLanguage.g:1294:2: ( ( () ( (lv_value_1_0= ruleEString ) )? otherlv_2= 'of' ( ( ruleEString ) ) ) )
-            // InternalReqLanguage.g:1295:2: ( () ( (lv_value_1_0= ruleEString ) )? otherlv_2= 'of' ( ( ruleEString ) ) )
+            // InternalReqLanguage.g:1294:2: ( ( () ( ( ruleEString ) ) otherlv_2= 'with' otherlv_3= 'value' ( (lv_value_4_0= ruleEString ) )? ) )
+            // InternalReqLanguage.g:1295:2: ( () ( ( ruleEString ) ) otherlv_2= 'with' otherlv_3= 'value' ( (lv_value_4_0= ruleEString ) )? )
             {
-            // InternalReqLanguage.g:1295:2: ( () ( (lv_value_1_0= ruleEString ) )? otherlv_2= 'of' ( ( ruleEString ) ) )
-            // InternalReqLanguage.g:1296:3: () ( (lv_value_1_0= ruleEString ) )? otherlv_2= 'of' ( ( ruleEString ) )
+            // InternalReqLanguage.g:1295:2: ( () ( ( ruleEString ) ) otherlv_2= 'with' otherlv_3= 'value' ( (lv_value_4_0= ruleEString ) )? )
+            // InternalReqLanguage.g:1296:3: () ( ( ruleEString ) ) otherlv_2= 'with' otherlv_3= 'value' ( (lv_value_4_0= ruleEString ) )?
             {
             // InternalReqLanguage.g:1296:3: ()
             // InternalReqLanguage.g:1297:4: 
@@ -3052,57 +3054,11 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalReqLanguage.g:1303:3: ( (lv_value_1_0= ruleEString ) )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
-
-            if ( ((LA22_0>=RULE_STRING && LA22_0<=RULE_ID)) ) {
-                alt22=1;
-            }
-            switch (alt22) {
-                case 1 :
-                    // InternalReqLanguage.g:1304:4: (lv_value_1_0= ruleEString )
-                    {
-                    // InternalReqLanguage.g:1304:4: (lv_value_1_0= ruleEString )
-                    // InternalReqLanguage.g:1305:5: lv_value_1_0= ruleEString
-                    {
-
-                    					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueEStringParserRuleCall_1_0());
-                    				
-                    pushFollow(FOLLOW_36);
-                    lv_value_1_0=ruleEString();
-
-                    state._fsp--;
-
-
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getAttributeValueRule());
-                    					}
-                    					set(
-                    						current,
-                    						"value",
-                    						lv_value_1_0,
-                    						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
-                    					afterParserOrEnumRuleCall();
-                    				
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_2=(Token)match(input,38,FOLLOW_3); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getAttributeValueAccess().getOfKeyword_2());
-            		
-            // InternalReqLanguage.g:1326:3: ( ( ruleEString ) )
-            // InternalReqLanguage.g:1327:4: ( ruleEString )
+            // InternalReqLanguage.g:1303:3: ( ( ruleEString ) )
+            // InternalReqLanguage.g:1304:4: ( ruleEString )
             {
-            // InternalReqLanguage.g:1327:4: ( ruleEString )
-            // InternalReqLanguage.g:1328:5: ruleEString
+            // InternalReqLanguage.g:1304:4: ( ruleEString )
+            // InternalReqLanguage.g:1305:5: ruleEString
             {
 
             					if (current==null) {
@@ -3110,9 +3066,9 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueOfAttributeCrossReference_3_0());
+            					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueOfAttributeCrossReference_1_0());
             				
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_35);
             ruleEString();
 
             state._fsp--;
@@ -3123,6 +3079,56 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
+
+            }
+
+            otherlv_2=(Token)match(input,38,FOLLOW_36); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getAttributeValueAccess().getWithKeyword_2());
+            		
+            otherlv_3=(Token)match(input,39,FOLLOW_37); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getAttributeValueAccess().getValueKeyword_3());
+            		
+            // InternalReqLanguage.g:1327:3: ( (lv_value_4_0= ruleEString ) )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
+
+            if ( ((LA22_0>=RULE_STRING && LA22_0<=RULE_ID)) ) {
+                alt22=1;
+            }
+            switch (alt22) {
+                case 1 :
+                    // InternalReqLanguage.g:1328:4: (lv_value_4_0= ruleEString )
+                    {
+                    // InternalReqLanguage.g:1328:4: (lv_value_4_0= ruleEString )
+                    // InternalReqLanguage.g:1329:5: lv_value_4_0= ruleEString
+                    {
+
+                    					newCompositeNode(grammarAccess.getAttributeValueAccess().getValueEStringParserRuleCall_4_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_value_4_0=ruleEString();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getAttributeValueRule());
+                    					}
+                    					set(
+                    						current,
+                    						"value",
+                    						lv_value_4_0,
+                    						"de.tubs.cs.isf.reqeditor.dsl.ReqLanguage.EString");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -3149,7 +3155,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRequirementType"
-    // InternalReqLanguage.g:1346:1: ruleRequirementType returns [Enumerator current=null] : ( (enumLiteral_0= 'FUNCTIONAL' ) | (enumLiteral_1= 'NON_FUNCTIONAL' ) | (enumLiteral_2= 'NONE' ) | (enumLiteral_3= 'OTHER' ) ) ;
+    // InternalReqLanguage.g:1350:1: ruleRequirementType returns [Enumerator current=null] : ( (enumLiteral_0= 'FUNCTIONAL' ) | (enumLiteral_1= 'NON_FUNCTIONAL' ) | (enumLiteral_2= 'NONE' ) | (enumLiteral_3= 'OTHER' ) ) ;
     public final Enumerator ruleRequirementType() throws RecognitionException {
         Enumerator current = null;
 
@@ -3162,28 +3168,28 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalReqLanguage.g:1352:2: ( ( (enumLiteral_0= 'FUNCTIONAL' ) | (enumLiteral_1= 'NON_FUNCTIONAL' ) | (enumLiteral_2= 'NONE' ) | (enumLiteral_3= 'OTHER' ) ) )
-            // InternalReqLanguage.g:1353:2: ( (enumLiteral_0= 'FUNCTIONAL' ) | (enumLiteral_1= 'NON_FUNCTIONAL' ) | (enumLiteral_2= 'NONE' ) | (enumLiteral_3= 'OTHER' ) )
+            // InternalReqLanguage.g:1356:2: ( ( (enumLiteral_0= 'FUNCTIONAL' ) | (enumLiteral_1= 'NON_FUNCTIONAL' ) | (enumLiteral_2= 'NONE' ) | (enumLiteral_3= 'OTHER' ) ) )
+            // InternalReqLanguage.g:1357:2: ( (enumLiteral_0= 'FUNCTIONAL' ) | (enumLiteral_1= 'NON_FUNCTIONAL' ) | (enumLiteral_2= 'NONE' ) | (enumLiteral_3= 'OTHER' ) )
             {
-            // InternalReqLanguage.g:1353:2: ( (enumLiteral_0= 'FUNCTIONAL' ) | (enumLiteral_1= 'NON_FUNCTIONAL' ) | (enumLiteral_2= 'NONE' ) | (enumLiteral_3= 'OTHER' ) )
+            // InternalReqLanguage.g:1357:2: ( (enumLiteral_0= 'FUNCTIONAL' ) | (enumLiteral_1= 'NON_FUNCTIONAL' ) | (enumLiteral_2= 'NONE' ) | (enumLiteral_3= 'OTHER' ) )
             int alt23=4;
             switch ( input.LA(1) ) {
-            case 39:
+            case 40:
                 {
                 alt23=1;
                 }
                 break;
-            case 40:
+            case 41:
                 {
                 alt23=2;
                 }
                 break;
-            case 41:
+            case 42:
                 {
                 alt23=3;
                 }
                 break;
-            case 42:
+            case 43:
                 {
                 alt23=4;
                 }
@@ -3197,12 +3203,12 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             switch (alt23) {
                 case 1 :
-                    // InternalReqLanguage.g:1354:3: (enumLiteral_0= 'FUNCTIONAL' )
+                    // InternalReqLanguage.g:1358:3: (enumLiteral_0= 'FUNCTIONAL' )
                     {
-                    // InternalReqLanguage.g:1354:3: (enumLiteral_0= 'FUNCTIONAL' )
-                    // InternalReqLanguage.g:1355:4: enumLiteral_0= 'FUNCTIONAL'
+                    // InternalReqLanguage.g:1358:3: (enumLiteral_0= 'FUNCTIONAL' )
+                    // InternalReqLanguage.g:1359:4: enumLiteral_0= 'FUNCTIONAL'
                     {
-                    enumLiteral_0=(Token)match(input,39,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,40,FOLLOW_2); 
 
                     				current = grammarAccess.getRequirementTypeAccess().getFUNCTIONALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getRequirementTypeAccess().getFUNCTIONALEnumLiteralDeclaration_0());
@@ -3214,12 +3220,12 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalReqLanguage.g:1362:3: (enumLiteral_1= 'NON_FUNCTIONAL' )
+                    // InternalReqLanguage.g:1366:3: (enumLiteral_1= 'NON_FUNCTIONAL' )
                     {
-                    // InternalReqLanguage.g:1362:3: (enumLiteral_1= 'NON_FUNCTIONAL' )
-                    // InternalReqLanguage.g:1363:4: enumLiteral_1= 'NON_FUNCTIONAL'
+                    // InternalReqLanguage.g:1366:3: (enumLiteral_1= 'NON_FUNCTIONAL' )
+                    // InternalReqLanguage.g:1367:4: enumLiteral_1= 'NON_FUNCTIONAL'
                     {
-                    enumLiteral_1=(Token)match(input,40,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,41,FOLLOW_2); 
 
                     				current = grammarAccess.getRequirementTypeAccess().getNON_FUNCTIONALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getRequirementTypeAccess().getNON_FUNCTIONALEnumLiteralDeclaration_1());
@@ -3231,12 +3237,12 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalReqLanguage.g:1370:3: (enumLiteral_2= 'NONE' )
+                    // InternalReqLanguage.g:1374:3: (enumLiteral_2= 'NONE' )
                     {
-                    // InternalReqLanguage.g:1370:3: (enumLiteral_2= 'NONE' )
-                    // InternalReqLanguage.g:1371:4: enumLiteral_2= 'NONE'
+                    // InternalReqLanguage.g:1374:3: (enumLiteral_2= 'NONE' )
+                    // InternalReqLanguage.g:1375:4: enumLiteral_2= 'NONE'
                     {
-                    enumLiteral_2=(Token)match(input,41,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,42,FOLLOW_2); 
 
                     				current = grammarAccess.getRequirementTypeAccess().getNONEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getRequirementTypeAccess().getNONEEnumLiteralDeclaration_2());
@@ -3248,12 +3254,12 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalReqLanguage.g:1378:3: (enumLiteral_3= 'OTHER' )
+                    // InternalReqLanguage.g:1382:3: (enumLiteral_3= 'OTHER' )
                     {
-                    // InternalReqLanguage.g:1378:3: (enumLiteral_3= 'OTHER' )
-                    // InternalReqLanguage.g:1379:4: enumLiteral_3= 'OTHER'
+                    // InternalReqLanguage.g:1382:3: (enumLiteral_3= 'OTHER' )
+                    // InternalReqLanguage.g:1383:4: enumLiteral_3= 'OTHER'
                     {
-                    enumLiteral_3=(Token)match(input,42,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,43,FOLLOW_2); 
 
                     				current = grammarAccess.getRequirementTypeAccess().getOTHEREnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getRequirementTypeAccess().getOTHEREnumLiteralDeclaration_3());
@@ -3287,7 +3293,7 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRequirementPriority"
-    // InternalReqLanguage.g:1389:1: ruleRequirementPriority returns [Enumerator current=null] : ( (enumLiteral_0= 'ESSENTIAL' ) | (enumLiteral_1= 'CONDITIONAL' ) | (enumLiteral_2= 'OPTIONAL' ) ) ;
+    // InternalReqLanguage.g:1393:1: ruleRequirementPriority returns [Enumerator current=null] : ( (enumLiteral_0= 'ESSENTIAL' ) | (enumLiteral_1= 'CONDITIONAL' ) | (enumLiteral_2= 'OPTIONAL' ) ) ;
     public final Enumerator ruleRequirementPriority() throws RecognitionException {
         Enumerator current = null;
 
@@ -3299,23 +3305,23 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalReqLanguage.g:1395:2: ( ( (enumLiteral_0= 'ESSENTIAL' ) | (enumLiteral_1= 'CONDITIONAL' ) | (enumLiteral_2= 'OPTIONAL' ) ) )
-            // InternalReqLanguage.g:1396:2: ( (enumLiteral_0= 'ESSENTIAL' ) | (enumLiteral_1= 'CONDITIONAL' ) | (enumLiteral_2= 'OPTIONAL' ) )
+            // InternalReqLanguage.g:1399:2: ( ( (enumLiteral_0= 'ESSENTIAL' ) | (enumLiteral_1= 'CONDITIONAL' ) | (enumLiteral_2= 'OPTIONAL' ) ) )
+            // InternalReqLanguage.g:1400:2: ( (enumLiteral_0= 'ESSENTIAL' ) | (enumLiteral_1= 'CONDITIONAL' ) | (enumLiteral_2= 'OPTIONAL' ) )
             {
-            // InternalReqLanguage.g:1396:2: ( (enumLiteral_0= 'ESSENTIAL' ) | (enumLiteral_1= 'CONDITIONAL' ) | (enumLiteral_2= 'OPTIONAL' ) )
+            // InternalReqLanguage.g:1400:2: ( (enumLiteral_0= 'ESSENTIAL' ) | (enumLiteral_1= 'CONDITIONAL' ) | (enumLiteral_2= 'OPTIONAL' ) )
             int alt24=3;
             switch ( input.LA(1) ) {
-            case 43:
+            case 44:
                 {
                 alt24=1;
                 }
                 break;
-            case 44:
+            case 45:
                 {
                 alt24=2;
                 }
                 break;
-            case 45:
+            case 46:
                 {
                 alt24=3;
                 }
@@ -3329,12 +3335,12 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
 
             switch (alt24) {
                 case 1 :
-                    // InternalReqLanguage.g:1397:3: (enumLiteral_0= 'ESSENTIAL' )
+                    // InternalReqLanguage.g:1401:3: (enumLiteral_0= 'ESSENTIAL' )
                     {
-                    // InternalReqLanguage.g:1397:3: (enumLiteral_0= 'ESSENTIAL' )
-                    // InternalReqLanguage.g:1398:4: enumLiteral_0= 'ESSENTIAL'
+                    // InternalReqLanguage.g:1401:3: (enumLiteral_0= 'ESSENTIAL' )
+                    // InternalReqLanguage.g:1402:4: enumLiteral_0= 'ESSENTIAL'
                     {
-                    enumLiteral_0=(Token)match(input,43,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,44,FOLLOW_2); 
 
                     				current = grammarAccess.getRequirementPriorityAccess().getESSENTIALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getRequirementPriorityAccess().getESSENTIALEnumLiteralDeclaration_0());
@@ -3346,12 +3352,12 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalReqLanguage.g:1405:3: (enumLiteral_1= 'CONDITIONAL' )
+                    // InternalReqLanguage.g:1409:3: (enumLiteral_1= 'CONDITIONAL' )
                     {
-                    // InternalReqLanguage.g:1405:3: (enumLiteral_1= 'CONDITIONAL' )
-                    // InternalReqLanguage.g:1406:4: enumLiteral_1= 'CONDITIONAL'
+                    // InternalReqLanguage.g:1409:3: (enumLiteral_1= 'CONDITIONAL' )
+                    // InternalReqLanguage.g:1410:4: enumLiteral_1= 'CONDITIONAL'
                     {
-                    enumLiteral_1=(Token)match(input,44,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,45,FOLLOW_2); 
 
                     				current = grammarAccess.getRequirementPriorityAccess().getCONDITIONALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getRequirementPriorityAccess().getCONDITIONALEnumLiteralDeclaration_1());
@@ -3363,12 +3369,12 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalReqLanguage.g:1413:3: (enumLiteral_2= 'OPTIONAL' )
+                    // InternalReqLanguage.g:1417:3: (enumLiteral_2= 'OPTIONAL' )
                     {
-                    // InternalReqLanguage.g:1413:3: (enumLiteral_2= 'OPTIONAL' )
-                    // InternalReqLanguage.g:1414:4: enumLiteral_2= 'OPTIONAL'
+                    // InternalReqLanguage.g:1417:3: (enumLiteral_2= 'OPTIONAL' )
+                    // InternalReqLanguage.g:1418:4: enumLiteral_2= 'OPTIONAL'
                     {
-                    enumLiteral_2=(Token)match(input,45,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,46,FOLLOW_2); 
 
                     				current = grammarAccess.getRequirementPriorityAccess().getOPTIONALEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getRequirementPriorityAccess().getOPTIONALEnumLiteralDeclaration_2());
@@ -3429,17 +3435,18 @@ public class InternalReqLanguageParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000022000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000078000000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000F0000000000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000380000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000700000000000L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000004008002L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000004000000030L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000000032L});
 
 }
