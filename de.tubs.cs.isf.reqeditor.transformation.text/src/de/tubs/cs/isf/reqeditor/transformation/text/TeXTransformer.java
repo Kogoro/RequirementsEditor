@@ -14,7 +14,7 @@ public class TeXTransformer {
 		//System.out.println("File Path = " + path.toOSString());
 		//System.out.println("File Path = " + path.toString());
 
-		String transformerLocation = CSVTransformer.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		String transformerLocation = TeXTransformer.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 
 		// Parse
 		EglFileGeneratingTemplateFactory factory = new EglFileGeneratingTemplateFactory();

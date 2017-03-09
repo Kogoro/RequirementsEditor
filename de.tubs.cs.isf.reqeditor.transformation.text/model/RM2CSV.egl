@@ -1,6 +1,6 @@
 [%//Output is CSV:%]
 [%//Formate: id, name, description, priority, type, attribute%]
-[%//TODO: Discuss if " is necessary for description and attribute%]
+[%//TODO: If constrains needed, just add %=req.constraints.name%]
 [% var reqs  = Requirement.all; %]
 [%//when requirement exist%]
 [% if (reqs.size() > 1) {%]

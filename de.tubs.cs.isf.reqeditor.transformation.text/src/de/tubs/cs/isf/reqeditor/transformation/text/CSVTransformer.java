@@ -9,12 +9,11 @@ import org.eclipse.epsilon.emc.emf.EmfModel;
 public class CSVTransformer {
 
 	public static void generate(IPath path) throws Exception {
-		
+		// Get path of this class, important for locating Epsilon templates
 		String transformerLocation = CSVTransformer.class.getProtectionDomain().getCodeSource().
-				getLocation().getPath();//Get path of this class
-        // System.out.println(transformerLocation);//Get path of this class
-		
-		// System.out.println("File Path = " + path.toString());
+				getLocation().getPath();
+		// Pass
+        // System.out.println(transformerLocation);
 
 		// Parse
 		EglFileGeneratingTemplateFactory factory = new EglFileGeneratingTemplateFactory();
@@ -28,16 +27,7 @@ public class CSVTransformer {
 			return;
 		}
 
-		// Load the XML document
-		// PlainXmlModel model = new PlainXmlModel();
-		// model.setFile(new File("model.reqs"));
-		// model.setName("L");
-		// model.load();
-
-		// EmfTool tool = new EmfTool();
-		// IModel model = tool.createModel2(domain.getModel(),
-		// "RequirementsModel", "http://www.isf.cs.tu-bs.de/reqeditor");
-
+		// Load model
 		EmfModel model = new EmfModel();
 		model.setName("RequirementModel");
 		model.setMetamodelUri("http://www.isf.cs.tu-bs.de/reqeditor");
@@ -46,9 +36,9 @@ public class CSVTransformer {
 		model.setStoredOnDisposal(true);
 		model.load();
 
-		// Make the document visible to the EGX program
+		// Make visible to the EGX program
 		module.getContext().getModelRepository().addModel(model);
-		// ... and execute
+		// Execute
 		module.execute();
 
 	}
